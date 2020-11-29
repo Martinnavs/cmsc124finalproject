@@ -1,0 +1,14 @@
+\contentsline {section}{\numberline {1}R}{2}{section.1}%
+\contentsline {subsection}{\numberline {1.1}Purpose and Motivations}{2}{subsection.1.1}%
+\contentsline {subsection}{\numberline {1.2}History (Authors, Revisions, Adoption)}{2}{subsection.1.2}%
+\contentsline {subsubsection}{\numberline {1.2.1}S, the precursor of R}{2}{subsubsection.1.2.1}%
+\contentsline {subsubsection}{\numberline {1.2.2}R}{2}{subsubsection.1.2.2}%
+\contentsline {subsection}{\numberline {1.3}Language Features}{3}{subsection.1.3}%
+\contentsline {subsection}{\numberline {1.4}Paradigm(s)}{4}{subsection.1.4}%
+\contentsline {subsection}{\numberline {1.5}Language Evaluation Criteria}{4}{subsection.1.5}%
+\contentsline {section}{\numberline {2}C++}{4}{section.2}%
+\contentsline {subsection}{\numberline {2.1}Purpose and Motivations}{4}{subsection.2.1}%
+\contentsline {subsection}{\numberline {2.2}History (Authors, Revisions, Adoption)}{4}{subsection.2.2}%
+\contentsline {subsection}{\numberline {2.3}Language Features}{4}{subsection.2.3}%
+\contentsline {subsection}{\numberline {2.4}Paradigm(s)}{4}{subsection.2.4}%
+\contentsline {subsection}{\numberline {2.5}Language Evaluation Criteria}{4}{subsection.2.5}%

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020/Arch Linux) (preloaded format=pdflatex 2020.11.16)  23 NOV 2020 13:59
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020/Arch Linux) (preloaded format=pdflatex 2020.11.16)  27 NOV 2020 15:34
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -307,34 +307,38 @@ LaTeX Info: Redefining \nameref on input line 30.
 
 (./samplelatex.out) (./samplelatex.out)
 \@outlinefile=\write3
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 40.
+ (./samplelatex.toc)
+\tf@toc=\write4
  [1
 
-{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 40.
+{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}] [2]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 82.
+ [3] [4]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 82.
  (./samplelatex.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 40.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 40.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 82.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 82.
 Package rerunfilecheck Info: File `samplelatex.out' has not changed.
-(rerunfilecheck)             Checksum: A02D95553E30B97FF125B1AA17CF9044;47.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 40.
+(rerunfilecheck)             Checksum: 8A5A69301D96F74BC50FC8E8D6538667;951.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 82.
  ) 
 Here is how much of TeX's memory you used:
- 5830 strings out of 480478
- 87084 string characters out of 5905958
- 351578 words of memory out of 5000000
- 21769 multiletter control sequences out of 15000+600000
- 533877 words of font info for 29 fonts, out of 8000000 for 9000
+ 5890 strings out of 480478
+ 87835 string characters out of 5905958
+ 354578 words of memory out of 5000000
+ 21799 multiletter control sequences out of 15000+600000
+ 537950 words of font info for 43 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 34i,5n,29p,249b,315s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 34i,5n,29p,432b,335s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc}</usr/share/
 texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/share/texmf-dist/fon
 ts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texmf-dist/fonts/type1/public
-/cm-super/sfrm1200.pfb>
-Output written on samplelatex.pdf (1 page, 24381 bytes).
+/amsfonts/cm/cmti12.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfrm
+1200.pfb>
+Output written on samplelatex.pdf (4 pages, 58868 bytes).
 PDF statistics:
- 31 PDF objects out of 1000 (max. 8388607)
- 24 compressed objects within 1 object stream
- 3 named destinations out of 1000 (max. 500000)
- 9 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 119 PDF objects out of 1000 (max. 8388607)
+ 107 compressed objects within 2 object streams
+ 20 named destinations out of 1000 (max. 500000)
+ 113 words of extra memory for PDF output out of 10000 (max. 10000000)
 
