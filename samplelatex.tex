@@ -71,6 +71,85 @@ R as a language follows the philosophy of S, which was primarily developed for d
 
 \subsection{Paradigm(s)}
 \subsection{Language Evaluation Criteria}
+\iffalse
+\subsection{Data Types}
+R does not provide direct access to the computer's memory
+provides special data structures referred to as objects
+which are referred to through symbols or variables
+In R, symbols are themselves objects and can be manipulated in the same way as any other object.
+
+r objects are often coerced to different types during computations (implicit), explicit coercion also exists.
+
+Basic types
+Vectors - contiguous cells which contains data, accessed by indexing operations
+six basic ('atomic') vectors:
+logical (TRUE/FALSE)
+integer (1L, 2L)
+real/numeric (1, 3.2)
+complex (3 + 2i)
+string (or character) (``string'')
+raw (``Hello'' which is stored as 48 65 6c 6c 6f)
+
+single numbers and strings are vectors of length 1, there are no more basic types.
+vectors of length zero are possible
+
+Vectors with multiple elements must have the same classes; in the case that there are different classes, implicit coercion is done. Depends on the easiness of the data type
+
+lists - different R objects, can be of different types
+
+*three types of objects in the r language:
+calls
+expressions/statements
+names
+
+symbol objects
+symbols refer to R objects. the name of any r object is usually a symbol
+can be created through the functions as.name and quote
+appear as atoms of parsed expressions
+
+expressions objects
+expressions contains one or more statements
+statement is a syntactically correct collection of tokens
+evaluated when explicitly passed to eval
+
+data type of object becomes the type of the variable
+
+
+BINDING
+
+SCOPING
+
+REFERENCING
+
+EXPRESSIONS
+SYNTAX
+PRECEDENCE RULES
+OVERLOADED OPERATIONS
+
+TYPE CONVERSIONS, RELATIONAL AND BOOLEAN EXPRESSIONS
+
+ASSIGNMENT STATEMENTS
+PROCEDURE CALLS
+CONDITIONAL
+ITERATIVE
+CONCURRENT
+SEQUENTIAL
+
+SUBPROGRAMS
+SIMPLE CALL RETURNS
+RECURSIVE PROCEDURES
+COROUTINES
+
+EXCEPTION HANDLERS
+PARAMETER PASSING METHODS
+PARAMETERS WHICH ARE SUBPROGRAMS
+
+FUNCTIONS OVERLOADING
+GENERIC SUBPROGRAMS
+USER DEFINED OVERLOADED OPERATORS
+
+\fi
+
 
 \section{C++}
 \subsection{Purpose and Motivations}
