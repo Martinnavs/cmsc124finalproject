@@ -8,7 +8,9 @@
 \usepackage{verbatim}   % useful for program listings
 \usepackage{color}      % use if color is used in text
 \usepackage{hyperref}   % use for hypertext links, including those to external documents and URLs
-
+\usepackage{listings}
+\usepackage[utf8]{inputenc}
+\usepackage{booktabs}
 % don't need the following. simply use defaults
 \setlength{\baselineskip}{16.0pt}    % 16 pt usual spacing between lines
 
@@ -71,6 +73,175 @@ R as a language follows the philosophy of S, which was primarily developed for d
 
 \subsection{Paradigm(s)}
 \subsection{Language Evaluation Criteria}
+
+\subsubsection{Data Types}
+This section shall cover and critique the fundamental data objects and values found in R.
+
+\textbf{Atomic Objects} As R abides by the principle that everything is an object, there are no ``data types'', per se. However, there are five basic objects which serve as the building blocks of other complex objects in the language. The objects are given by the table below:
+
+\begin{table}[h!]
+  \begin{center}
+    \caption{Atomic Classes of Objects in R}
+    \label{tab:table1}
+    \begin{tabular}{|l|c|l|}
+      \toprule % toprule here
+      \textbf{Object Name} & \textbf{Sample Values} & \textbf{Stored as}\\
+      \midrule % midrule here
+      character & char, ``another char'' & character \\
+      \hline
+      numeric (real) & 2, 1.0 & numeric \\
+      \hline
+      integer & 1L, 22L & integer \\
+      \hline
+      complex & 1 + 2i, 2 - 11i & complex \\
+      \hline
+      logical & True, T, False, F & logical \\
+      \hline
+      raw & ``Hello'' which is stored as 48 65 6c 6c 6f& raw \\
+      \bottomrule
+    \end{tabular}
+  \end{center}
+\end{table}
+
+It must also be noted that vectors are the most basic type of objects in R. Hence, these atomic objects are actually vectors of length 1. A more detailed analysis on the effects of vectors will be discussed further sections.
+
+Majority of the atomic objects are intuitive in nature, however some are affected by the peculiarities of the language. By default, R treats numbers as numeric types, which are implemented as double precision real. This can be very useful if one is dealing with large numbers as the memory allocated to double precision is suitable, however it would be too much if numbers which fall within the short or integer range are used. To declare an integer, one must add L as a suffix to the number, as seen in the table - this may positively affect readability as one can distinctly separate the integers and the non-integers, however writability suffers as forgetting the suffix means that the number is type casted into numeric, which may happen when one writes long code in the language. Another issue on readability and writability is the allowing of T and F to stand for True and False in logical values - this causes ambiguity in the sense that a single construct is implemented in two way, and it may be confused with a variable, much like this snippet of code which does not produce errors when T is given a value:
+
+\begin{lstlisting}[frame=single]
+  > T #T as a logical value
+  [1] True
+  > T <- 22 #T as a variable, does not raise errors/warnings
+  > T
+  [1] 22
+\end{lstlisting}
+
+Additionally, R was also designed with no separate string object, thereby eroding the distinction between characters (which are implemented generally as single characters) and strings (which may contain zero or more characters).
+
+For composite objects, R has vectors, matrices, names, lists, and data frames. \\
+
+\textbf{Vectors.} As stated earlier, vectors are the most basic objects in R. Vectors, much like the implementations of languages such as C and Java, are collections of objects with the same type. Some special vectors included the atomic objects and vectors with a length of 0. If type-checked, a vector will reflect the data type of its values. Implementations of vectors can be done using the following syntax:
+
+\begin{lstlisting}[frame=single]
+  > vec <- c(1,2,3) #using c()
+  > vec
+  [1] 1 2 3
+  > class(vec)
+  [1] numeric
+  > vec2 <- vector(mode=''numeric'', length= 3L) #by vector()
+  > vec2 #uniform values vector
+  [1] 0 0 0
+  > class(vec2)
+  [1] numeric
+  > vals <- c(4,5,6)
+  > vec3 <- as.vector(vals) #explicit coercion
+  > vec3
+  [1] 4 5 6
+  > class(vec)
+  [1] numeric
+\end{lstlisting}
+
+This again raises the issue of ambiguity, as vectors can be implemented in three different ways. Writability suffers as even though programmers may choose a single implementation, the three methods' use cases do not directly intersect with each other (vector() creates a vector of uniform values, c() is the most generic implementation but does not directly handle uniform values, and as.vector() is an explicit coercion to a vector). Readability also suffers with the usage of c(), as the function names is not self-documenting.\\
+
+\textbf{Matrices.} Matrices are two-dimensional vectors, with the dimension as an attribute of length 2 comprised of the number of rows and number of columns. The implementation is done using the following syntax:
+
+\begin{lstlisting}[frame=single]
+  > matr <- matrix(data=1:4, nrow=2, ncol=3) #using matrix()
+  > matr #matrix of NAs
+      [,1] [,2]
+  [1,]  1    3
+  [2,]  2    4
+  > matr2 <- 1:4
+  > dim(matr2) <- c(2,2) #adding dims to vector
+  > matr2
+      [,1] [,2]
+  [1,]  1    3
+  [2,]  2    4
+  > x <- 1:2
+  > y <- 3:4
+  > matr3 <- rbind(x,y) #row binding vectors
+  > matr3
+      [,1] [,2]
+  x     1    2
+  y     3    4
+  > matr4 <- cbind(x,y) #column binding vectors
+  > matr4
+        x    y
+  [1,]  1    2
+  [2,]  3    4
+\end{lstlisting}
+
+Similar to vectors, the multiple implementations with different use cases negatively affects both readability and writability as the programmer needs to remember each implementation.\\
+
+\textbf{Lists.} Lists are special vectors that can hold values of different classes. The implementation is done using the following syntax:
+
+\begin{lstlisting}[frame=single]
+  > list1 <- list(1, 2L, True, ``list'') #using list()
+  > list1
+  [[1]]
+  [1]  1
+
+  [[2]]
+  [1] 2
+
+  [[3]]
+  [1] True
+
+  [[4]]
+  [1] ``list''
+  > list2 <- vector(``list'', length=4) #using vector()
+  > list2 #empty list of specified length
+  [[1]]
+  NULL
+
+  [[2]]
+  NULL
+
+  [[3]]
+  NULL
+
+  [[4]]
+  NULL
+\end{lstlisting}
+
+In this case, one can see heavy ambiguity with the use of vector(). Although a list is a type of vector, using vector() to create a NULL list defeats the purpose of having a separate list function. In turn, it aids somehow aids writability as a programmer can use one function, but negatively affects readability, even with the passing of the ``list'' argument.\\
+
+\textbf{Factors.} Factors represent categorical data, with or without order. This data class is important for statistical modeling. The sole implementation is given by the syntax:
+
+\begin{lstlisting}[frame=single]
+  > x <- factor(c(``red'', ''blue'', ``red'', ``red''))
+  > x
+  [1] red blue red red
+  Levels: blue red
+\end{lstlisting}
+
+Only one implementation enhances writability as a programmer would not need to memorize multiple syntax to create factors; it negatively affects readability as the programmer needs to memorize yet another data class, albeit necessary.\\
+
+\textbf{Data Frames.} Data frames are implemented as a special type of list with each element having the same length, which is intuitive as it is used to read tabular data. Each element (specifically, column) only has one class, but the columns may have different classes from each other. This data class is implemented by the given syntax:
+
+\begin{lstlisting}[frame=single]
+  > df <- data.frame(nums=1:4, letters=c(``a'',''b'',''c'',
+                      ''d''))
+  > df
+     nums  letters
+  1    1         a
+  2    2         b
+  3    3         c
+  4    4         d
+\end{lstlisting}
+
+Only one implementation enhances writability as a programmer would not need to memorize multiple syntax to create data frames; it negatively affects readability as the programmer needs to memorize yet another data class, albeit necessary.\\
+
+\textbf{Special Data Values.} As R is fundamentally a statistical language, it contains other values which are integral in processing data, such as:
+\begin{description}
+\item[NA] stands for ``Not Available'' as an indicator for missing values. It can have classes to (except raw)
+\item[NaN] stands for ``Not a Number'' which applies to numerical, and complex (real, imaginary) values, but not to integer vector values.
+\item[NULL] is an object which is returned when an expression/function returns an undefined value.
+\item[Inf/-Inf] stands for infinity which entails very large values or the quotient of dividing a number by 0.
+\end{description}
+
+In strengthens readability as each value covers distinct contexts, making them very readable for the programmer. On the other hand, writability suffers as programmers must memorize more values to suit their needed cases.
+
+
 \iffalse
 \subsection{Data Types}
 R does not provide direct access to the computer's memory
@@ -84,8 +255,8 @@ Basic types
 Vectors - contiguous cells which contains data, accessed by indexing operations
 six basic ('atomic') vectors:
 logical (TRUE/FALSE)
-integer (1L, 2L)
-real/numeric (1, 3.2)
+integer (1L, 2L) -writability, if wa ka kabalo nga ingon ani ang rule mahibulong ka
+real/numeric (1, 3.2) -default for numbers without L
 complex (3 + 2i)
 string (or character) (``string'')
 raw (``Hello'' which is stored as 48 65 6c 6c 6f)
@@ -95,7 +266,12 @@ vectors of length zero are possible
 
 Vectors with multiple elements must have the same classes; in the case that there are different classes, implicit coercion is done. Depends on the easiness of the data type
 
+syntax: readability suffers
+c() does not indicate any relation to vectors, which
+writability suffers
+
 lists - different R objects, can be of different types
+list() good
 
 *three types of objects in the r language:
 calls
@@ -114,8 +290,21 @@ evaluated when explicitly passed to eval
 
 data type of object becomes the type of the variable
 
+matrix - two-dimensional rectangular data set
+matrix()
+
+arrays - any dimension
+array()
+
+factor - more on categorical values, vector with distinct values of the elements as labels
+factor()
+
+data frames - tabular data objects, each column can contain different data, list of vectors of equal length
+data.frame()
 
 BINDING
+
+<variable> ::= [A-z | a-z | .[A-Z | a-z] ][A-Z|a-z|.|_]*
 
 SCOPING
 
