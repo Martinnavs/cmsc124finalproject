@@ -241,6 +241,43 @@ Only one implementation enhances writability as a programmer would not need to m
 
 In strengthens readability as each value covers distinct contexts, making them very readable for the programmer. On the other hand, writability suffers as programmers must memorize more values to suit their needed cases.
 
+\subsubsection{Binding, Scoping, Referencing}
+  Explicit type definitions are not required for variables and functions
+  R checks type compatability during runtime, and performs conversions, when possible
+  R is lexically scoped until noted
+  R associates attributes to all data structures, used as books for many purposes
+  With the undertones of functional programming languages, scoping is lexical, there is no difference between variables and functions
+  Dynamic Binding
+
+\subsubsection{Expressions}
+Syntax
+Precedence rules
+Overloaded Operations
+Type conversions, relational, and boolean operators
+Expressions
+
+\subsubsection{Statements and Control Structures}
+Assignment Statements
+Procedure Calls
+Conditional Statements
+Iterative Statements
+Concurrent Statements
+Sequential Statements
+
+\subsubsection{Procedures and Subprograms}
+Subparameters
+Simple Call returns
+Recursive Procedures
+Coroutines
+
+Exception Handling
+Paramater-Passing Methods
+Parameters which are subprograms
+
+Design Issues and Functions
+Overloaded and Generic Subprograms
+User-defined Overloaded operators
+
 
 \iffalse
 \subsection{Data Types}
@@ -253,25 +290,8 @@ r objects are often coerced to different types during computations (implicit), e
 
 Basic types
 Vectors - contiguous cells which contains data, accessed by indexing operations
-six basic ('atomic') vectors:
-logical (TRUE/FALSE)
-integer (1L, 2L) -writability, if wa ka kabalo nga ingon ani ang rule mahibulong ka
-real/numeric (1, 3.2) -default for numbers without L
-complex (3 + 2i)
-string (or character) (``string'')
-raw (``Hello'' which is stored as 48 65 6c 6c 6f)
-
-single numbers and strings are vectors of length 1, there are no more basic types.
-vectors of length zero are possible
 
 Vectors with multiple elements must have the same classes; in the case that there are different classes, implicit coercion is done. Depends on the easiness of the data type
-
-syntax: readability suffers
-c() does not indicate any relation to vectors, which
-writability suffers
-
-lists - different R objects, can be of different types
-list() good
 
 *three types of objects in the r language:
 calls
@@ -290,25 +310,10 @@ evaluated when explicitly passed to eval
 
 data type of object becomes the type of the variable
 
-matrix - two-dimensional rectangular data set
-matrix()
-
-arrays - any dimension
-array()
-
-factor - more on categorical values, vector with distinct values of the elements as labels
-factor()
-
-data frames - tabular data objects, each column can contain different data, list of vectors of equal length
-data.frame()
-
-BINDING
 
 <variable> ::= [A-z | a-z | .[A-Z | a-z] ][A-Z|a-z|.|_]*
 
-SCOPING
 
-REFERENCING
 
 EXPRESSIONS
 SYNTAX
