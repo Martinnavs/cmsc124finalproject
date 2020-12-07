@@ -249,11 +249,19 @@ In strengthens readability as each value covers distinct contexts, making them v
   With the undertones of functional programming languages, scoping is lexical, there is no difference between variables and functions
   Dynamic Binding
 
+  dynamic typed
+  dynamic evaluation
+  text to unevaluated expressions using quote()
+  variable substitution substitute()
+  partial substitution bquote()
+  expression to text substitute()/deparse()
+
 \subsubsection{Expressions}
 Syntax
 Precedence rules
 Overloaded Operations
 Type conversions, relational, and boolean operators
+% && & || |, implicit conversions are done most of the time, but explicit conversions can be done
 Expressions
 
 \subsubsection{Statements and Control Structures}
@@ -263,6 +271,10 @@ Conditional Statements
 Iterative Statements
 Concurrent Statements
 Sequential Statements
+
+<- local assignment introduces new symbols/updates exsiting in the current frame; is local
+<<- operates on the rest of the environment, ignores local values, updates the first value anywhere in the environment, or define a new binding for x at the top-level
+
 
 \subsubsection{Procedures and Subprograms}
 Subparameters
@@ -278,6 +290,34 @@ Design Issues and Functions
 Overloaded and Generic Subprograms
 User-defined Overloaded operators
 
+functions
+basic structure
+function(arguments), which can be stored in a variable
+functions are first class objects, hence they can be bound to symbols (or variables), can be passed as arguments, and can be given different names
+
+lazy implementations of function arguments
+arguments are boxed into promises which contain the expression passed as an argument and a reference to the environment
+values are evaluated transparently when their value is required
+
+r does not state when promises are forced.
+order of evaluation affects side effects (promises)
+promises are evaluated aggresively as they do not outlive the function they are passed to
+name lookup will force promises in order to determine if the symbol is bound to the function
+
+referential transparency
+referentail if any expression is replaced by its result, which does not induce side effects on other values
+in r, all function arguments are passed by value, all updates are only visible to specific functions
+
+parameters - specifying default parameter values and a variable number of parameters
+passing is done by position or by name
+omits parameters with default values
+a valid call must have at least one positional parameter
+
+lookup is context sensitive
+
+... argument
+arguments after ellipsis must be passed by name
+default arguments values can be expressions and evaluated within the same environment as the function body, can use internal variables in the function's body
 
 \iffalse
 \subsection{Data Types}
