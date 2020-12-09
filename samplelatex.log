@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (MiKTeX 20.11) (preloaded format=pdflatex 2020.11.16)  9 DEC 2020 14:14
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (MiKTeX 20.11) (preloaded format=pdflatex 2020.11.16)  10 DEC 2020 00:21
 entering extended mode
 **./samplelatex.tex
 (samplelatex.tex
@@ -415,15 +415,15 @@ Underfull \hbox (badness 10000) in paragraph at lines 232--233
 
  []
 
-[8] [9] [10] [11] (samplelatex.aux)
+[8] [9] [10] [11] [12] (samplelatex.aux)
 Package rerunfilecheck Info: File `samplelatex.out' has not changed.
-(rerunfilecheck)             Checksum: 200EB7757D5B40256006B1505B9DF64F;1360.
+(rerunfilecheck)             Checksum: 9D8C0D54AFC7DED1B96DE563FCB0D13A;1542.
  ) 
 Here is how much of TeX's memory you used:
- 7636 strings out of 479832
- 114985 string characters out of 2871529
- 447727 words of memory out of 3000000
- 24362 multiletter control sequences out of 15000+200000
+ 7642 strings out of 479832
+ 115090 string characters out of 2871529
+ 447730 words of memory out of 3000000
+ 24365 multiletter control sequences out of 15000+200000
  540700 words of font info for 48 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
  66i,8n,72p,1137b,1783s stack positions out of 5000i,500n,10000p,200000b,50000s
@@ -433,9 +433,9 @@ Here is how much of TeX's memory you used:
 amsfonts/cm/cmmi12.pfb><C:/Users/kean/AppData/Local/Programs/MiKTeX/fonts/type1
 /public/amsfonts/cm/cmr12.pfb><C:/Users/kean/AppData/Local/Programs/MiKTeX/font
 s/type1/public/amsfonts/cm/cmti12.pfb>
-Output written on samplelatex.pdf (11 pages, 109024 bytes).
+Output written on samplelatex.pdf (12 pages, 117828 bytes).
 PDF statistics:
- 288 PDF objects out of 1000 (max. 8388607)
- 121 named destinations out of 1000 (max. 500000)
- 153 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 302 PDF objects out of 1000 (max. 8388607)
+ 124 named destinations out of 1000 (max. 500000)
+ 169 words of extra memory for PDF output out of 10000 (max. 10000000)
 
