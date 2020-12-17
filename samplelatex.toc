@@ -8,14 +8,14 @@
 \contentsline {subsection}{\numberline {1.5}Language Evaluation Criteria}{3}{subsection.1.5}%
 \contentsline {subsubsection}{\numberline {1.5.1}Data Types}{3}{subsubsection.1.5.1}%
 \contentsline {subsubsection}{\numberline {1.5.2}Binding, Scoping, Referencing}{9}{subsubsection.1.5.2}%
-\contentsline {subsubsection}{\numberline {1.5.3}Expressions}{9}{subsubsection.1.5.3}%
-\contentsline {subsubsection}{\numberline {1.5.4}Statements and Control Structures}{9}{subsubsection.1.5.4}%
-\contentsline {subsubsection}{\numberline {1.5.5}Procedures and Subprograms}{9}{subsubsection.1.5.5}%
-\contentsline {section}{\numberline {2}C++}{10}{section.2}%
-\contentsline {subsection}{\numberline {2.1}Purpose and Motivations}{10}{subsection.2.1}%
-\contentsline {subsection}{\numberline {2.2}History (Authors, Revisions, Adoption)}{11}{subsection.2.2}%
-\contentsline {subsubsection}{\numberline {2.2.1}Early Development}{11}{subsubsection.2.2.1}%
-\contentsline {subsubsection}{\numberline {2.2.2}International Recognition and Standardization}{11}{subsubsection.2.2.2}%
-\contentsline {subsection}{\numberline {2.3}Language Features}{12}{subsection.2.3}%
-\contentsline {subsection}{\numberline {2.4}Paradigm(s)}{12}{subsection.2.4}%
-\contentsline {subsection}{\numberline {2.5}Language Evaluation Criteria}{12}{subsection.2.5}%
+\contentsline {subsubsection}{\numberline {1.5.3}Expressions}{10}{subsubsection.1.5.3}%
+\contentsline {subsubsection}{\numberline {1.5.4}Statements and Control Structures}{11}{subsubsection.1.5.4}%
+\contentsline {subsubsection}{\numberline {1.5.5}Procedures and Subprograms}{11}{subsubsection.1.5.5}%
+\contentsline {section}{\numberline {2}C++}{12}{section.2}%
+\contentsline {subsection}{\numberline {2.1}Purpose and Motivations}{12}{subsection.2.1}%
+\contentsline {subsection}{\numberline {2.2}History (Authors, Revisions, Adoption)}{12}{subsection.2.2}%
+\contentsline {subsubsection}{\numberline {2.2.1}Early Development}{12}{subsubsection.2.2.1}%
+\contentsline {subsubsection}{\numberline {2.2.2}International Recognition and Standardization}{13}{subsubsection.2.2.2}%
+\contentsline {subsection}{\numberline {2.3}Language Features}{14}{subsection.2.3}%
+\contentsline {subsection}{\numberline {2.4}Paradigm(s)}{14}{subsection.2.4}%
+\contentsline {subsection}{\numberline {2.5}Language Evaluation Criteria}{14}{subsection.2.5}%

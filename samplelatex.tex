@@ -75,9 +75,9 @@ R as a language follows the philosophy of S, which was primarily developed for d
 \subsection{Language Evaluation Criteria}
 
 \subsubsection{Data Types}
-This section shall cover and critique the fundamental data objects and values found in R.
+TAs R abides by the principle that everything is an object, there are no ``data types'', per se. Hence this section shall cover and critique the fundamental data objects and values found in R.
 
-\textbf{Atomic Objects} As R abides by the principle that everything is an object, there are no ``data types'', per se. However, there are five basic objects which serve as the building blocks of other complex objects in the language. The objects are given by the table below:
+\textbf{Atomic Objects} There are five basic objects which serve as the building blocks of other complex objects in the language. The objects are given by the table below:
 
 \begin{table}[h!]
   \begin{center}
@@ -242,14 +242,62 @@ Only one implementation enhances writability as a programmer would not need to m
 In strengthens readability as each value covers distinct contexts, making them very readable for the programmer. On the other hand, writability suffers as programmers must memorize more values to suit their needed cases.
 
 \subsubsection{Binding, Scoping, Referencing}
-  Explicit type definitions are not required for variables and functions
-  R checks type compatability during runtime, and performs conversions, when possible
-  R is lexically scoped until noted
+WHERE TO PLACE? objects must generally be stored in physical memory
+
+
+Because the underscore was not allowed as a variable character, the convention arose to use dot as a name separator. Unlike its use in many object oriented languages, the dot character in R has no special significance, with two exceptions. First, the ls() function in R lists active variables much as the ls Unix shell command lists directory contents. As the ls shell command does not list files that begin with a dot, neither does the ls() function in R function show variables that begin with dot by default. Second, ... is used to indicate a variable number of function
+R uses \$ in a manner analogous to the way other languages use dot.
+
+R has several one-letter reserved words: c, q, s, t, C, D, F, I, and T.
+
+(Actually, these are not reserved, but it’s best to think of them as reserved. For example, c is a built-in function for creating vectors, though you could also create a variable named c. Worse, T and F are not synonyms for TRUE and FALSE but variables that have the expected values by default. So someone could include the code T <- FALSE; F <- TRUE and reverse their meanings!)
+names
+case sensitive, keywords?
+mixed case
+special words - to aid readability
+
+Variable names are declared based on this BNF: \\
+\textless variable\textgreater ::= \textless first\textgreater \textless second\textgreater \textless succeeding\textgreater* \\
+\textless first\textgreater ::= A-Z | a-z | . \\
+\textless second\textgreater ::= A-Z | a-z | . | \_ \\
+\textless succeeding\textgreater ::= A-Z | a-z | . | \_ | 0-9 \\
+
+!!!!!!!!!!!!!!!!!!!!!1
+address - aliasing,
+value, type, lifetime, scope
   R associates attributes to all data structures, used as books for many purposes
-  With the undertones of functional programming languages, scoping is lexical, there is no difference between variables and functions
+!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+Explicit type definitions are not required for variables and functions
+- reliability, issue with katong vector
+INFERENCE DURING CONVERSION
+  R checks type compatability during runtime, and performs conversions, when possible
+
+  R is statically/lexically scoped until not
+
+Normally when discussed in the context of R lexical scoping means that free variables in a function (i.e. variables that are used in a function but not defined in the function) are looked up in the parent environment of the function, as opposed to the environment of the caller (also referred to as the parent frame) but there are no free variables in with.default so the example does not illustrate a violation of lexical scoping in that sense.
+  With the undertones of functional programming languages, scoping is lexical,
+
+\begin{lstlisting}[frame=single]
+> x <- 5
+> y <- function() x
+> z <- function(){
++   x <- 0
++   y()
++ }
+> z
+[1] 5
+\end{lstlisting}
+
+  HAS SUBPROGRAM DEFINITIONS TO CREATE NESTED STATIC SCOPES?
+
   Dynamic Binding
+  -- occurs during execution or can change during execution of the program
 
   dynamic typed
+  high cost in dynamic type checking and interpretation
+  type error detection by the compiler is difficult
+
   dynamic evaluation
   text to unevaluated expressions using quote()
   variable substitution substitute()
@@ -261,20 +309,45 @@ Syntax
 Precedence rules
 Overloaded Operations
 Type conversions, relational, and boolean operators
-% && & || |, implicit conversions are done most of the time, but explicit conversions can be done
+ \&\& \& || |, implicit conversions are done most of the time, but explicit conversions can be done
+
+ element-wise operation, whether arithmetic or boolean operators due to the functional nature of R
+
+ element recycling is also done, e.g. 1 + c(1,2,3) = c(2,3,4)
+ good for data analysis purposes as the functional feature allows for a cleaner syntax without having to do looping and much faster when vectors are long
+
+ The operators \& and | apply element-wise on vectors. The operators \&\& and || are often used in conditional statements and use lazy evaluation as in C: the operators will not evaluate their second argument if the return value is determined by the first argument.
+
 Expressions
 
 \subsubsection{Statements and Control Structures}
 Assignment Statements
 Procedure Calls
 Conditional Statements
+if(){}
+else if(){}
+else{}
+
+can be declared, a la ternary operator
+
+\begin{lstlisting}[frame=single]
+  > x <- if(5 == 0){
+  +    10
+  + } else {
+  +    3
+  + }
+  > x
+  [1] 3
+\end{lstlisting}
+
 Iterative Statements
 Concurrent Statements
 Sequential Statements
 
 <- local assignment introduces new symbols/updates exsiting in the current frame; is local
 <<- operates on the rest of the environment, ignores local values, updates the first value anywhere in the environment, or define a new binding for x at the top-level
-
+-> can be done
+= can be done sometimes
 
 \subsubsection{Procedures and Subprograms}
 Subparameters
@@ -351,8 +424,6 @@ evaluated when explicitly passed to eval
 data type of object becomes the type of the variable
 
 
-<variable> ::= [A-z | a-z | .[A-Z | a-z] ][A-Z|a-z|.|_]*
-
 
 
 EXPRESSIONS
@@ -420,4 +491,42 @@ At the time of writing, the C++ Standards Committee, is processing the finalizat
 \subsection{Language Evaluation Criteria}
 %marts can I ask for a full list?
 
+\iffalse
+
+% PRIMITIVE DATA STRUCTURES
+% BINDING, SCOPIN,
+% EXPRESSIONS
+% SYNTAX
+% PRECEDENCE RULES
+% OVERLOADED OPERATIONS
+
+% TYPE CONVERSIONS, RELATIONAL AND BOOLEAN EXPRESSIONS
+
+% ASSIGNMENT STATEMENTS
+% PROCEDURE CALLS
+% CONDITIONAL
+% ITERATIVE
+% CONCURRENT
+% SEQUENTIAL
+%
+% SUBPROGRAMS
+% SIMPLE CALL RETURNS
+% RECURSIVE PROCEDURES
+% COROUTINES
+%
+% EXCEPTION HANDLERS
+% PARAMETER PASSING METHODS
+% PARAMETERS WHICH ARE SUBPROGRAMS
+%
+% FUNCTIONS OVERLOADING
+% GENERIC SUBPROGRAMS
+% USER DEFINED OVERLOADED OPERATORS
+\subsubsection{Data Types}
+\subsubsection{Binding, Scoping, Referencing}
+\subsubsection{Expressions}
+\subsubsection{Statements and Control Structures}
+\subsubsection{Procedures and Subprograms}
+\fi
+
 \end{document}
+https://www.johndcook.com/blog/r_language_for_programmers/
