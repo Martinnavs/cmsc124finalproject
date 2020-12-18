@@ -11,23 +11,6 @@
 \usepackage{listings}
 \usepackage[utf8]{inputenc}
 \usepackage{booktabs}
-% don't need the following. simply use defaults
-\setlength{\baselineskip}{16.0pt}    % 16 pt usual spacing between lines
-
-\setlength{\parskip}{3pt plus 2pt}
-\setlength{\parindent}{20pt}
-\setlength{\oddsidemargin}{0.5cm}
-\setlength{\evensidemargin}{0.5cm}
-\setlength{\marginparsep}{0.75cm}
-\setlength{\marginparwidth}{2.5cm}
-\setlength{\marginparpush}{1.0cm}
-\setlength{\textwidth}{150mm}
-
-\begin{comment}
-\pagestyle{empty} % use if page numbers not wanted
-\end{comment}
-
-% above is the preamble
 
 \begin{document}
 
@@ -105,15 +88,8 @@ TAs R abides by the principle that everything is an object, there are no ``data 
 
 It must also be noted that vectors are the most basic type of objects in R. Hence, these atomic objects are actually vectors of length 1. A more detailed analysis on the effects of vectors will be discussed further sections.
 
-Majority of the atomic objects are intuitive in nature, however some are affected by the peculiarities of the language. By default, R treats numbers as numeric types, which are implemented as double precision real. This can be very useful if one is dealing with large numbers as the memory allocated to double precision is suitable, however it would be too much if numbers which fall within the short or integer range are used. To declare an integer, one must add L as a suffix to the number, as seen in the table - this may positively affect readability as one can distinctly separate the integers and the non-integers, however writability suffers as forgetting the suffix means that the number is type casted into numeric, which may happen when one writes long code in the language. Another issue on readability and writability is the allowing of T and F to stand for True and False in logical values - this causes ambiguity in the sense that a single construct is implemented in two way, and it may be confused with a variable, much like this snippet of code which does not produce errors when T is given a value:
+Majority of the atomic objects are intuitive in nature, however some are affected by the peculiarities of the language. By default, R treats numbers as numeric types, which are implemented as double precision real. This can be very useful if one is dealing with large numbers as the memory allocated to double precision is suitable, however it would be too much if numbers which fall within the short or integer range are used. To declare an integer, one must add L as a suffix to the number, as seen in the table - this may positively affect readability as one can distinctly separate the integers and the non-integers, however writability suffers as forgetting the suffix means that the number is type casted into numeric, which may happen when one writes long code in the language. Another issue on readability and writability is the allowing of T and F CROSS REFERENCE TO RESERVED WORDS as native variables which contain True and False values - this causes ambiguity in the sense that a single construct is implemented in two way, and it may be confused with a variable,
 
-\begin{lstlisting}[frame=single]
-  > T #T as a logical value
-  [1] True
-  > T <- 22 #T as a variable, does not raise errors/warnings
-  > T
-  [1] 22
-\end{lstlisting}
 
 Additionally, R was also designed with no separate string object, thereby eroding the distinction between characters (which are implemented generally as single characters) and strings (which may contain zero or more characters).
 
@@ -242,31 +218,43 @@ Only one implementation enhances writability as a programmer would not need to m
 In strengthens readability as each value covers distinct contexts, making them very readable for the programmer. On the other hand, writability suffers as programmers must memorize more values to suit their needed cases.
 
 \subsubsection{Binding, Scoping, Referencing}
-WHERE TO PLACE? objects must generally be stored in physical memory
 
+Objects must generally be stored in physical memory
 
-Because the underscore was not allowed as a variable character, the convention arose to use dot as a name separator. Unlike its use in many object oriented languages, the dot character in R has no special significance, with two exceptions. First, the ls() function in R lists active variables much as the ls Unix shell command lists directory contents. As the ls shell command does not list files that begin with a dot, neither does the ls() function in R function show variables that begin with dot by default. Second, ... is used to indicate a variable number of function
-R uses \$ in a manner analogous to the way other languages use dot.
-
-R has several one-letter reserved words: c, q, s, t, C, D, F, I, and T.
-
-(Actually, these are not reserved, but it’s best to think of them as reserved. For example, c is a built-in function for creating vectors, though you could also create a variable named c. Worse, T and F are not synonyms for TRUE and FALSE but variables that have the expected values by default. So someone could include the code T <- FALSE; F <- TRUE and reverse their meanings!)
-names
-case sensitive, keywords?
-mixed case
-special words - to aid readability
-
-Variable names are declared based on this BNF: \\
+\textbf{Names.} Names in R are case sensitive, which is critiqued for being less readable as similar-looking names which may only differ in capitalization entails confusion. Length has not been seen as an issue as the language provides no limit. Valid variable names (formally symbols) in R can be represented by this BNF: \\
 \textless variable\textgreater ::= \textless first\textgreater \textless second\textgreater \textless succeeding\textgreater* \\
 \textless first\textgreater ::= A-Z | a-z | . \\
 \textless second\textgreater ::= A-Z | a-z | . | \_ \\
 \textless succeeding\textgreater ::= A-Z | a-z | . | \_ | 0-9 \\
 
+It can be noticed that variable names like ..var is possible - this is because the dot character in R bears no major significance (except for the implications in UNIX-adapted commands such as ls() and the ... syntax used in functions). \$ is used a manner similar to the dot in other languages. These feature are quite problematic for programmers who have experience in Object Oriented programming as variable names such as sample.var has an actual implication in the OO paradigm, especially as this is the recommended naming style of Google's R Style Guide. Other naming conventions use underscores (sample_var), which may cause writability issues for programmers who use Emacs Speaks Statistics (ESS) as the underscore is mapped to the <- operator, and camelcase (sampleVar), which also suffers the readability issue of having similar-looking variable names.
+
+R has several one-letter ``reserved'' words: c, q, s, t, C, D, F, I, and T. However, native variables like T and F (corresponding to True and False, respectively) can be overwritten without producing any warning messages:
+
+\begin{lstlisting}[frame=single]
+  > T #T as a logical value
+  [1] True
+  > T <- 22 #declaring some value to T ,does not raise warnings
+  > T
+  [1] 22
+\end{lstlisting}
+
+Also, R separates the namespaces for functions and nonfunctions so a variable c and the vector-creating function c() can coexist, which is disadvantageous for readability as programmers have to be aware of the different uses of a name.
+
+
+names
+case sensitive, keywords?
+mixed case
+special words - to aid readability
+
+
 !!!!!!!!!!!!!!!!!!!!!1
-address - aliasing,
+address - aliasing SO FAR WALA MAN,
 value, type, lifetime, scope
   R associates attributes to all data structures, used as books for many purposes
-!!!!!!!!!!!!!!!!!!!!!!!!!!
+  !!!!!!!!!!!!!!!!!!!!!!!!!!
+
+
 
 Explicit type definitions are not required for variables and functions
 - reliability, issue with katong vector
@@ -274,6 +262,9 @@ INFERENCE DURING CONVERSION
   R checks type compatability during runtime, and performs conversions, when possible
 
   R is statically/lexically scoped until not
+
+  the values of free variables are searched for in the environment in which the function was defined
+
 
 Normally when discussed in the context of R lexical scoping means that free variables in a function (i.e. variables that are used in a function but not defined in the function) are looked up in the parent environment of the function, as opposed to the environment of the caller (also referred to as the parent frame) but there are no free variables in with.default so the example does not illustrate a violation of lexical scoping in that sense.
   With the undertones of functional programming languages, scoping is lexical,
@@ -291,8 +282,19 @@ Normally when discussed in the context of R lexical scoping means that free vari
 
   HAS SUBPROGRAM DEFINITIONS TO CREATE NESTED STATIC SCOPES?
 
-  Dynamic Binding
-  -- occurs during execution or can change during execution of the program
+Implicit coercion is done during operations. This can be seen on the given example:
+
+\begin{lstlisting}[frame=single]
+  > vec1 <- c(1, 'a', 3.11, TRUE)
+  > vec1
+  [1] ``1''   ``a''   ``3.11''   ``TRUE''
+  > class(vec1)
+  [1] ``character''
+\end{lstlisting}
+
+  Dynamic Binding, hence binding occurs during execution or can change during execution of the program. This has advan
+
+
 
   dynamic typed
   high cost in dynamic type checking and interpretation
@@ -341,6 +343,28 @@ can be declared, a la ternary operator
 \end{lstlisting}
 
 Iterative Statements
+for - generic
+range, a la python 1:10
+naa puy katong object oriented seq_along (based on the length of the object)
+a la c++ nga for(letter in x)
+
+looping statements
+lapply, sapply, tapply, apply, mapply
+
+
+
+while - generic
+conditions are evaluated LR
+
+repeat - generates an infinite loop; used when one does not know when to terminate e.g. iterative algorithm
+only way to exit is to use BREAK
+CANNOT BE GUARANTEED IF LOOP STOPS
+
+stop words
+break
+next
+
+
 Concurrent Statements
 Sequential Statements
 
@@ -363,10 +387,32 @@ Design Issues and Functions
 Overloaded and Generic Subprograms
 User-defined Overloaded operators
 
+
+RELATED TO FUNCTIONS and lexical scoping
+ environment in the context of R is a collection of (symbol, value) pairs
+ function + environment = closure
+
+ how?
+ if the value of a symbol is not found in the environment in which a function is defined, then the search is continued in the parent environment
+ the search continues down the sequence of parent environments until we hit the top-level environment; this is usually the global environment (workspace) or the namespace of a package
+ after the top-level environment, the search continues down the search list until we hit the empty environment
+
+ if symbol is not found once the empty environment is arrived at, then an error is thrown
+
+ downside is searching is affected by the order and order of packages
+
+ when a function is defined in the global environment and is subsequently called from the global environment, then the defining environment and the caling environment are the same. This can sometimes give the appearance of dynamic scoping.
+
+ Lexical Scoping in R has consequences beyond how free variables are looked up. In particular, it is the reason that all objects in R must be stored in memory in R. THis is beause all functions must carry a pointer to therir respective defining environments, which could be anywhere. in the S language, free variables are always looked up in the global workspace, so everything can be stored on the disk because the ``defining environment' of all '' functions is the same.
+
+ FUNCTIONS INSIDE FUNCTIONCS (ELABORATE)
+
 functions
 basic structure
 function(arguments), which can be stored in a variable
 functions are first class objects, hence they can be bound to symbols (or variables), can be passed as arguments, and can be given different names
+
+return() returns a value explicitly from a function, but it is rarely used in R
 
 lazy implementations of function arguments
 arguments are boxed into promises which contain the expression passed as an argument and a reference to the environment
@@ -382,14 +428,15 @@ referentail if any expression is replaced by its result, which does not induce s
 in r, all function arguments are passed by value, all updates are only visible to specific functions
 
 parameters - specifying default parameter values and a variable number of parameters
-passing is done by position or by name
+passing AND MATCHING is done by position or by name (EXPOUND ON THIS)
+PARTIAL MATCHING ALSO
 omits parameters with default values
 a valid call must have at least one positional parameter
 
 lookup is context sensitive
 
 ... argument
-arguments after ellipsis must be passed by name
+arguments after ellipsis must be passed by name as they cannot be matched positionally or through partial matching
 default arguments values can be expressions and evaluated within the same environment as the function body, can use internal variables in the function's body
 
 \iffalse
@@ -530,3 +577,4 @@ At the time of writing, the C++ Standards Committee, is processing the finalizat
 
 \end{document}
 https://www.johndcook.com/blog/r_language_for_programmers/
+https://stackoverflow.com/questions/1944910/what-is-your-preferred-style-for-naming-variables-in-r
