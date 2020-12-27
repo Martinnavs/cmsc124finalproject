@@ -12,6 +12,13 @@
 \usepackage{listings}
 \usepackage[utf8]{inputenc}
 \usepackage{booktabs}
+\lstset{
+  basicstyle=\ttfamily,
+  columns=fullflexible,
+  frame=single,
+  breaklines=true,
+  postbreak=\mbox{\textcolor{red}{$\hookrightarrow$}\space},
+}
 
 \begin{document}
 
@@ -98,7 +105,7 @@ For composite objects, R has vectors, matrices, names, lists, and data frames. \
 
 \textbf{Vectors.} As stated earlier, vectors are the most basic objects in R. Vectors, much like the implementations of languages such as C and Java, are collections of objects with the same type. Some special vectors included the atomic objects and vectors with a length of 0. If type-checked, a vector will reflect the data type of its values. Implementations of vectors can be done using the following syntax:
 
-\begin{lstlisting}[frame=single]
+\begin{lstlisting}[language=R]
   > vec <- c(1,2,3) #using c()
   > vec
   [1] 1 2 3
@@ -121,7 +128,7 @@ This again raises the issue of ambiguity, as vectors can be implemented in three
 
 \textbf{Matrices.} Matrices are two-dimensional vectors, with the dimension as an attribute of length 2 comprised of the number of rows and number of columns. The implementation is done using the following syntax:
 
-\begin{lstlisting}[frame=single]
+\begin{lstlisting}[language=R]
   > matr <- matrix(data=1:4, nrow=2, ncol=3) #using matrix()
   > matr #matrix of NAs
       [,1] [,2]
@@ -151,7 +158,7 @@ Similar to vectors, the multiple implementations with different use cases negati
 
 \textbf{Lists.} Lists are special vectors that can hold values of different classes. The implementation is done using the following syntax:
 
-\begin{lstlisting}[frame=single]
+\begin{lstlisting}[language=R]
   > list1 <- list(1, 2L, True, ``list'') #using list()
   > list1
   [[1]]
@@ -184,7 +191,7 @@ In this case, one can see heavy ambiguity with the use of vector(). Although a l
 
 \textbf{Factors.} Factors represent categorical data, with or without order. This data class is important for statistical modeling. The sole implementation is given by the syntax:
 
-\begin{lstlisting}[frame=single]
+\begin{lstlisting}[language=R]
   > x <- factor(c(``red'', ''blue'', ``red'', ``red''))
   > x
   [1] red blue red red
@@ -195,7 +202,7 @@ Only one implementation enhances writability as a programmer would not need to m
 
 \textbf{Data Frames.} Data frames are implemented as a special type of list with each element having the same length, which is intuitive as it is used to read tabular data. Each element (specifically, column) only has one class, but the columns may have different classes from each other. This data class is implemented by the given syntax:
 
-\begin{lstlisting}[frame=single]
+\begin{lstlisting}[language=R]
   > df <- data.frame(nums=1:4, letters=c(``a'',''b'',''c'',
                       ''d''))
   > df
@@ -233,7 +240,7 @@ It can be noticed that variable names like ..var is possible - this is because t
 
 R has some reserved words such as if, else, repeat, while, function, for, in, next, break, TRUE, FALSE, NULL, Inf, NaN, NA, NA\_integer\_, NA\_real\_, NA\_complex\_, NA\_character\_, ..., ..1, ..2, ..3, ..4, ..5, ..6, ..7, ..8, and ..9.
 Furthermore, the language has several one-letter ``reserved'' words: c, q, s, t, C, D, F, I, and T. However, native variables like T and F (corresponding to True and False, respectively) can be overwritten without producing any warning messages hence they are not as rigid as the formally reserved words:
-\begin{lstlisting}[frame=single]
+\begin{lstlisting}[language=R]
   > T #T as a logical value
   [1] True
   > T <- 22 #declaring some value to T ,does not raise warnings
@@ -242,6 +249,12 @@ Furthermore, the language has several one-letter ``reserved'' words: c, q, s, t,
 \end{lstlisting}
 
 Also, R separates the namespaces for functions and nonfunctions so a variable c and the vector-creating function c() can coexist, which is disadvantageous for readability as programmers have to be aware of the different uses of a name.
+
+
+------------------------
+DIBA SCOPING NI????
+Curly braces are used to evaluate a  series of expressions and return only the last expression, very much similar to a function scope in languages such as C, C++, and Java. However, braced expressions can be implemented independently.
+THe contents of the curly braces are evaluated inside the current environment; a new environment is created by a function all but not by the use of curly braces. (!!!!!!!!!!!!)
 
 !!!!!!!!!!!!!!!!!!!!!1
 address - aliasing SO FAR WALA MAN,
@@ -259,12 +272,12 @@ INFERENCE DURING CONVERSION
   R is statically/lexically scoped until not
 
   the values of free variables are searched for in the environment in which the function was defined
-
+============================
 
 Normally when discussed in the context of R lexical scoping means that free variables in a function (i.e. variables that are used in a function but not defined in the function) are looked up in the parent environment of the function, as opposed to the environment of the caller (also referred to as the parent frame) but there are no free variables in with.default so the example does not illustrate a violation of lexical scoping in that sense.
   With the undertones of functional programming languages, scoping is lexical,
 
-\begin{lstlisting}[frame=single]
+\begin{lstlisting}[language=R]
 > x <- 5
 > y <- function() x
 > z <- function(){
@@ -279,7 +292,7 @@ Normally when discussed in the context of R lexical scoping means that free vari
 
 Implicit coercion is done during operations. This can be seen on the given example:
 
-\begin{lstlisting}[frame=single]
+\begin{lstlisting}[language=R]
   > vec1 <- c(1, 'a', 3.11, TRUE)
   > vec1
   [1] ``1''   ``a''   ``3.11''   ``TRUE''
@@ -305,8 +318,7 @@ Implicit coercion is done during operations. This can be seen on the given examp
 Syntax
 Separating expressions can be done in either through whitespace or semicolons (critique here)
 
-Precedence rules
-
+\textbf{Precedence rules}
 
 \begin{table}[h!]
   \begin{center}
@@ -320,50 +332,156 @@ Precedence rules
       \hline
       Index and lookup operators & [ [[ \\
       \hline
-      Arithmetic* & \^{}, + (unary), - (unary), *, /, +, - \\
+      Arithmetic\^{**} & \^{}, + (unary), - (unary), *, /, +, - \\
       \hline
-      Comparison* & \textless, \textgreater, \textless=, \textgreater=, ==, !=, !, \&, \&\&, \(|\), \(||\) \\
+      Comparison\^{**} & \textless, \textgreater, \textless=, \textgreater=, ==, !=, !, \&, \&\&, \(|\), \(||\) \\
       \hline
       Formulas & \texttildelow \\
       \hline
-      Assignment & -\(>\), -\(>>\), =, \(<\)-, \(<<\)- \\
+      Assignment\^{**} & -\(>\), -\(>>\), =, \(<\)-, \(<<\)- \\
       \hline
       Help & ? \\
       \bottomrule
     \end{tabular}
+    \emph{\^{**}Listed operators are also hierarchical on a left-to-right basis.}
   \end{center}
+
 \end{table}
 
+Arithmetic expressions are written in infix notation. This is advantageous in both readability and writability as it directly reflects how people usually write mathematical expressions. Related to this, R also does left to right associativity in expressions with operators of equal rank with the exception of the exponent and the leftward assignment operators ( \(<\)-, \(<<\)-, = ). Associativity can be changed using parenthesis, which takes the highest priority, thereby overriding the default order of operations in a certain expression. This also intuitively reflects how expressions (especially in mathematics) are evaluated.
 
-Associativity can be done using parenthesis, which takes the highest priority, thereby overriding the default order of operations in a certain expression.
 
-Curly braces are used to evaluate a  series of expressions and return only the last expression, very much similar to a function scope in languages such as C, C++, and Java. However, braced expressions can be implemented independently.
-THe contents of the curly braces are evaluated inside the current environment; a new environment is created by a function all but not by the use of curly braces. (!!!!!!!!!!!!)
+Conversion and Coercion
 
+Coercion Rules
+With generic functions, R will look for a suitable method. If no exact match exists, then R will search for a coercion mthod that converts the object to a type for which a suitable method does exist. Furthermore, R will automatically convert between built-in object types when appropriate. R will convert from more specific types to more general types
+
+- Logical values are converted to numbers: TRUE is converted to 1 and FALSE to 0
+- Values are converted to the simplest type to represent all information
+- The orderning is roughly logical < integer < numeric < complex < character < list
+- Objects of type raw are not converted to other types
+- Object attributes are dropped when an object is coerced from one type to another
+
+This greatly affects reliability as some of the features are not as intuitive - an example would be the expression TRUE + 2 yielding 3. In addition, the language does not yield any exceptions when an object of the wrong type is passed in functions, rather it directly converts it. Such non-strongly typed features can cause ambiguous and unreliable results. Albeit the coercion rules try to represent as much information, the risk of wrongly applying expressions between two object types and the direct dropping of certain attributes of a coerced object does more harm than good.
+
+For explicit type conversions, one can use the AsIs functions
+
+\begin{lstlisting}[language=R]
+  > class(3)
+  [1] ``numeric''
+  > as.complex(3) # conversion
+  [1] 3+0i
+  > as.integer(``a'') # warnings only
+  [1] NA
+  Warning message:
+  NAs introduced by coercion
+  > is.numeric(3) # explicit type-checking
+  [1] TRUE
+  > is.numeric(3L)
+  [1] FALSE
+\end{lstlisting}
+
+One can see that for certain cases, explicit conversions yield NAs and a warning message only. This negatively affects reliability as such features entail that the code is continuously executed with possible unwanted data which can greatly affect large systems of code.
+
+=========================================
 Overloaded Operations
+
+
+
 Type conversions, relational, and boolean operators
  \&\& \& || |, implicit conversions are done most of the time, but explicit conversions can be done
 
- element-wise operation, whether arithmetic or boolean operators due to the functional nature of R
+ element-wise operation, arithmetic operators due to the functional nature of R
 
  element recycling is also done, e.g. 1 + c(1,2,3) = c(2,3,4)
  good for data analysis purposes as the functional feature allows for a cleaner syntax without having to do looping and much faster when vectors are long
 
  The operators \& and | apply element-wise on vectors. The operators \&\& and || are often used in conditional statements and use lazy evaluation as in C: the operators will not evaluate their second argument if the return value is determined by the first argument.
-
+============================================
 Expressions
 
 \subsubsection{Statements and Control Structures}
 Assignment Statements
 Procedure Calls
 Conditional Statements
+
+1. Simple assignment
+
+\(<\)- local assignment introduces new symbols/updates exsiting in the current frame; is local
+\(<<\)- operates on the rest of the environment, ignores local values, updates the first value anywhere in the environment, or define a new binding for x at the top-level
+-\(>\) -\(>>\) can be done
+= can be done sometimes
+
+readability - the presence of the equal sign as a possible way of assigning may be confused with the equality sign used in mathematics, since the language is mostly tuned to a mathematically-inclined user base. the reader must also take note of different ways of assigning.
+writability - the presence of multiple ways of assigning means that the programmer must be knowledgeable of each. the implication of a seemingly similar single (\(<\)) and a double(\(<<\)) arrow head is very distinct, hence the programmer must also be careful of using them
+
+3.
+no common compound assignment operators such as +=, -=, *=, /=
+
+writability suffers
+readability improves
+
+4.
+writability is improved as there is only a single way to iterate, which is by assigning directly (x <- x+1). Readability also is benefited an assignment can be easily understood in what it does thereby doing away with the postfix/prefix issues with single-operator assignment statements.
+
+++, -- stand-alone, single-operator assignment statements
+
+5. assignment as statement
+-present in R, problematic as programmers should exercise caution in using it the statements can change values, and might change in other expressions, might cause unintended side-effects (writability)
+
+\begin{lstlisting}[language=R]
+> n = 22
+> while(median(x <- 1:n)> 10){
++     print(n)
++     print(x)
++     n <- n-1
++ }
+[1] 22
+[1]  1  2  3  4  5  6  7  8  9 10 11 12 13 14 15 16 17 18 19 20 21 22
+[1] 21
+[1]  1  2  3  4  5  6  7  8  9 10 11 12 13 14 15 16 17 18 19 20 21
+[1] 20
+[1]  1  2  3  4  5  6  7  8  9 10 11 12 13 14 15 16 17 18 19 20
+\end{lstlisting}
+
+6.
+readability suffers as it may be confusing to read it, especially if the arrow notation is used (as the equal sign is rarely used as per style guides)
+
+\begin{lstlisting}[language=R]
+  # similarly, a <- b <- c <- d <- 1
+  > a = b = c = d = 1
+  > a
+  [1] 1
+  > b
+  [1] 1
+  > c
+  [1] 1
+  > d
+  [1] 1
+\end{lstlisting}
+
+7. assignments in functional programming languages
+identifiers used in pure functional languages are just names of the values and their values never changes
+
+creates a new version of the variable independent of its previous version, which is then hidden
+
+I think this is the case, to be further discussed in function part
+
+procedure calls
+ functions part
+
+
+generic if else statement
+supports both single and compound clause forms
+readability issues on nested single clauses are handled by the addition of the else if construct.
+
 if(){}
 else if(){}
 else{}
 
 can be declared, a la ternary operator
 
-\begin{lstlisting}[frame=single]
+\begin{lstlisting}[language=R]
   > x <- if(5 == 0){
   +    10
   + } else {
@@ -375,18 +493,30 @@ can be declared, a la ternary operator
 
 in R, conditional statements are not vector operations. If the condition statement is a vector of more than one logical value, then only the first item will be used. To evaluate multiple logical values, we used ifelse.
 
-Multi way selection is done using the switch function (insert some code here, with default and all)
+Multi way selection is done using the switch function, which allows a variable to be tested for equality against a list of values. The snippet below demonstrates the syntax of a switch statement:
 
-\begin{lstlisting}[frame=single]
-  > switching.function <- function(x){
-  +   switch(x,
-  +     a = ``alpha'',
-  +     b = ``bravo'',
-  +     c = ``charlie'',
-  +     ``default value''
-  +  )
-  + }
+\begin{lstlisting}[language=R]
+  switch(expression, case1, case2, case3, ...)
 \end{lstlisting}
+
+rules
+- if the value of expression is not a character it is coerced to integer
+- the switch statement may have any number of case statements which are either of the following forms:
+
+\begin{lstlisting}[language=R]
+  # based on integer value's position (1 to the maximum number
+  # of arguments), if value exceeds it nothing is returned
+  switch(3,''one'', ``two'', ``three'', ``four'' )
+  # based on exact character value matching
+  switch(``a'', a = ``alpha'', b = ``bravo'', c = ``charlie'', ``default value'')
+\end{lstlisting}
+
+- Only the first match is returned in the case of multiple matches
+
+- The switch statement does not automatically provide a Default argument - either the user defines it or it raises an error
+
+Analysis: very limited data types that can be used, two ways of evaluating the same function (positional or exact matching), may cause writability issues as programmers need to be especially aware of the context of how they are going to use the switch statement. limited usage to the mentioned ways, no comparative expressions. single result, user is not given the freedom to select where the statement is supposed to stop. default value is optional for integer-based but not for character-based, thereby negatively affecting writability.
+
 
 Iterative Statements
 for - generic
@@ -394,18 +524,44 @@ range, a la python 1:10
 naa puy katong object oriented seq\_along (based on the length of the object)
 a la c++ nga for(letter in x)
 
-looping statements
-lapply, sapply, tapply, apply, mapply
+not limited to integers, but can pass character vectors, logical vectors, lists or expressions
+
+\begin{lstlisting}[language=R]
+  for (value in vector){
+    expressions
+  }
+\end{lstlisting}
 
 
 
 while - generic
 conditions are evaluated LR
 
+\begin{lstlisting}[language=R]
+  while(test_expressioin){
+    expressions
+  }
+\end{lstlisting}
+
 repeat - generates an infinite loop; used when one does not know when to terminate e.g. iterative algorithm
 only way to exit is to use BREAK
 CANNOT BE GUARANTEED IF LOOP STOPS
 
+\begin{lstlisting}[language=R]
+  repeat{
+    expressions
+    if(condition){
+      # the only way to exit the repeat loop
+      break
+    }
+  }
+\end{lstlisting}
+
+
+other looping statements
+lapply, sapply, tapply, apply, mapply, but shall not be discussed
+
+user-defined stopping mechanisms
 stop words
 break - exit from the loop
 next - continue to the next iteration of the loop
@@ -416,18 +572,16 @@ No inherent support for object-oriented looping such as iterators or foreach, bu
 
 
 Concurrent Statements
-Sequential Statements
+%Sequential Statements di naman guro ni kailangan idiscuss
 
-\(<\)- local assignment introduces new symbols/updates exsiting in the current frame; is local
-\(<<\)- operates on the rest of the environment, ignores local values, updates the first value anywhere in the environment, or define a new binding for x at the top-level
--\(>\) -\(>>\) can be done
-= can be done sometimes
 
 \subsubsection{Procedures and Subprograms}
 Subparameters
 Simple Call returns
+
 Recursive Procedures
-Coroutines
+
+Recursive functions are also memory intensive, since it can result into a lot of nested function calls. This must be kept in mind when using it for solving big problems.Coroutines
 
 Exception Handling
 Paramater-Passing Methods
