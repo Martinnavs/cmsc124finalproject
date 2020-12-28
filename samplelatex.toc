@@ -4,18 +4,18 @@
 \contentsline {subsubsection}{\numberline {1.2.1}S, the precursor of R}{2}{subsubsection.1.2.1}%
 \contentsline {subsubsection}{\numberline {1.2.2}R}{2}{subsubsection.1.2.2}%
 \contentsline {subsection}{\numberline {1.3}Language Features}{3}{subsection.1.3}%
-\contentsline {subsection}{\numberline {1.4}Paradigm(s)}{4}{subsection.1.4}%
+\contentsline {subsection}{\numberline {1.4}Paradigm(s)}{3}{subsection.1.4}%
 \contentsline {subsection}{\numberline {1.5}Language Evaluation Criteria}{4}{subsection.1.5}%
 \contentsline {subsubsection}{\numberline {1.5.1}Data Types}{4}{subsubsection.1.5.1}%
 \contentsline {subsubsection}{\numberline {1.5.2}Binding, Scoping, Referencing}{9}{subsubsection.1.5.2}%
 \contentsline {subsubsection}{\numberline {1.5.3}Expressions}{11}{subsubsection.1.5.3}%
 \contentsline {subsubsection}{\numberline {1.5.4}Statements and Control Structures}{13}{subsubsection.1.5.4}%
-\contentsline {subsubsection}{\numberline {1.5.5}Procedures and Subprograms}{17}{subsubsection.1.5.5}%
-\contentsline {section}{\numberline {2}C++}{20}{section.2}%
-\contentsline {subsection}{\numberline {2.1}Purpose and Motivations}{20}{subsection.2.1}%
-\contentsline {subsection}{\numberline {2.2}History (Authors, Revisions, Adoption)}{20}{subsection.2.2}%
-\contentsline {subsubsection}{\numberline {2.2.1}Early Development}{20}{subsubsection.2.2.1}%
-\contentsline {subsubsection}{\numberline {2.2.2}International Recognition and Standardization}{21}{subsubsection.2.2.2}%
-\contentsline {subsection}{\numberline {2.3}Language Features}{22}{subsection.2.3}%
-\contentsline {subsection}{\numberline {2.4}Paradigm(s)}{22}{subsection.2.4}%
-\contentsline {subsection}{\numberline {2.5}Language Evaluation Criteria}{22}{subsection.2.5}%
+\contentsline {subsubsection}{\numberline {1.5.5}Procedures and Subprograms}{19}{subsubsection.1.5.5}%
+\contentsline {section}{\numberline {2}C++}{25}{section.2}%
+\contentsline {subsection}{\numberline {2.1}Purpose and Motivations}{25}{subsection.2.1}%
+\contentsline {subsection}{\numberline {2.2}History (Authors, Revisions, Adoption)}{25}{subsection.2.2}%
+\contentsline {subsubsection}{\numberline {2.2.1}Early Development}{25}{subsubsection.2.2.1}%
+\contentsline {subsubsection}{\numberline {2.2.2}International Recognition and Standardization}{26}{subsubsection.2.2.2}%
+\contentsline {subsection}{\numberline {2.3}Language Features}{27}{subsection.2.3}%
+\contentsline {subsection}{\numberline {2.4}Paradigm(s)}{27}{subsection.2.4}%
+\contentsline {subsection}{\numberline {2.5}Language Evaluation Criteria}{27}{subsection.2.5}%

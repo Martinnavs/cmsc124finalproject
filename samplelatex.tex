@@ -63,6 +63,7 @@ R as a language follows the philosophy of S, which was primarily developed for d
 \end{itemize}
 
 \subsection{Paradigm(s)}
+Functional
 \subsection{Language Evaluation Criteria}
 
 \subsubsection{Data Types}
@@ -324,7 +325,7 @@ Separating expressions can be done in either through whitespace or semicolons (c
   \begin{center}
     \caption{Operator Precedence}
     \label{tab:table1}
-    \begin{tabular}{|l|c|l|}
+    \begin{tabular}{|l|c|}
       \toprule % toprule here
       \textbf{Description} & \textbf{Operators} \\
       \midrule % midrule here
@@ -332,9 +333,9 @@ Separating expressions can be done in either through whitespace or semicolons (c
       \hline
       Index and lookup operators & [ [[ \\
       \hline
-      Arithmetic\^{**} & \^{}, + (unary), - (unary), *, /, +, - \\
+      Arithmetic\^{**} & \multicolumn{1}{p{6cm}|}{\^{}, + (unary), - (unary), \%\% (modulus), *, /, +, - }\\
       \hline
-      Comparison\^{**} & \textless, \textgreater, \textless=, \textgreater=, ==, !=, !, \&, \&\&, \(|\), \(||\) \\
+      Comparison\^{**} & \multicolumn{1}{p{6cm}|}{\textless, \textgreater, \textless=, \textgreater=, ==, !=, !, \&, \&\&, \(|\), \(||\)} \\
       \hline
       Formulas & \texttildelow \\
       \hline
@@ -401,6 +402,7 @@ Type conversions, relational, and boolean operators
 Expressions
 
 \subsubsection{Statements and Control Structures}
+
 Assignment Statements
 Procedure Calls
 Conditional Statements
@@ -473,13 +475,39 @@ procedure calls
 
 generic if else statement
 supports both single and compound clause forms
-readability issues on nested single clauses are handled by the addition of the else if construct.
+readability issues on nested single clauses are also present - as tabs do not have any significance to the language, the statement
 
-if(){}
-else if(){}
-else{}
+\begin{lstlisting}[language=R]
+  if(condition)
+      if(second.condition)
+          statement
+  else
+      statement # else statement of second.condition
+\end{lstlisting}
 
-can be declared, a la ternary operator
+introduces ambiguity in terms of readability, especially in deeply nested conditional statements.
+
+handled by the addition of the else if argument - able to implement a multi-way selection in what is supposed to be two-way. Although (as you will see in the preceding expression), the else if construct is effective as the switch statement is quite limited as to what it can do.
+
+\begin{lstlisting}[language=R]
+  # supports compound boolean expressions
+  # curly braces can be omitted in single clauses
+
+  if(condtion){
+    statements
+  }
+  else if(condition){
+    # else if is optional
+    statements
+  }
+  else{
+    # else is optional
+    statements
+  }
+
+\end{lstlisting}
+
+If-else statements can be directly assigned to a symbol in a manner similar to a ternary operator but with the generic syntax of the statement.
 
 \begin{lstlisting}[language=R]
   > x <- if(5 == 0){
@@ -507,6 +535,7 @@ rules
   # based on integer value's position (1 to the maximum number
   # of arguments), if value exceeds it nothing is returned
   switch(3,''one'', ``two'', ``three'', ``four'' )
+
   # based on exact character value matching
   switch(``a'', a = ``alpha'', b = ``bravo'', c = ``charlie'', ``default value'')
 \end{lstlisting}
@@ -519,12 +548,16 @@ Analysis: very limited data types that can be used, two ways of evaluating the s
 
 
 Iterative Statements
+
+in this regard, it goes for a more imperative rather than a functional approach to loops
+
+Counter-controlled loops
 for - generic
 range, a la python 1:10
 naa puy katong object oriented seq\_along (based on the length of the object)
 a la c++ nga for(letter in x)
 
-not limited to integers, but can pass character vectors, logical vectors, lists or expressions
+not limited to integers, but can pass character vectors, logical vectors, and lists (which are special vectors)
 
 \begin{lstlisting}[language=R]
   for (value in vector){
@@ -532,28 +565,34 @@ not limited to integers, but can pass character vectors, logical vectors, lists 
   }
 \end{lstlisting}
 
+such a design prevents the issue of possibly changing the loop variable as the for loop iterates over the elements of a vector/list
+there is no way of explicitly specifying initial and terminal values within the iteration statement, it is assumed that the beginning and the end of the vector/list to be iterated are the initial and terminal values.
 
+a side effect is that the variable name still exists after the loop terminates and has the last values of the vector that was used in the looping process. In common context, such a side effect is extraneous, especiall if the variable name has not been declared prior (indicating that it is only used in looping), and as R stores it in physical memory, multiple instances of for loops may affect how the code interacts with the hardware in terms of storage, especially if one considers that R users often deal with large datasets.
+
+Logically-controlled loops
 
 while - generic
 conditions are evaluated LR
 
 \begin{lstlisting}[language=R]
-  while(test_expressioin){
-    expressions
+  while(test_expression){
+    statement
   }
 \end{lstlisting}
 
+pretest, which is advantageous to reliability as it avoid the problem of unintentionally executing the loop body of posttest loops
+
+rather than exclusively being a special form of a counting loop, the test expression can also be other statements (check)
+
 repeat - generates an infinite loop; used when one does not know when to terminate e.g. iterative algorithm
 only way to exit is to use BREAK
+the statements must be a block statement, need to both perform some computation and test whether or not to break from the loop, which usually requires two statements
 CANNOT BE GUARANTEED IF LOOP STOPS
 
 \begin{lstlisting}[language=R]
   repeat{
-    expressions
-    if(condition){
-      # the only way to exit the repeat loop
-      break
-    }
+    statements
   }
 \end{lstlisting}
 
@@ -562,62 +601,116 @@ other looping statements
 lapply, sapply, tapply, apply, mapply, but shall not be discussed
 
 user-defined stopping mechanisms
+
 stop words
+in relation to the loop body, stop words are indepedent of a conditional mechanism
+only the loop body in which the stop body is located is exited/skipped.
+
 break - exit from the loop
-next - continue to the next iteration of the loop
+next - continue to the next iteration of the loop and does not execute anything below it
 
 a variable var that is set in a for loop environment is changed in the calling environment
 
 No inherent support for object-oriented looping such as iterators or foreach, but has through additional packages. (do we consider vanilla R?? WE NEED TO DECLARE A SCOPE INTO THIS)
 
-
 Concurrent Statements
-%Sequential Statements di naman guro ni kailangan idiscuss
+MANGITA PA TA ANI
 
+Sequential Statements di naman guro ni kailangan idiscuss
+Both semicolons and new lines can be used to separate statements. A semicolon always
+indicates the end of a statement while a new line may indicate the end of a statement. If the
+current statement is not syntactically complete new lines are simply ignored by the evaluator.
+If the session is interactive the prompt changes from ‘>’ to ‘+’.
+
+again, two ways of separating sequential statements, so writability suffers as the programmer must be aware, especially as the option of having both new line and the semicolon as most style guides of currently famous languages prefer a single usage (C/C++/Java uses semicolons exclusively, Python has both features but most programmers use the new line style).
+
+readability, as expressions such as
+
+\begin{lstlisting}[language=R, frame=none]
+  > x <- 1; y <- 2; z <- 3;
+\end{lstlisting}
+
+can be chained into longer expressions in comparison to the cleaner-looking new line style.
 
 \subsubsection{Procedures and Subprograms}
+functions
+basic structure
+functions are first class objects, hence they can be bound to symbols (or variables), can be passed as arguments, and can be given different names
+
+function(arguments)
+
+Generally functions are assigned to symbols but they don’t need to be. The value returned by
+the call to function is a function. If this is not given a name it is referred to as an anonymous
+function. Anonymous functions are most frequently used as arguments to other functions such
+as the apply family or outer.
+
 Subparameters
 Simple Call returns
 
-Recursive Procedures
+Copy rule method or memory allocation?
+Honestly, wala ko kita ani
 
-Recursive functions are also memory intensive, since it can result into a lot of nested function calls. This must be kept in mind when using it for solving big problems.Coroutines
+most probably memory allocation type call returns
+local data and parameters are created anew each time the subprogram is called and is destroyed when subprogram returns
+it allows recursion
 
-Exception Handling
-Paramater-Passing Methods
-Parameters which are subprograms
+parameter passing
 
-Design Issues and Functions
-Overloaded and Generic Subprograms
-User-defined Overloaded operators
+call-by-value. In general, supplied
+arguments behave as if they are local variables initialized with the value supplied and the name
+of the corresponding formal argument. Changing the value of a supplied argument within a
+function will not affect the value of the variable in the calling frame.
+parameters - specifying default parameter values and a variable number of parameters
+omits parameters with default values
+a valid call must have at least one positional parameter
+
+order of priority in parameters:
+1. exact names. The arguments will be assigned to full names explicitly given in the argument list. Full argument names are matched first
+2. partially matching names. the arguments will be assigned to partial names explicitly give nin the arguments list
+3. Argument order. the arguments wi.l be assigned to names in the order in which they were given.
+
+lookup is context sensitive
+
+ Positional
+ The first actual parameter is bound to the first formal parameter and
+so forth
+ Effective and safe method as long as the parameter lists are relatively
+short
+ Keyword
+ The name of the formal parameter to which an actual parameter is to
+be bound is specified with the actual parameter in a call.
+ Advantage: Parameters can appear in any order, thereby avoiding any
+orrespondence error
+ Disadvantage: User of the subprogram must know the names of formal
+parameters.
 
 
-RELATED TO FUNCTIONS and lexical scoping
- environment in the context of R is a collection of (symbol, value) pairs
- function + environment = closure
+ a variable number of parameters is represented as a
+formal parameter with three periods/ellipsis
+... argument
+arguments after ellipsis must be passed by name as they cannot be matched positionally or through partial matching
+default arguments values can be expressions and evaluated within the same environment as the function body, can use internal variables in the function's body
+It is often convenient to specify a variable-length argument list, hence the use of the ellipsis
 
- how?
- if the value of a symbol is not found in the environment in which a function is defined, then the search is continued in the parent environment
- the search continues down the sequence of parent environments until we hit the top-level environment; this is usually the global environment (workspace) or the namespace of a package
- after the top-level environment, the search continues down the search list until we hit the empty environment
+As a way of addressing the issue of not having a clear knowledge as to what the arguments are, R stores function properties such as the list of arguments used. This can be accessed by the args() function.
 
- if symbol is not found once the empty environment is arrived at, then an error is thrown
+Another unusual way is
+Except for the syntax, there is no difference between applying an operator and calling a
+function. In fact, x + y can equivalently be written ‘+‘(x, y). Notice that since ‘+’ is a non-
+standard function name, it needs to be quoted. With respect to associativity and precedence rules, compound statements which use operators are nested functions (even coroutines?) diba
 
- downside is searching is affected by the order and order of packages
+ One obvious issue is the choice of one or more parameter-
+passing methods that will be used
 
- when a function is defined in the global environment and is subsequently called from the global environment, then the defining environment and the caling environment are the same. This can sometimes give the appearance of dynamic scoping.
+More than one parameter-passing method,
 
- Lexical Scoping in R has consequences beyond how free variables are looked up. In particular, it is the reason that all objects in R must be stored in memory in R. THis is beause all functions must carry a pointer to therir respective defining environments, which could be anywhere. in the S language, free variables are always looked up in the global workspace, so everything can be stored on the disk because the ``defining environment' of all '' functions is the same.
+ A closely related issue is whether the types of actual
+parameters will be type checked against the types of the
+corresponding formal parameters
 
- FUNCTIONS INSIDE FUNCTIONCS (ELABORATE)
+Does not get  checked
 
-functions
-basic structure
-function(arguments), which can be stored in a variable
-functions are first class objects, hence they can be bound to symbols (or variables), can be passed as arguments, and can be given different names
-
-return() returns a value explicitly from a function, but it is rarely used in R
-
+parameter evaluation
 lazy implementations of function arguments
 arguments are boxed into promises which contain the expression passed as an argument and a reference to the environment
 values are evaluated transparently when their value is required
@@ -631,37 +724,136 @@ referential transparency
 referentail if any expression is replaced by its result, which does not induce side effects on other values
 in r, all function arguments are passed by value, all updates are only visible to specific functions
 
-parameters - specifying default parameter values and a variable number of parameters
-passing AND MATCHING is done by position or by name (EXPOUND ON THIS)
-PARTIAL MATCHING ALSO
-omits parameters with default values
-a valid call must have at least one positional parameter
-
-order of priority in parameters:
-1. exact names. The arguments will be assigned to full names explicitly given in the argument list. Full argument names are matched first
-2. partially matching names. the arguments will be assigned to partial names explicitly give nin the arguments list
-3. Argument order. the arguments wi.l be assigned to names in the order in which they were given.
-
-
-lookup is context sensitive
-
-... argument
-arguments after ellipsis must be passed by name as they cannot be matched positionally or through partial matching
-default arguments values can be expressions and evaluated within the same environment as the function body, can use internal variables in the function's body
-It is often convenient to specify a variable-length argument list, hence the use of the ellipsis
-
-As a way of addressing the issue of not having a clear knowledge as to what the arguments are, R stores function properties such as the list of arguments used. This can be accessed by the args() function.
-
-Return values
-R, will simply return the last evaluated expression as the result of a function.
-
 Functions as Arguments
 It is quite common for R functions to take other functions as arguments, as the language is heavily used in mathematical and statistical analysis and modelling.
 
-Anonymous functions
-Are usually passed as arguemts to other functions, similar to other functional programming laguages, but can also be directly implemented with parameter/s.
+A function’s environment is the environment that was active at the time that the function was
+created. Any symbols bound in that environment are captured and available to the function. This
+combination of the code of the function and the bindings in its environment is called a ‘function
+closure’, a term from functional programming theory. In this document we generally use the
+term ‘function’, but use ‘closure’ to emphasize the importance of the attached environment.
+
+When a function is called, a new environment (called the evaluation environment) is created,
+whose enclosure is the environment from the function closure. This new environment is initially populated with the unevaluated arguments to the function; as evaluation proceeds, local variables are created within it.
+
+Deep bindings
+
+\begin{lstlisting}[language=R]
+> fxn1 <- function(){
++     val <- 1
++     fxn2 <- function(){
++         print(wew)
++     }
++     fxn3 <- function(){
++         val <- 3
++         fxn4(fxn2)
++     }
++     fxn4 <- function(f){
++         val <- 4
++         f()
++     }
++     fxn3()
++ }
+> fxn1()
+[1] 1
+\end{lstlisting}
+
+since R function argument lists only entail the name and an optional default value, type checking the parameters cannot be done.
+
+Local Variables, Free Variables, and Lexical Scoping
+
+As mentioned in the previous sections, R is primarily a lexically scoped language. The implications of such scoping can be seen in how variables inside a function, namely local and free variables, are handled. Local variables are variables which are not part of the formal arguments that are declared within the function. Based on the lack of methods to allocate/create a static local variable, it can be said that local variables are dynamically allocated. Free variables are variables which are not part of the formal parameters and are not declared within the function. The following snippet of code demonstrates the two variables:
+
+\begin{lstlisting}[language=R]
+print.name <- function(pet.name){
+# local variables
+name.text <- ``is my name.''
+age.text <- ``is my pet's name.''
+# concatenates the parameters provided
+# name is a free variable
+cat(name, name.text, pet.name, age.text)
+}
+\end{lstlisting}
+
+INTRODUCE ENVIRONMENTS MAMEN
+environment in the context of R is a collection of (symbol, value) pairs
+
+Lexical scoping is used to determine the value of the free variables. A search for the value of the variable is conducted from the environment in which the function is defined, its parent environment, and goes on until the top-level environment (usually the global environment or the namespace of a package) or it reaches the empty environment. If a value is found, the search stops, else an error is thrown.
+
+One possible downside in terms of reliability is that searching is affected by the order of environments and packages, hence searching with many unordered packages may be quite slow. Hence one must be careful of the order of how the packages are included, with the frequently used or highly relevant at the top.
+
+when a function is defined in the global environment and is subsequently called from the global environment, then the defining environment and the caling environment are the same. This can sometimes give the appearance of dynamic scoping.
+
+Such a procedure is the reason why objects in R must be stored in memory, as functions carry a pointer to their respective defining environments.
+
+in the S language, free variables are always looked up in the global workspace, so everything can be stored on the disk because the ``defining environment' of all '' functions is the same.
+
+Return values
+R returns any object based on last evaluated expression  as the result of a function. Also, return() returns a value explicitly from a function, but it is rarely used in R
+
+can have multiple return values in a list with names associated with each. Accessing each can be done using attach() included in base R (NEED A BETTER TERM), which creates an environment that contains all the returned values
+
+\begin{lstlisting}[language=R]
+sample.fxn <- function() {
+	# returning multiple name-value pairs in a list
+	list(a=11, b=22, addfxn= function(x,y) x+y)
+}
+
+return.env <- attach(sample.fxn())
+return.env$a
+11
+return.env$b
+22
+return.env$addfxn(1,2)
+3
+\end{lstlisting}
+
+are functional side effects allowed?
+
+In practice, it is bad style to use arguments to functions to cause side-effects
+-harder to debug
+-harder to prove that the program is correct
+
+rediscuss \(<<\)- operator
+The operator will casue the interpreter to first search through the current environment to find the symbol. if the intepreter does not find the symbol in the current environment, it will next search throught the parent environment. the interpreter will recursively search through environments until it either finds the symbol or reaches the global environment. if it reaches the global environment before the symbol is found, then R will assign the value to the symbol in the global environment
+
+- subprogram nestsing TRIPLE CHECK
+
+Recursive Procedures
+
+R supports recursive procedures and/or functions. However caution must be exercised in using such procedures, especially in solving large problems. As the language treats functions as objects and objects are stored into physical memory, recursive functions may be memory intensive especially if there are deep nested function calls.
+
+coroutines
+are not supported in the NEED A BETTER TERM!!
 
 
+
+overloaded subprograms
+same name in the same referencing environment, different number, order, types of parameters or in its return if a function
+
+(I don’t think it exists natively, and existing implementations for truly overriden functions are not as simple as other programming languages)
+
+
+generic subprograms
+
+In R, methods for different classes can share the same name. These are called generic
+functions. Generic functions serve two purposes. First, they make it easy to guess
+the right function name for an unfamiliar class. Second, generic functions make it
+possible to use the same code for objects of different types.
+
+By the way, the R interpreter calls the generic function print on any object returned
+on the R console. Suppose that you define x as:
+> x <- 1 + 2 + 3 + 4
+When you type:
+> x
+[1] 10
+the interpreter actually calls the function print(x) to print the results. This means
+that if you define a new class, you can define a print method to specify how objects
+from that new class are printed on the console. Some functions take advantage of
+this functionality to do other things when you enter an expression on the console
+
+(wala pa ni)
+User defined overloaded operator
 
 
 Exception
@@ -670,16 +862,6 @@ R includes the ability to signal exceptions when unusual events occur and catch 
 
 try function
 tryCatch
-
-Generic functions
-when using generic functions, you cannot specify the argument name of the object on which the generic function is being called. you can still specify the names for other arguments
-
-
-Side effects
-all functions in R return a value. some functions also change the variables in the current or other environment
-rediscuss \(<<\)- operator
-The operator will casue the interpreter to first search through the current environment to find the symbol. if the intepreter does not find the symbol in the current environment, it will next search throught the parent environment. the interpreter will recursively search through environments until it either finds the symbol or reaches the global environment. if it reaches the global environment before the symbol is found, then R will assign the value to the symbol in the global environment
-
 
 \iffalse
 \subsection{Data Types}
@@ -820,3 +1002,4 @@ At the time of writing, the C++ Standards Committee, is processing the finalizat
 \end{document}
 https://www.johndcook.com/blog/r_language_for_programmers/
 https://stackoverflow.com/questions/1944910/what-is-your-preferred-style-for-naming-variables-in-r
+https://www.datamentor.io/r-programming/recursion/
