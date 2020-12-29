@@ -11,11 +11,12 @@
 \contentsline {subsubsection}{\numberline {1.5.3}Expressions}{11}{subsubsection.1.5.3}%
 \contentsline {subsubsection}{\numberline {1.5.4}Statements and Control Structures}{13}{subsubsection.1.5.4}%
 \contentsline {subsubsection}{\numberline {1.5.5}Procedures and Subprograms}{19}{subsubsection.1.5.5}%
-\contentsline {section}{\numberline {2}C++}{25}{section.2}%
-\contentsline {subsection}{\numberline {2.1}Purpose and Motivations}{25}{subsection.2.1}%
+\contentsline {section}{\numberline {2}C++}{24}{section.2}%
+\contentsline {subsection}{\numberline {2.1}Purpose and Motivations}{24}{subsection.2.1}%
 \contentsline {subsection}{\numberline {2.2}History (Authors, Revisions, Adoption)}{25}{subsection.2.2}%
 \contentsline {subsubsection}{\numberline {2.2.1}Early Development}{25}{subsubsection.2.2.1}%
-\contentsline {subsubsection}{\numberline {2.2.2}International Recognition and Standardization}{26}{subsubsection.2.2.2}%
+\contentsline {subsubsection}{\numberline {2.2.2}International Recognition and Standardization}{25}{subsubsection.2.2.2}%
 \contentsline {subsection}{\numberline {2.3}Language Features}{27}{subsection.2.3}%
 \contentsline {subsection}{\numberline {2.4}Paradigm(s)}{27}{subsection.2.4}%
 \contentsline {subsection}{\numberline {2.5}Language Evaluation Criteria}{27}{subsection.2.5}%
+\contentsline {section}{\numberline {3}Workarounds}{27}{section.3}%
