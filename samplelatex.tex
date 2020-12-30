@@ -261,9 +261,9 @@ Also, R separates the namespaces for functions and nonfunctions so a variable c 
 - Objects of type raw are not converted to other types
 - Object attributes are dropped when an object is coerced from one type to another
 
-This greatly affects reliability as some of the features are not as intuitive - examples would include the following:
+This greatly affects reliability as some of the features are not as intuitive. Examples would include the following:
 
-`\begin{lstlisting}[language=R, frame=none]
+\begin{lstlisting}[language=R, frame=none]
   > vec1 <- c(1, 'a', 3.11, TRUE) # direct coercion of vectors
   > vec1
   [1] ``1''   ``a''   ``3.11''   ``TRUE''
@@ -532,58 +532,34 @@ In addition to this, arguments with default values, if placed at the last parts 
 
 Similar to the critiques on the order of priority, the programmer has to take note of which arguments have default values if they are to provide arguments for those without defaults, be aware of the risks of unintentionally overwriting the value of a default variable, and know the names of certain arguments with default values if they are to overwrite them. These issues are disadvantageous to writability and reliability.
 
-R also supports a variable number of arguments with the formal argument being the ellipsis (\texttt{...}). Unlike other programming languages, the arguments passed can be of different types. Arguments with default values are initally omitted, and a valid function call with the ellipsis as a formal parameter must have at least one positional argument. The ellipsis argument can also be used when the arguments will be passed on to another function. In this context, arguments after ellipsis must be passed by name as they cannot be matched positionally or through partial matching. This may not be as intuitive in function calls as the arguments passed do not directly relate to named variables (a loop for the contents of the ... is usually used). Parameter passing is also position-based, and unless if there is an explicit binding process within the function, the provided values directly depend on how the function works.
+R also supports a variable number of arguments with the formal argument being the ellipsis (\texttt{...}). Unlike other programming languages, the arguments passed can be of different types. Arguments with default values are initally omitted, and a valid function call with the ellipsis as a formal parameter must have at least one positional argument. The ellipsis argument can also be used when the arguments will be passed on to another function. In this context, arguments after ellipsis must be passed by name as they cannot be matched positionally or through partial matching, and all actual arguments that are not matched into the formal arguments are included into the ... argument. This may not be as intuitive in function calls as the arguments passed do not directly relate to named variables (a loop for the contents of the ... is usually used). Parameter passing is also position-based, and unless if there is an explicit binding process within the function, the provided values directly depend on how the function works.
 
 As one can see in the function definition, argument types are not explicitly stated, hence type checcking during parameter passing with respect to the programmer's desired data type is not possible. This becomes an issue in both writability and reliability. The programmer must ensure that during function calls, the arguments to be passed coincide with the order and the type in which they are to be used inside the function, which also means that one must also take note of how the function is written and how it works. Also, as certain R features such as implicit coercion may not even raise errors if the incorrect data type is passed thereby possibly causing unexpected results.
 
-\textbf{Parameter Evaluation}
-lazy implementations of function arguments
-arguments are boxed into promises which contain the expression passed as an argument and a reference to the environment
-values are evaluated transparently when their value is required
+\textbf{Parameter Evaluation.} In a nutshell, R does lazy implementations of function arguments. This means that values are not evaluated when needed. This is done by boxing arguments into promises which contain the expression passed as an argument and a reference to the environment. Values are then evaluated transparently when their value is required.
 
-r does not state when promises are forced.
-order of evaluation affects side effects (promises)
-promises are evaluated aggresively as they do not outlive the function they are passed to
-name lookup will force promises in order to determine if the symbol is bound to the function
+\textbf{Functions as Arguments.} It is quite common for R functions to take other functions as arguments, as the language is heavily used in mathematical and statistical analysis and modelling. The language uses deep bindings in its implementation.
 
-referential transparency
-referentail if any expression is replaced by its result, which does not induce side effects on other values
-in r, all function arguments are passed by value, all updates are only visible to specific functions
-
-Functions as Arguments
-It is quite common for R functions to take other functions as arguments, as the language is heavily used in mathematical and statistical analysis and modelling.
-
-A function’s environment is the environment that was active at the time that the function was
-created. Any symbols bound in that environment are captured and available to the function. This
-combination of the code of the function and the bindings in its environment is called a ‘function
-closure’, a term from functional programming theory. In this document we generally use the
-term ‘function’, but use ‘closure’ to emphasize the importance of the attached environment.
-
-When a function is called, a new environment (called the evaluation environment) is created,
-whose enclosure is the environment from the function closure. This new environment is initially populated with the unevaluated arguments to the function; as evaluation proceeds, local variables are created within it.
-
-\textbf{Functions as Arguments}
-Deep bindings
+When a function is called, a new environment (called the evaluation environment) is created, directly reflecting  the environment that was active at the time that the function was created. Hence, variables within that environment are also available to the function. A demonstration is provided by the following code snippet:
 
 \begin{lstlisting}[language=R, frame=none]
-> fxn1 <- function(){
-+     val <- 1
-+     fxn2 <- function() print(val)
-+     fxn3 <- function(){
-+         val <- 3
-+         fxn4(fxn2)
-+     }
-+     fxn4 <- function(f){
-+         val <- 4
-+         f()
-+     }
-+     fxn3()
-+ }
-> fxn1()
-[1] 1
-\end{lstlisting}
+ fxn1 <- function(){
+     val <- 1
+     fxn2 <- function() print(val)
+     fxn3 <- function(){
+         val <- 3
+         fxn4(fxn2)
+     }
+     fxn4 <- function(f){
+         val <- 4
+         fxn2()
+     }
+     fxn3()
+ }
 
-since R function argument lists only entail the name and an optional default value, type checking the parameters cannot be done.
+> fxn1()
+[1] 1 # deep binding; 4 if shallow binding
+\end{lstlisting}
 
 \textbf{Local Variables, Free Variables, and Lexical Scoping.} As mentioned in the previous sections, R is primarily a lexically scoped language. The implications of such scoping can be seen in how variables inside a function, namely local and free variables, are handled. Local variables are variables which are not part of the formal arguments that are declared within the function. Based on the lack of methods to allocate/create a static local variable, it can be said that local variables are dynamically allocated. Free variables are variables which are not part of the formal parameters and are not declared within the function. The following snippet of code demonstrates the two variables:
 
@@ -618,49 +594,28 @@ One possible downside in terms of reliability is that searching is affected by t
 [1] 3
 \end{lstlisting}
 
-\textbf{Functional Side Effects.} In practice, it is bad style to use arguments to functions to cause side-effects
--harder to debug
--harder to prove that the program is correct
+\textbf{Functional Side Effects.} Recall the \(<<\)- operator. The operator can cause changes in the parent environments as it causes the interpreter to search for the symbol from the function's environment towards the global environment. It binds the new value to the symbol that is found first, else it assigns the value to the symbol in the global environment. Such a feature may be detrimental to reliability as unintentional changes may occur, and as the searching process goes through environments, it may be difficult to trace where the changes are made. Relating on the early critique, writability suffers as the programmer needs to be careful in using such operators provided that it is very similar to the local \(<\)- operator with very different implications. In practice, it is bad style to use arguments to functions to cause side-effects.
 
-rediscuss \(<<\)- operator
-The operator will casue the interpreter to first search through the current environment to find the symbol. if the intepreter does not find the symbol in the current environment, it will next search throught the parent environment. the interpreter will recursively search through environments until it either finds the symbol or reaches the global environment. if it reaches the global environment before the symbol is found, then R will assign the value to the symbol in the global environment
 
 \textbf{Recursive Procedures} R supports recursive procedures and/or functions. However caution must be exercised in using such procedures, especially in solving large problems. As the language treats functions as objects and objects are stored into physical memory, recursive functions may be memory intensive especially if there are deep nested function calls.
 
+\textbf{Generic functions in R.} Generic functions in R serve two purposes: firstly, it makes it easy to determine the correct function name for a certain unfamiliar class, secondly, it promotes code reusability for objects of different tyles. An example of which is when the interpreters calls the print function on any object return on the console. Contrary to its name, creating generic functions are more similar to creating overloaded functions. We take the print function for example - a definition to a print function (called in this context as method) for a new class can be done:
 
-overloaded subprograms
-same name in the same referencing environment, different number, order, types of parameters or in its return if a function
+\begin{lstlisting}[language=R, frame=none]
+  # creating an environment with contents
+  > envi <- new.env()
+  > envi$name <- "environment1"
 
-(I don’t think it exists natively, and existing implementations for truly overriden functions are not as simple as other programming languages)
+  # creating a new class for the environment
+  > class(envi) <- "customenvironment"
 
+  # creating a print method for objects of customenvironment class
+  > print.customenvironment <- function(some.envi) some.envi$name
+  > print(envi)
+  [1] "environment1"
+\end{lstlisting}
 
-\textbf{generic subprograms}
-
-In R, methods for different classes can share the same name. These are called generic
-functions. Generic functions serve two purposes. First, they make it easy to guess
-the right function name for an unfamiliar class. Second, generic functions make it
-possible to use the same code for objects of different types.
-
-By the way, the R interpreter calls the generic function print on any object returned
-on the R console. Suppose that you define x as:
-> x <- 1 + 2 + 3 + 4
-When you type:
-> x
-[1] 10
-the interpreter actually calls the function print(x) to print the results. This means
-that if you define a new class, you can define a print method to specify how objects
-from that new class are printed on the console. Some functions take advantage of
-this functionality to do other things when you enter an expression on the console
-
-(wala pa ni)
-User defined overloaded operator
-
-
-\textbf{Exceptions.} R includes the ability to signal exceptions when unusual events occur and catch to exceptions when they occur. It might seem strange to talk about exception handling in the context of environments, but exception handling and envirnments are closely linked. When an exception occurs, the R interpreter may need to abandon the current function and signal the exception in the calling environment.
-
-try function
-tryCatch
-
+\textbf{Exceptions.} R includes the ability to signal exceptions when unusual events occur and catch to exceptions when they occur. When an exception occurs, the R interpreter may need to abandon the current function and signal the exception in the calling environment. Certain functions used for exception catching are the \texttt{try()} and \texttt{tryCatch()} functions. User-defined errors can also be done using \texttt{stop()}, which stops the execution of the function and displays an error message.
 
 \section{C++}
 \subsection{Purpose and Motivations}
@@ -804,3 +759,6 @@ Struct <- function(...){
 https://www.johndcook.com/blog/r_language_for_programmers/
 https://stackoverflow.com/questions/1944910/what-is-your-preferred-style-for-naming-variables-in-r
 https://www.datamentor.io/r-programming/recursion/
+https://stackoverflow.com/questions/9266194/r-function-overloading
+https://stackoverflow.com/questions/9734646/using-generic-functions-of-r-when-and-why
+https://cran.r-project.org/doc/manuals/R-lang.html#Object_002doriented-programming
