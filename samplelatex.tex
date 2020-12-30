@@ -817,12 +817,56 @@ This too will be accepted as a call for an unsigned long long integer with the v
 
 \fi
 
-\section{Workarounds}
+\section{Feature 1: Struct and Struct Constructor}
+
+\subsection{Code in C++}
+
+\begin{lstlisting}[language=C++, frame=none]
+  #include <iostream>
+
+  using namespace std;
+
+  // the struct feature
+  struct Rectangle{
+    int length;
+    int width;
+
+    // struct constructor
+    Rectangle(int l, int w){
+      length = l;
+      width = w;
+    }
+
+    int Rectangle_area(){
+      return length * width;
+    }
+  };
+
+  int main(){
+    // defining an instance of a rectangle
+    struct Rectangle newrec = Rectangle(10,20);
+    cout << ``Length: '' << newrec.length << ``, Width: '' << newrec.width << endl;
+    cout << ``The area of the rectangle is '' << newrec.Rectangle_area() << endl;
+  }
+
+  ---------------------------------------
+  Output:
+  Length: 10, Width: 20
+  The area of the rectangle is 200
+\end{lstlisting}
+
+\subsection{Advantages of having Structs}
+
+\subsection{Advantages of not having Structs}
+
+\subsection{Workaround in R}
+
+We used R's feature of declaring new environments and declaring objects within those environments as a way of implementing a similar ``Struct'' feature in R.
+
 \begin{lstlisting}[language=R, frame=none]
+
 # used to execute functions defined within the "Struct"
 execute <- function(func ,env=parent.frame()){
-    # print(e)
-    # print(f)
     environment(func) <- env
     func
 }
@@ -832,13 +876,10 @@ constructor <- function(env.data, val.list=NULL){
     with(env.data,
          {
              final.env <- new.env()
-             # final.list <- list()
              iterval <- 1
              for(i in 1:length(env.data)){
                  var <- env.data[[i]]
-                 print(var)
                  if(length(var) == 1){
-                     print(var)
                      if(!is.null(val.list)){
                          final.env[[env.data[[i]]]] <- val.list[[iterval]]
                          iterval <- iterval+1
@@ -850,10 +891,6 @@ constructor <- function(env.data, val.list=NULL){
                      final.env[[env.data[[i]][[1]]]] <- env.data[[i]][[2]]
                  }
              }
-             # print(env.data)
-             # for(pair in final.list){
-             #     final.env[[pair[[1]] ]] ->pair[[2]]
-             # }
              return(final.env)
          }
     )
@@ -883,6 +920,77 @@ Struct <- function(...){
 }
 \end{lstlisting}
 
+To emulate the same Rectangle struct in C++, the following can be done:
+
+\begin{lstlisting}[language=R, frame=none]
+  # creation of functions to be added into the Rectangle Struct
+  > Rectangle_area <- function() length*width
+
+  # ``Creating'' a struct, that is, providing the variable names and functions inside the struct
+  # variable names are characters while functions are vectors which contain the name and the function
+  > Rectangle <- Struct(``length'', ``width'', c(``Rectangle_area'',Rectangle_area))
+
+  # Creating an instance of rectangle using constructor()
+  # values are passed positionally as a vector
+  > newrec <- constructor(Rectangle, c(10,20))
+  > newrec$length
+  [1] 10
+  > newrec$width
+  [1] 20
+
+  # calling a struct function using execute(), which takes the struct and the function as arguments
+  > execute(newrec$Rectangle_area, newrec)()
+  [1] 200
+
+  # like C++ structs, one can also alter the values using a dot ($ in R)
+  > newrec$length <- 20
+  > execute(newrec$Rectangle_area, newrec)()
+  [1] 400
+\end{lstlisting}
+
+\section{Feature 2: Overloaded functions}
+
+In the context of C++, overloaded functions are used within classes (ADD SOMETHING HERE KIEV). In the part on which discussed R's generic function, one can see that constructing methods are quite similar to constructing overloaded functions. However, one also see that such methods only apply in a class-to-function basis, not necessarily a function-to-function overloading.
+
+\subsection{Code in C++}
+\begin{lstlisting}[language = C++, frame=none]
+  #include <iostream>
+
+  int mul(int a, int b){
+    return a * b;
+  }
+
+  float mul(float a, float b, float c){
+    return a * b * c;
+  }
+
+  int main(){
+    cout << ``Int mul'' << mul(10,20);
+    cout << ``Float mul'' << mul(1.0, 2.0, 3.0);
+  }
+
+  -------------------------------------
+  Output:
+  200
+  6.0
+\end{lstlisting}
+
+\subsection{Advantages of having Overloaded functions}
+
+\subsection{Advantages of not having Overloaded functions}
+
+\subsection{Workaround in R}
+
+\section{Feature 3: Do-while loops}
+
+\subsection{Code in C++}
+
+\subsection{Advantages of having Do-while loops}
+
+\subsection{Advantages of not Do-while loops}
+
+\subsection{Workaround in R}
+
 \end{document}
 https://www.johndcook.com/blog/r_language_for_programmers/
 https://stackoverflow.com/questions/1944910/what-is-your-preferred-style-for-naming-variables-in-r
@@ -890,3 +998,4 @@ https://www.datamentor.io/r-programming/recursion/
 https://stackoverflow.com/questions/9266194/r-function-overloading
 https://stackoverflow.com/questions/9734646/using-generic-functions-of-r-when-and-why
 https://cran.r-project.org/doc/manuals/R-lang.html#Object_002doriented-programming
+https://www.javatpoint.com/cpp-structs
