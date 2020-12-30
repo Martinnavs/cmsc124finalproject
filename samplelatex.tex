@@ -292,7 +292,7 @@ This section discusses expressions, precedence rules, and type conversion.
 \begin{table}[h!]
   \begin{center}
     \caption{Operator Precedence}
-    \label{tab:table1}
+    \label{tab:table2}
     \begin{tabular}{|l|c|}
       \toprule % toprule here
       \textbf{Description} & \textbf{Operators} \\
@@ -755,7 +755,7 @@ The table \ref{table:DT2} shows the ranges of values of modified data types as w
   \end{center}
 \end{table}
 
-It is important to note that it is possible to call various data types based on specific modifiers and have them behave and be saved as one universally accepted data type. For example, the standard format of initializing and integer is: \\ 
+It is important to note that it is possible to call various data types based on specific modifiers and have them behave and be saved as one universally accepted data type. For example, the standard format of initializing an integer is: \\ 
 \begin{center}
   \textit{int x;}
 \end{center}
@@ -765,17 +765,17 @@ The text above will be read by the compiler as a call for a signed integer with 
 \end{center}
 C++ has made initializations of various data types as flexible as possible but has also affected the readability of code. It presents much more freedom in the ability for a user to write what they intend to write but because of the multitude of ways for even a single variable to be called it makes it that much more hard to read and fully understand what the code is meant to be doing.
 
-Another example to this problem is the ability to write modifiers in any combination. In most standards, writing, and even in online references the code should be written as:
+Another example to this problem is the ability to write modifiers in any combination. In most standards, writings, and even in online references the declaration of a variable in a code should be written as:
 \begin{center}
   \textit{unsigned long long int x;}
 \end{center}
 
-This will be read as a call for an unsigned long long integer the variable name of x. But the following is also possible:
+This will be read as a call for an unsigned long long integer the variable name of \textbf{x}. But the following is also possible:
 \begin{center}
   \textit{long unsigned int long x;}
 \end{center}
 
-This too will be accepted as a call for an unsigned long long integer with the variable name of x. This shows that C++ allows for a great freedom in allowing the user to choose the methods that they wish to implement for their code but is also causes problems with the code's readability for other programmers. Although it is a testament to how effective the C++ compiler is at identifying the keywords and how they should be processed and used, but the standard of \textit{datatype variable\_name} must always be followed, so the following code:
+This too will be accepted as a call for an unsigned long long integer with the variable name of x. This shows that C++ allows for a great versatility in allowing the user to choose the methods that they wish to implement for their code but is also causes problems with the code's readability for other programmers. Although it is a testament to how effective the C++ compiler is at identifying the keywords and how they should be processed and used, but the standard of \textit{datatype variable\_name} must always be followed, so the following code:
 \begin{center}
   \textit{long unsigned int x long;}
 \end{center}
@@ -785,7 +785,7 @@ Other available data types that are built upon the primitive data types (derived
 C++ also allows for user defined abstract data types such as Classes, Structures, Unions, Enumerations, and the Typedef-defined data type. All these will be further discussed in the following sections. 
 
 \subsubsection{Binding, Scoping, Referencing}
-This section covers the C++ languages ability of binding, scoping, and referencing.
+This section covers the C++ language's ability of binding, scoping, and referencing.
 
 \textbf{Binding} C++ covers the ability for both compile-time binding, and execution-time binding. By default, and because C++ is a compiled language, the binds are all made during compile-time (early time compilation) this means that most, if not all, binds must be declared explicitly in the code wherever required.\\ Binds to variable names in C++ also have very specific rules. They include the following:
 \begin{itemize}
@@ -800,11 +800,71 @@ It is also a given that when binding a variable name, one must also include the 
 
 These rules allow a degree of freedom for the naming of variables by the programmer. The writabilty of the code is preserved because there is only one way of declaring variables. The only downside to variable naming is how the programmer decides to name their variables, so this does affect readability to a certain extent, especially if the programmer does not follow naming conventions and suggestions.  
 
-\textbf{Reserved Words} All programming languages have certain keywords that are made available to them in order to create the codes they need to create. Words such as \textit{if, for, while, do, continue, break, return, True, False} are only among of the few keywords that have a specific role in C++. These keywords are case-sensitive and will not be recognized by the compiler if used any differently. The downside of having so many keywords is not being able to memorize all of them and their specific uses. 
+\textbf{Reserved Words} All programming languages have certain reserved words that are made available to them in order to create the codes they need to create. Words such as \textit{if, for, while, do, continue, break, return, True, False} are only among of the few keywords that have a specific role in C++. These reserved words are case-sensitive and will not be recognized by the compiler if used any differently. The downside of having so many reserved words is not being able to memorize all of them and their specific uses as well as the possibility of collisions in code. 
 
-It also worthy to note that when a user-defined function is declared or defined, one cannot use the name of said function as a variable name, further improving the readability of a specific line of code in C++. Unfortunately, this does affect the writability since this does limit the freedom of the programmer to bind a specfic name. 
+It also worthy to note that when a user-defined function is declared or defined, one cannot use the name of said function as a variable name (case-sensitive) in the same scope, further improving the readability of a specific line of code in C++. Following this idea, it also gives full control to the programmer to decide the method to be performed by the program. Unfortunately, this does affect the writability since this does limit the ideal situation of the programmer to bind a specfic name that they may be comfortable with. 
 
-\textbf{Scoping} C++ has a 
+\textbf{Type Conversion} C++ is able to perform both implicit type conversion (coercion), and explicit type conversion (casts). The following is an example of such these two processes:
+\begin{lstlisting}[language=C++, frame = none]
+  #include <iostream>
+
+  using namespace std;
+
+  int main(){
+    double x;
+    int y;
+
+    x = 12; // a coercion of an integer type to a double type
+    y = (int) 2.25; //a cast of an float type to an integer type
+
+    cout<< x << "\n" << y << \n << typeid(x).name();
+    return 0;
+  }
+  -----------------------------------------
+  expected output:
+  12
+  2
+  d
+\end{lstlisting}
+
+As seen above, C++ has the ability to convert various data types during compile time. This allows for a great flexibility for the programmer to write programs that are strongly-typed and have full control over what they want the program to perform. The example above of \textit{y = (int) 2.25} is a type of conversion called a \textit{narrowing conversion} wherein the accuracy of a value is lost. This process can be done both implicitly and explicitly. Generally, when coding in C++ one should attempt to avoid narrowing conversions, but the code will continue to do so when explicitly stated such as the example above. When accuracy is important, it is best to avoid narrowing conversions either as coercion, or cast. On the other hand, \textit{widening conversions} also known as \textit{promotions} or conversions that place a lower sized data type into a higher sized data type, allow for a greater control over accuracy as well as being able to represent a higher value than the previous size. C++ allows for both widening coercions and widening casts. As the process is considered safer, loss of information is not an inherent problem. The table \ref{table:DTP} shows all the possible promotions among the various primitive data types and their modifiers.
+
+\begin{table}[h!]
+  \begin{center}
+    \caption{Possible Widening Conversions without loss of information}
+    \label{table:DTP}
+    \begin{tabular}{|l|c|}
+      \toprule % toprule here
+      \textbf{From} & \textbf{To} \\
+      \midrule % midrule here
+      Any signed or unsigned numeric type except long long \& \_\_int64 & double \\
+      \hline
+      bool or char & Any other type \\
+      \hline
+      short or wchar\_t & int, long, long long \\
+      \hline
+      int, long & long long \\
+      \hline
+      float & double \\
+      \bottomrule
+    \end{tabular}
+  \end{center}
+\end{table}
+
+\textbf{Scoping} C++ has a variety of defined scopes, and the extent of lifetimes in a scope, as well as intuitively knowing what can access what and where they are according to its scope. C++ generally have six forms of scopes. They are
+\begin{itemize}
+  \item Global scope - has the longest lifetime; and exists implicitly in the global space and extends from the beginning of its declaration until the end of the file; a common example being global variables
+  \item Namespace scope - it is the scope within a namespace that is outside any class, enum definition, or function block; visible from its declaration until the end of the namespace; a common example being \textit{using namespace std;}
+  \item Local scope - names declared within a function or lambda; visible only at the point of declaration until the end of the function or lambda; also commonly known as block scopes denoted by code found in between brackets {};
+  \item Class scope - anything and everything found and defined in a class has a class scope (class members); they exist regardless of point of declaration and may be \textit{public, protected, or private}; only public and protected members can be accessed from member-selction operators (. \& -\textgreater)
+  \item Statement scope - statement scopes exist in control statements and loop statements such as \textit{for, if, while, \& switch} statements.
+  \item Function scope - function scopes are visible even before their point of declaration; mostly known as labels; common in \textit{switch case statements \& goto labels}; usually denoted by a colon (:)
+\end{itemize}
+
+These specific scopes allow for the ease of processing information throughout the entirety of code and allows the programmer to write code that behaves in accordance to what is needed and specified. Processes involving the use of scopes usually involve the use of the scope-resolution operator, double colon (::). This allows for greater control of definitions especially involving classes, global variables with the same name as local variables, and even namespace variable names with the same name as local variable names. The simplicity of the operator makes it easier to write the code for its specific purpose and deals with problems in regards to scoping. 
+
+\textbf{References} In C++, there are two methods of creating references on various data types, the use of pointers and the use of references. Pointers are 
+
 
 %\subsubsection{Expressions}
 
