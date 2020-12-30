@@ -1,5 +1,9 @@
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020/Arch Linux) (preloaded format=pdflatex 2020.12.27)  30 DEC 2020 22:22
+=======
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (MiKTeX 20.11) (preloaded format=pdflatex 2020.11.16)  31 DEC 2020 02:45
+>>>>>>> Stashed changes
 =======
 This is pdfTeX, Version 3.14159265-2.6-1.40.21 (MiKTeX 20.11) (preloaded format=pdflatex 2020.11.16)  31 DEC 2020 02:45
 >>>>>>> Stashed changes
@@ -337,6 +341,7 @@ Package: booktabs 2020/01/12 v1.61803398 Publication quality tables
 \@thisrulewidth=\dimen180
 )
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 (/usr/local/share/texmf/tex/latex/multirow/multirow.sty
 Package: multirow 2019/05/31 v2.5 Span multiple rows of a table
 \multirow@colwidth=\skip57
@@ -371,6 +376,23 @@ File: l3backend-pdftex.def 2020-09-24 L3 backend support: PDF output (pdfTeX)
 \openout1 = `samplelatex.aux'.
 
 >>>>>>> Stashed changes
+=======
+(C:\Users\kean\AppData\Local\Programs\MiKTeX\tex/latex/multirow\multirow.sty
+Package: multirow 2019/05/31 v2.5 Span multiple rows of a table
+\multirow@colwidth=\skip57
+\multirow@cntb=\count287
+\multirow@dima=\skip58
+\bigstrutjot=\dimen181
+)
+(C:\Users\kean\AppData\Local\Programs\MiKTeX\tex/latex/l3backend\l3backend-pdft
+ex.def
+File: l3backend-pdftex.def 2020-09-24 L3 backend support: PDF output (pdfTeX)
+\l__kernel_color_stack_int=\count288
+\l__pdf_internal_box=\box52
+) (samplelatex.aux)
+\openout1 = `samplelatex.aux'.
+
+>>>>>>> Stashed changes
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 24.
 LaTeX Font Info:    ... okay on input line 24.
 LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 24.
@@ -387,6 +409,7 @@ LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 24.
 LaTeX Font Info:    ... okay on input line 24.
 LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 24.
 LaTeX Font Info:    ... okay on input line 24.
+<<<<<<< Updated upstream
 <<<<<<< Updated upstream
  (/usr/share/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
@@ -411,10 +434,25 @@ i
 \nofMPsegments=\count290
 \nofMParguments=\count291
 \everyMPshowfont=\toks26
+=======
+
+(C:\Users\kean\AppData\Local\Programs\MiKTeX\tex/context/base/mkii\supp-pdf.mki
+i
+[Loading MPS to PDF converter (version 2006.09.02).]
+\scratchcounter=\count289
+\scratchdimen=\dimen182
+\scratchbox=\box53
+\nofMPsegments=\count290
+\nofMParguments=\count291
+\everyMPshowfont=\toks26
+>>>>>>> Stashed changes
 \MPscratchCnt=\count292
 \MPscratchDim=\dimen183
 \MPnumerator=\count293
 \makeMPintoPDFobject=\count294
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 \everyMPtoPDFconversion=\toks27
 )
@@ -427,6 +465,7 @@ Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
 Package hyperref Info: Link coloring OFF on input line 24.
 
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 (/usr/share/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
 e
@@ -434,6 +473,9 @@ e
 Package hyperref Info: Link coloring OFF on input line 24.
 
 (/usr/share/texmf-dist/tex/latex/hyperref/nameref.sty
+=======
+(C:\Users\kean\AppData\Local\Programs\MiKTeX\tex/latex/hyperref\nameref.sty
+>>>>>>> Stashed changes
 =======
 (C:\Users\kean\AppData\Local\Programs\MiKTeX\tex/latex/hyperref\nameref.sty
 >>>>>>> Stashed changes
@@ -447,7 +489,11 @@ estring.sty
 Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
 )
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 \c@section@level=\count297
+=======
+\c@section@level=\count295
+>>>>>>> Stashed changes
 =======
 \c@section@level=\count295
 >>>>>>> Stashed changes
@@ -455,6 +501,7 @@ Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
 LaTeX Info: Redefining \ref on input line 24.
 LaTeX Info: Redefining \pageref on input line 24.
 LaTeX Info: Redefining \nameref on input line 24.
+<<<<<<< Updated upstream
 <<<<<<< Updated upstream
 
 (./samplelatex.out) (./samplelatex.out)
@@ -464,24 +511,36 @@ LaTeX Info: Redefining \nameref on input line 24.
 =======
  (samplelatex.out) (samplelatex.out)
 \@outlinefile=\write3
+=======
+ (samplelatex.out) (samplelatex.out)
+\@outlinefile=\write3
+>>>>>>> Stashed changes
 \openout3 = `samplelatex.out'.
 
 \c@lstlisting=\count296
 
 
 Package hyperref Warning: old toc file detected, not used; run LaTeX again.
+<<<<<<< Updated upstream
 >>>>>>> Stashed changes
 
 \tf@toc=\write4
 <<<<<<< Updated upstream
  [2] [3] [4] [5]
 =======
+=======
+
+\tf@toc=\write4
+>>>>>>> Stashed changes
 \openout4 = `samplelatex.toc'.
 
 [1
 
 {C:/Users/kean/AppData/Local/MiKTeX/pdftex/config/pdftex.map}] [2] [3]
 [4]
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 Underfull \hbox (badness 10000) in paragraph at lines 106--107
 
@@ -504,7 +563,11 @@ Underfull \hbox (badness 10000) in paragraph at lines 129--130
  []
 
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 [6]
+=======
+[5]
+>>>>>>> Stashed changes
 =======
 [5]
 >>>>>>> Stashed changes
@@ -513,7 +576,11 @@ Underfull \hbox (badness 10000) in paragraph at lines 159--160
  []
 
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 [7]
+=======
+[6]
+>>>>>>> Stashed changes
 =======
 [6]
 >>>>>>> Stashed changes
@@ -527,7 +594,11 @@ Underfull \hbox (badness 10000) in paragraph at lines 203--204
  []
 
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 [8]
+=======
+[7]
+>>>>>>> Stashed changes
 =======
 [7]
 >>>>>>> Stashed changes
@@ -539,7 +610,11 @@ Underfull \hbox (badness 10000) in paragraph at lines 218--219
 LaTeX Font Info:    Trying to load font information for OML+cmr on input line 2
 35.
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
  (/usr/share/texmf-dist/tex/latex/base/omlcmr.fd
+=======
+ (C:\Users\kean\AppData\Local\Programs\MiKTeX\tex/latex/base\omlcmr.fd
+>>>>>>> Stashed changes
 =======
  (C:\Users\kean\AppData\Local\Programs\MiKTeX\tex/latex/base\omlcmr.fd
 >>>>>>> Stashed changes
@@ -553,15 +628,21 @@ Underfull \hbox (badness 10000) in paragraph at lines 234--239
  []
 
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 [10] [11]
 LaTeX Font Info:    Trying to load font information for OMS+cmr on input line 3
 00.
  (/usr/share/texmf-dist/tex/latex/base/omscmr.fd
 =======
+=======
+>>>>>>> Stashed changes
 [9] [10]
 LaTeX Font Info:    Trying to load font information for OMS+cmr on input line 3
 00.
  (C:\Users\kean\AppData\Local\Programs\MiKTeX\tex/latex/base\omscmr.fd
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 File: omscmr.fd 2019/12/16 v2.5j Standard LaTeX font definitions
 )
@@ -581,7 +662,11 @@ Overfull \hbox (7.75888pt too wide) in paragraph at lines 296--316
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 [12] [13] [14] [15]
+=======
+[11] [12] [13] [14]
+>>>>>>> Stashed changes
 =======
 [11] [12] [13] [14]
 >>>>>>> Stashed changes
@@ -602,7 +687,10 @@ LaTeX Font Warning: Font shape `TS1/cmtt/bx/n' undefined
 (Font)              using `TS1/cmtt/m/n' instead
 (Font)              for symbol `textdollar' on input line 590.
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 =======
+=======
+>>>>>>> Stashed changes
 
 [24] [25] [26] [27] [28]
 
@@ -610,6 +698,9 @@ LaTeX Warning: Reference `table:DT1' on page 29 undefined on input line 680.
 
 
 LaTeX Warning: Reference `table:DT2' on page 29 undefined on input line 718.
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 
 
@@ -621,7 +712,11 @@ Underfull \hbox (badness 10000) in paragraph at lines 758--759
  []
 
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 [30]
+Underfull \hbox (badness 10000) in paragraph at lines 762--763
+=======
+[29]
 Underfull \hbox (badness 10000) in paragraph at lines 762--763
 =======
 [29]
@@ -635,9 +730,20 @@ Overfull \hbox (4.03304pt too wide) in paragraph at lines 803--804
 []\OT1/cmr/bx/n/12 Reserved Words \OT1/cmr/m/n/12 All pro-gram-ming lan-guages 
 have cer-tain re-served words
  []
+>>>>>>> Stashed changes
+
+<<<<<<< Updated upstream
+[30] [31]
+Overfull \hbox (4.03304pt too wide) in paragraph at lines 803--804
+[]\OT1/cmr/bx/n/12 Reserved Words \OT1/cmr/m/n/12 All pro-gram-ming lan-guages 
+have cer-tain re-served words
+ []
 
 <<<<<<< Updated upstream
 [31] [32] (/usr/share/texmf-dist/tex/latex/listings/lstlang1.sty
+=======
+(C:\Users\kean\AppData\Local\Programs\MiKTeX\tex/latex/listings\lstlang1.sty
+>>>>>>> Stashed changes
 =======
 (C:\Users\kean\AppData\Local\Programs\MiKTeX\tex/latex/listings\lstlang1.sty
 >>>>>>> Stashed changes
@@ -648,6 +754,7 @@ File: lstlang1.sty 2020/03/24 1.8d listings language file
 )
 (C:\Users\kean\AppData\Local\Programs\MiKTeX\tex/latex/listings\lstmisc.sty
 File: lstmisc.sty 2020/03/24 1.8d (Carsten Heinz)
+<<<<<<< Updated upstream
 <<<<<<< Updated upstream
 ) [33] [34] [35] [36]
 [37] [38] [39] [40] (./samplelatex.aux)
@@ -671,6 +778,24 @@ Package rerunfilecheck Warning: File `samplelatex.out' has changed.
 (rerunfilecheck)                or use package `bookmark'.
 >>>>>>> Stashed changes
 
+=======
+)
+[32]
+
+LaTeX Warning: Reference `table:DTP' on page 33 undefined on input line 830.
+
+[33]
+Overfull \hbox (61.6653pt too wide) in paragraph at lines 836--851
+ [] 
+ []
+
+[34] [35] [36] [37] [38] [39] [40] [41] [42] (samplelatex.aux)
+
+Package rerunfilecheck Warning: File `samplelatex.out' has changed.
+(rerunfilecheck)                Rerun to get outlines right
+(rerunfilecheck)                or use package `bookmark'.
+
+>>>>>>> Stashed changes
 Package rerunfilecheck Info: Checksums for `samplelatex.out':
 (rerunfilecheck)             Before: D41D8CD98F00B204E9800998ECF8427E;0
 (rerunfilecheck)             After:  31456F1DC797654A5BCBD578A70B2B57;2809.
@@ -685,6 +810,7 @@ LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
 
  ) 
 Here is how much of TeX's memory you used:
+<<<<<<< Updated upstream
 <<<<<<< Updated upstream
  9734 strings out of 479383
  140552 string characters out of 5875829
@@ -716,6 +842,14 @@ PDF statistics:
  25999 multiletter control sequences out of 15000+200000
  541334 words of font info for 51 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
+=======
+ 9726 strings out of 479832
+ 144250 string characters out of 2871529
+ 783224 words of memory out of 3000000
+ 25999 multiletter control sequences out of 15000+200000
+ 541334 words of font info for 51 fonts, out of 3000000 for 9000
+ 1141 hyphenation exceptions out of 8191
+>>>>>>> Stashed changes
  78i,11n,85p,1311b,1872s stack positions out of 5000i,500n,10000p,200000b,50000s
  <C:\Users\kean\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tctt1
 200.pk> <C:\Users\kean\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\
@@ -735,5 +869,8 @@ PDF statistics:
  835 PDF objects out of 1000 (max. 8388607)
  537 named destinations out of 1000 (max. 500000)
  1 words of extra memory for PDF output out of 10000 (max. 10000000)
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 
