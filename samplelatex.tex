@@ -984,14 +984,114 @@ As stated in the language features, C++ is capable of a multitude of programming
 %marts can I ask for a full list?
 
 \subsubsection{Data Types}
+C++ has a vast collection of primitive data types that a programmer is able to use. The table \ref{table:DT1} represents a short summary of all the primitive data types available to the user.
 
-\subsubsection{Binding, Scoping, Referencing}
+\begin{table}[h!]
+  \begin{center}
+    \caption{Primitive Data Types in C++}
+    \label{table:DT1}
+    \begin{tabular}{|l|c|l|}
+      \toprule % toprule here
+      \textbf{Data Type} & \textbf{Keyword} & \textbf{Size}\\
+      \midrule % midrule here
+      Integer & int & Between 2-8 bytes \\ 
+      \hline
+      Character & char & 1 byte \\
+      \hline
+      Boolean & bool & Typically 1 byte \\
+      \hline
+      Floating Point & float & 4 bytes \\
+      \hline
+      Double Floating Point & double & Between 8-12 bytes \\
+      \hline
+      Void & void & N/A \\
+      \hline
+      Wide Character & wchar\_t & 2 or 4 bytes\\ 
+      \bottomrule
+    \end{tabular}
+  \end{center}
+\end{table}
 
-\subsubsection{Expressions}
+C++ also allows for the use of modifiers to explicitly call data types of a variety of ranges.
+The available modifiers in C++ include:
+\begin{itemize}
+  \item signed
+  \item unsigned
+  \item long
+  \item long long
+  \item short
+\end{itemize}
 
-\subsubsection{Statements and Control Structures}
+The table \ref{table:DT2} shows the ranges of values of modified data types as well as their size allocation:
 
-\subsubsection{Procedures and Subprograms}
+\begin{table}[h!]
+  \begin{center}
+    \caption{Modified Data Types, their ranges, and their size allocation in C++}
+    \label{table:DT2}
+    \begin{tabular}{|l|c|l|}
+      \toprule % toprule here
+      \textbf{Modifier} & \textbf{Range} & \textbf{Size Allocation}\\
+      \midrule % midrule here
+      signed char & -(2$^7$) - (2$^7$)-1 & 1 byte \\ 
+      \hline
+      unsigned char & 0 - (2$^8$) & 1 byte \\
+      \hline
+      signed short int & -(2$^15$) - (2$^15$)-1 & 2 bytes \\
+      \hline
+      unsigned short int & 0 - (2$^16$) & 2 bytes \\
+      \hline
+      signed int & -(2$^31$) - (2$^31$)-1 & 4 bytes\\
+      \hline
+      unsigned int & 0 - (2$^32$) & 4 bytes\\
+      \hline
+      signed long int & -(2$^31$) - (2$^31$)-1 & 8 bytes\\
+      \hline
+      unsigned long int & 0 - (2$^32$) & 8 bytes\\
+      \hline
+      signed long long int & -(2$^63$) - (2$^63$)-1 & 8 bytes\\
+      \hline
+      unsigned long long int & 0 - (2$^64$) & 8 bytes\\
+      \hline
+      float & N/A & 4 bytes\\
+      \hline
+      double & N/A & 8 bytes \\
+      \hline
+      long double & N/A & 12 bytes \\
+      \bottomrule
+    \end{tabular}
+  \end{center}
+\end{table}
+
+It is important to note that it is possible to call various data types based on specific modifiers and have them behave and be saved as one universally accepted data type. For example, the standard format of initializing and integer is: \\ 
+\begin{center}
+  \textit{int x;}
+\end{center}
+The text above will be read by the compiler as a call for a signed integer with the variable name of x. But it is also possible to do this with the following:\\
+\begin{center}
+  \textit{signed x;\\signed int x;}
+\end{center}
+C++ has made initializations of various data types as flexible as possible but has also affected the readability of code. It presents much more freedom in the ability for a user to write what they intend to write but because of the multitude of ways for even a single variable to be called it makes it that much more hard to read and fully understand what the code is meant to be doing.
+
+Another example to this problem is the ability to write modifiers in any combination. In most standards, writing, and even in online references the code should be written as:
+\begin{center}
+  \textit{unsigned long long int x;}
+\end{center}
+
+This will be read as a call for an unsigned long long integer the variable name of x. But the following is also possible:
+\begin{center}
+  \textit{long unsigned int long x;}
+\end{center}
+
+This too will be accepted as a call for an unsigned long long integer with the variable name of x. 
+
+
+%\subsubsection{Binding, Scoping, Referencing}
+
+%\subsubsection{Expressions}
+
+%\subsubsection{Statements and Control Structures}
+
+%\subsubsection{Procedures and Subprograms}
 
 
 \iffalse

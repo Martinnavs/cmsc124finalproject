@@ -20,7 +20,3 @@
 \contentsline {subsection}{\numberline {2.4}Paradigm(s)}{28}{subsection.2.4}%
 \contentsline {subsection}{\numberline {2.5}Language Evaluation Criteria}{28}{subsection.2.5}%
 \contentsline {subsubsection}{\numberline {2.5.1}Data Types}{28}{subsubsection.2.5.1}%
-\contentsline {subsubsection}{\numberline {2.5.2}Binding, Scoping, Referencing}{28}{subsubsection.2.5.2}%
-\contentsline {subsubsection}{\numberline {2.5.3}Expressions}{28}{subsubsection.2.5.3}%
-\contentsline {subsubsection}{\numberline {2.5.4}Statements and Control Structures}{28}{subsubsection.2.5.4}%
-\contentsline {subsubsection}{\numberline {2.5.5}Procedures and Subprograms}{28}{subsubsection.2.5.5}%

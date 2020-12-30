@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (MiKTeX 20.11) (preloaded format=pdflatex 2020.11.16)  29 DEC 2020 16:47
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (MiKTeX 20.11) (preloaded format=pdflatex 2020.11.16)  30 DEC 2020 16:13
 entering extended mode
 **./samplelatex.tex
 (samplelatex.tex
@@ -514,15 +514,24 @@ LaTeX Font Warning: Font shape `TS1/cmtt/bx/n' undefined
 (Font)              using `TS1/cmtt/m/n' instead
 (Font)              for symbol `textdollar' on input line 803.
 
-[23] [24] [25] [26] [27] [28] (samplelatex.aux)
+[23] [24] [25] [26] [27]
 
-Package rerunfilecheck Warning: File `samplelatex.out' has changed.
-(rerunfilecheck)                Rerun to get outlines right
-(rerunfilecheck)                or use package `bookmark'.
+LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-Package rerunfilecheck Info: Checksums for `samplelatex.out':
-(rerunfilecheck)             Before: 9D8C0D54AFC7DED1B96DE563FCB0D13A;1542
-(rerunfilecheck)             After:  41BF55DD51890C9DB8F1D1F866B36602;1951.
+[28]
+Underfull \hbox (badness 10000) in paragraph at lines 1065--1066
+
+ []
+
+[29]
+Underfull \hbox (badness 10000) in paragraph at lines 1069--1070
+
+ []
+
+[30] (samplelatex.aux)
+Package rerunfilecheck Info: File `samplelatex.out' has not changed.
+(rerunfilecheck)             Checksum: 24EB8B8453825EB95ED2C57DBA04B32B;1612.
+
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
@@ -531,10 +540,10 @@ LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 9202 strings out of 479832
- 137137 string characters out of 2871529
- 772971 words of memory out of 3000000
- 25730 multiletter control sequences out of 15000+200000
+ 9205 strings out of 479832
+ 137132 string characters out of 2871529
+ 773112 words of memory out of 3000000
+ 25733 multiletter control sequences out of 15000+200000
  541334 words of font info for 51 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
  78i,11n,85p,1095b,1881s stack positions out of 5000i,500n,10000p,200000b,50000s
@@ -545,12 +554,13 @@ fonts/cm/cmbx12.pfb><C:/Users/kean/AppData/Local/Programs/MiKTeX/fonts/type1/pu
 blic/amsfonts/cm/cmitt10.pfb><C:/Users/kean/AppData/Local/Programs/MiKTeX/fonts
 /type1/public/amsfonts/cm/cmmi12.pfb><C:/Users/kean/AppData/Local/Programs/MiKT
 eX/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Users/kean/AppData/Local/Progra
-ms/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/kean/AppData/Loca
-l/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmti12.pfb><C:/Users/kean/AppD
-ata/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmtt12.pfb>
-Output written on samplelatex.pdf (28 pages, 208398 bytes).
+ms/MiKTeX/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Users/kean/AppData/Local/
+Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/kean/AppDat
+a/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmti12.pfb><C:/Users/kea
+n/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmtt12.pfb>
+Output written on samplelatex.pdf (30 pages, 222212 bytes).
 PDF statistics:
- 571 PDF objects out of 1000 (max. 8388607)
+ 587 PDF objects out of 1000 (max. 8388607)
  290 named destinations out of 1000 (max. 500000)
- 169 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 177 words of extra memory for PDF output out of 10000 (max. 10000000)
 
