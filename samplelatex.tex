@@ -12,6 +12,7 @@
 \usepackage{listings}
 \usepackage[utf8]{inputenc}
 \usepackage{booktabs}
+\usepackage{multirow}
 \lstset{
   basicstyle=\ttfamily,
   columns=fullflexible,
@@ -617,6 +618,8 @@ One possible downside in terms of reliability is that searching is affected by t
 
 \textbf{Exceptions.} R includes the ability to signal exceptions when unusual events occur and catch to exceptions when they occur. When an exception occurs, the R interpreter may need to abandon the current function and signal the exception in the calling environment. Certain functions used for exception catching are the \texttt{try()} and \texttt{tryCatch()} functions. User-defined errors can also be done using \texttt{stop()}, which stops the execution of the function and displays an error message.
 
+%The cut
+
 \section{C++}
 \subsection{Purpose and Motivations}
 The purpose and motivation for the development of C++ programming language stems from the Ph.D thesis of Bjarne Stroustrup, the
@@ -712,7 +715,7 @@ The available modifiers in C++ include:
   \item short
 \end{itemize}
 
-The table \ref{table:DT2} shows the ranges of values of modified data types as well as their size allocation:
+The table \ref{table:DT2} shows the ranges of values of modified data types as well as their size allocation.
 
 \begin{table}[h!]
   \begin{center}
@@ -772,10 +775,36 @@ This will be read as a call for an unsigned long long integer the variable name 
   \textit{long unsigned int long x;}
 \end{center}
 
-This too will be accepted as a call for an unsigned long long integer with the variable name of x. 
+This too will be accepted as a call for an unsigned long long integer with the variable name of x. This shows that C++ allows for a great freedom in allowing the user to choose the methods that they wish to implement for their code but is also causes problems with the code's readability for other programmers. Although it is a testament to how effective the C++ compiler is at identifying the keywords and how they should be processed and used, but the standard of \textit{datatype variable\_name} must always be followed, so the following code:
+\begin{center}
+  \textit{long unsigned int x long;}
+\end{center}
+will not be read as an unsigned long long integer and will instead produce a syntax error.
 
+Other available data types that are built upon the primitive data types (derived data types) include Functions, Arrays, Pointers, and References.
+C++ also allows for user defined abstract data types such as Classes, Structures, Unions, Enumerations, and the Typedef-defined data type. All these will be further discussed in the following sections. 
 
-%\subsubsection{Binding, Scoping, Referencing}
+\subsubsection{Binding, Scoping, Referencing}
+This section covers the C++ languages ability of binding, scoping, and referencing.
+
+\textbf{Binding} C++ covers the ability for both compile-time binding, and execution-time binding. By default, and because C++ is a compiled language, the binds are all made during compile-time (early time compilation) this means that most, if not all, binds must be declared explicitly in the code wherever required.\\ Binds to variable names in C++ also have very specific rules. They include the following:
+\begin{itemize}
+  \item The variable name must begin with a letter or an underscore.
+  \item The variable name may contain letters, numbers, and underscores.
+  \item Spaces and special characters are not allowed and will result in an error.
+  \item Variable names are case sensitive.
+  \item Variable names can range between 1-255 characters.
+  \item Reserved words or keyword are not allowed to be variable names.
+\end{itemize}
+It is also a given that when binding a variable name, one must also include the data type of said bind.
+
+These rules allow a degree of freedom for the naming of variables by the programmer. The writabilty of the code is preserved because there is only one way of declaring variables. The only downside to variable naming is how the programmer decides to name their variables, so this does affect readability to a certain extent, especially if the programmer does not follow naming conventions and suggestions.  
+
+\textbf{Reserved Words} All programming languages have certain keywords that are made available to them in order to create the codes they need to create. Words such as \textit{if, for, while, do, continue, break, return, True, False} are only among of the few keywords that have a specific role in C++. These keywords are case-sensitive and will not be recognized by the compiler if used any differently. The downside of having so many keywords is not being able to memorize all of them and their specific uses. 
+
+It also worthy to note that when a user-defined function is declared or defined, one cannot use the name of said function as a variable name, further improving the readability of a specific line of code in C++. Unfortunately, this does affect the writability since this does limit the freedom of the programmer to bind a specfic name. 
+
+\textbf{Scoping} C++ has a 
 
 %\subsubsection{Expressions}
 
@@ -787,7 +816,7 @@ This too will be accepted as a call for an unsigned long long integer with the v
 \iffalse
 
 % PRIMITIVE DATA STRUCTURES
-% BINDING, SCOPIN,
+% BINDING, SCOPIN, REFERENCING
 % EXPRESSIONS
 % SYNTAX
 % PRECEDENCE RULES
