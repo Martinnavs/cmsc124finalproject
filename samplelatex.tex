@@ -16,7 +16,7 @@
 \lstset{
   basicstyle=\ttfamily,
   columns=fullflexible,
-  frame=single,
+  frame=none,
   breaklines=true,
   postbreak=\mbox{\textcolor{red}{$\hookrightarrow$}\space},
 }
@@ -107,7 +107,7 @@ For composite objects, R has vectors, matrices, names, lists, and data frames. \
 
 \textbf{Vectors.} As stated earlier, vectors are the most basic objects in R. Vectors, much like the implementations of languages such as C and Java, are collections of objects with the same type. Some special vectors included the atomic objects and vectors with a length of 0. If type-checked, a vector will reflect the data type of its values. Implementations of vectors can be done using the following syntax:
 
-\begin{lstlisting}[language=R, frame=none]
+\begin{lstlisting}[language=R ]
   > vec <- c(1,2,3) #using c()
   > vec
   [1] 1 2 3
@@ -130,7 +130,7 @@ This again raises the issue of ambiguity, as vectors can be implemented in three
 
 \textbf{Matrices.} Matrices are two-dimensional vectors, with the dimension as an attribute of length 2 comprised of the number of rows and number of columns. The implementation is done using the following syntax:
 
-\begin{lstlisting}[language=R, frame=none]
+\begin{lstlisting}[language=R ]
   > matr <- matrix(data=1:4, nrow=2, ncol=3) #using matrix()
   > matr #matrix of NAs
       [,1] [,2]
@@ -160,7 +160,7 @@ Similar to vectors, the multiple implementations with different use cases negati
 
 \textbf{Lists.} Lists are special vectors that can hold values of different classes. The implementation is done using the following syntax:
 
-\begin{lstlisting}[language=R, frame=none]
+\begin{lstlisting}[language=R ]
   > list1 <- list(1, 2L, True, ``list'') #using list()
   > list1
   [[1]]
@@ -193,7 +193,7 @@ In this case, one can see heavy ambiguity with the use of vector(). Although a l
 
 \textbf{Factors.} Factors represent categorical data, with or without order. This data class is important for statistical modeling. The sole implementation is given by the syntax:
 
-\begin{lstlisting}[language=R, frame=none]
+\begin{lstlisting}[language=R ]
   > x <- factor(c(``red'', ''blue'', ``red'', ``red''))
   > x
   [1] red blue red red
@@ -204,7 +204,7 @@ Only one implementation enhances writability as a programmer would not need to m
 
 \textbf{Data Frames.} Data frames are implemented as a special type of list with each element having the same length, which is intuitive as it is used to read tabular data. Each element (specifically, column) only has one class, but the columns may have different classes from each other. This data class is implemented by the given syntax:
 
-\begin{lstlisting}[language=R, frame=none]
+\begin{lstlisting}[language=R ]
   > df <- data.frame(nums=1:4, letters=c(``a'',''b'',''c'',
                       ''d''))
   > df
@@ -242,7 +242,7 @@ It can be noticed that variable names like ..var is possible - this is because t
 
 \textbf{Reserved Words.} R has some reserved words such as if, else, repeat, while, function, for, in, next, break, TRUE, FALSE, NULL, Inf, NaN, NA, NA\_integer\_, NA\_real\_, NA\_complex\_, NA\_character\_, ..., ..1, ..2, ..3, ..4, ..5, ..6, ..7, ..8, and ..9. Furthermore, the language has several one-letter ``reserved'' words: c, q, s, t, C, D, F, I, and T. However, native variables like T and F (corresponding to True and False, respectively) can be overwritten without producing any warning messages hence they are not as rigid as the formally reserved words:
 
-\begin{lstlisting}[language=R, frame=none]
+\begin{lstlisting}[language=R ]
   > T #T as a logical value
   [1] True
   > T <- 22 #declaring some value to T ,does not raise warnings
@@ -264,7 +264,7 @@ Also, R separates the namespaces for functions and nonfunctions so a variable c 
 
 This greatly affects reliability as some of the features are not as intuitive. Examples would include the following:
 
-\begin{lstlisting}[language=R, frame=none]
+\begin{lstlisting}[language=R ]
   > vec1 <- c(1, 'a', 3.11, TRUE) # direct coercion of vectors
   > vec1
   [1] ``1''   ``a''   ``3.11''   ``TRUE''
@@ -321,7 +321,7 @@ Related to this, R also does left to right associativity in expressions with ope
 
 \textbf{On how other operators work.} In relation to this, arithmetic expressions are written in infix notation. This is advantageous in both readability and writability as it directly reflects how people usually write mathematical expressions. R also utilizes element recycling in arithmetic expression as such expressions are evaluated element-wise (technically 1 + 1 means the addition of two vectors of length 1):
 
-\begin{lstlisting}[language=R, frame=none]
+\begin{lstlisting}[language=R ]
   > 1 + c(1,2,3)
   [1] 2  3  4
 \end{lstlisting}
@@ -333,7 +333,7 @@ The operators !, \&, and \(|\) apply element-wise on vectors similar to arithmet
 \textbf{Operator Overloading.}
 R does support operator overloading in the sense that you can override what a specific operator does. But as the language is not heavily inclined into the Object Oriented paradigm, use cases for operator overloading in C/C++ do not directly apply to the language. John Chambers (creator of S) and the R core team also stand on the perspective that certain operators such as ``+'' can only be used in their respective contexts only (in this case, in commutative operators, hence concatenation via ``+'' is not supported) as doing so might break related functionalities of that certain opeator. That is why R has provided the mechanism for user-defined operators, such as the following implementation for concatenation using ``+'':
 
-\begin{lstlisting}[language=R, frame=none]
+\begin{lstlisting}[language=R ]
   > # using %<character>% as a user defined operator
   > '%+%' <- function(x,y) paste(x,y,sep='')
   > ``con'' %+% ``caten'' %+% ``ation''
@@ -344,7 +344,7 @@ R does support operator overloading in the sense that you can override what a sp
 
 \textbf{Type Conversion.} As discussed earlier, R applies implicit coercion in most applications. To explicit convert a variable/object into a specific type, one can use the AsIs functions:
 
-\begin{lstlisting}[language=R, frame=none]
+\begin{lstlisting}[language=R ]
   > class(3)
   [1] ``numeric''
   > as.complex(3) # conversion
@@ -383,7 +383,7 @@ The presence of the equal sign as a possible way of assigning introduces readabi
 
 \textbf{Conditional Statements.} For two-way selection, R uses the if-else statement similar to C and C++. The statement also supports both single and compound clause forms:
 
-\begin{lstlisting}[language=R, frame=none]
+\begin{lstlisting}[language=R ]
   # supports compound boolean expressions
   # curly braces can be omitted in single clauses
 
@@ -402,7 +402,7 @@ The presence of the equal sign as a possible way of assigning introduces readabi
 
 Conditional statements are not vector operations. If the condition statement is a vector of more than one logical value, then only the first item will be used (recall that \&\& and \(||\) are used). To evaluate multiple logical values, we used ifelse. On the other hand, if-else statements can be directly assigned to a symbol in a manner similar to a ternary operator but with the generic syntax of the statement:
 
-\begin{lstlisting}[language=R, frame=none]
+\begin{lstlisting}[language=R ]
   > x <- if(5 == 0) 10 else 3
   > x
   [1] 3
@@ -410,7 +410,7 @@ Conditional statements are not vector operations. If the condition statement is 
 
 One major readability issue on if-else statements is that nested single clauses are allowed. As tabs do not bear any significance to the language, the statement
 
-\begin{lstlisting}[language=R, frame=none]
+\begin{lstlisting}[language=R ]
   if(condition)
       if(second.condition)
           statement
@@ -422,13 +422,13 @@ introduces ambiguity as the format and implementation are different, especially 
 
 Multiway selection is done using the switch function, which allows a variable to be tested for equality against a list of values. The snippet below demonstrates the syntax of a switch statement:
 
-\begin{lstlisting}[language=R, frame=none]
+\begin{lstlisting}[language=R ]
   switch(expression, case1, case2, case3, ...)
 \end{lstlisting}
 
  The switch statement ma have any number of case statements which are implemented based on the following forms:
 
-\begin{lstlisting}[language=R, frame=none]
+\begin{lstlisting}[language=R ]
   # based on integer value's position (1 to the maximum number
   # of arguments), if value exceeds it nothing is returned
   > switch(3,''one'', ``two'', ``three'', ``four'' )
@@ -447,7 +447,7 @@ As one may notice, the limited choice of data types to be used and having two wa
 
 \textbf{For loop.} R's counter-controlled loop is the for loop. The syntax is quite similar to C++'s, except that the iteration statement loops through the each value of a list or vector whose values can be integer, character, and logical.
 
-\begin{lstlisting}[language=R, frame=none]
+\begin{lstlisting}[language=R ]
   for (value in vector){
     expressions
   }
@@ -459,7 +459,7 @@ The for loop's loop variable still exists after the loop terminates and has the 
 
 \textbf{While loop.} R's logically-controlled loop is the while loop. Similar to the for loop, its syntax is similar to C++'s. Test expressions are evaluated in a left to right manner:
 
-\begin{lstlisting}[language=R, frame=none]
+\begin{lstlisting}[language=R ]
   while(test_expression){
     statement
   }
@@ -469,7 +469,7 @@ It can be noticed that the while loop has pretest iteration statement, which is 
 
 \textbf{Repeat loop.} Repeat is a special loop in R which is used to generate an infinite loop, which are used when one does not know when to terminate (e.g. iterative algorithms):
 
-\begin{lstlisting}[language=R, frame=none]
+\begin{lstlisting}[language=R ]
   repeat{
     statements
   }
@@ -494,7 +494,7 @@ other looping statements
 
 Functions in R are objects which take in input and return an output. In the language, functions are responsible for all actions, may it be arithmetic, assignment, looping, and others. As functions are first class objects, they can be bound to symbols (or variables), can be passed as arguments, and can be given different names. However, binding to variables are not necessary, as R functions are work like anonymous functions. Furthermore, a call to the function (that is, calling the function without parenthesis e.g. \texttt{> some.fxn}) returns a function.  The syntax of functions is:
 
-\begin{lstlisting}[language=R, frame=none]
+\begin{lstlisting}[language=R ]
   # functions with a single statement within the body may omit the curly braces
   function(arguments) body
 
@@ -519,7 +519,7 @@ Such a feature combines the advantages of positional and keyword matching. Exact
 
 In addition to this, arguments with default values, if placed at the last parts of the function definition, can be ignored if arguments passed function calls are either incomplete or unnamed:
 
-\begin{lstlisting}[language=R, frame=none]
+\begin{lstlisting}[language=R ]
   print.four <- function(first, second, third='3rd', fourth='4th'){
     cat(first, second, third, fourth)
   }
@@ -543,7 +543,7 @@ As one can see in the function definition, argument types are not explicitly sta
 
 When a function is called, a new environment (called the evaluation environment) is created, directly reflecting  the environment that was active at the time that the function was created. Hence, variables within that environment are also available to the function. A demonstration is provided by the following code snippet:
 
-\begin{lstlisting}[language=R, frame=none]
+\begin{lstlisting}[language=R ]
  fxn1 <- function(){
      val <- 1
      fxn2 <- function() print(val)
@@ -564,7 +564,7 @@ When a function is called, a new environment (called the evaluation environment)
 
 \textbf{Local Variables, Free Variables, and Lexical Scoping.} As mentioned in the previous sections, R is primarily a lexically scoped language. The implications of such scoping can be seen in how variables inside a function, namely local and free variables, are handled. Local variables are variables which are not part of the formal arguments that are declared within the function. Based on the lack of methods to allocate/create a static local variable, it can be said that local variables are dynamically allocated. Free variables are variables which are not part of the formal parameters and are not declared within the function. The following snippet of code demonstrates the two variables:
 
-\begin{lstlisting}[language=R, frame=none]
+\begin{lstlisting}[language=R ]
 print.name <- function(pet.name){
 # local variables
 name.text <- ``is my name.''
@@ -581,7 +581,7 @@ One possible downside in terms of reliability is that searching is affected by t
 
 \textbf{Return values.} All functions in R return values. R returns any object based on last evaluated expression  as the result of a function. Also, \texttt{return()} returns a value explicitly from a function, but it is rarely used in R. Functions can have multiple return values in a list with names associated with each. Accessing each can be done using \texttt{attach()}, which creates an environment that contains all the returned values:
 
-\begin{lstlisting}[language=R, frame=none]
+\begin{lstlisting}[language=R ]
 > sample.fxn <- function() {
 + 	# returning multiple name-value pairs in a list
 +	list(a=11, b=22, addfxn= function(x,y) x+y)
@@ -602,7 +602,7 @@ One possible downside in terms of reliability is that searching is affected by t
 
 \textbf{Generic functions in R.} Generic functions in R serve two purposes: firstly, it makes it easy to determine the correct function name for a certain unfamiliar class, secondly, it promotes code reusability for objects of different tyles. An example of which is when the interpreters calls the print function on any object return on the console. Contrary to its name, creating generic functions are more similar to creating overloaded functions. We take the print function for example - a definition to a print function (called in this context as method) for a new class can be done:
 
-\begin{lstlisting}[language=R, frame=none]
+\begin{lstlisting}[language=R ]
   # creating an environment with contents
   > envi <- new.env()
   > envi$name <- "environment1"
@@ -850,7 +850,7 @@ It also worthy to note that when a user-defined function is declared or defined,
 
 \subsection{Code in C++}
 
-\begin{lstlisting}[language=C++, frame=none]
+\begin{lstlisting}[language=C++ ]
   #include <iostream>
 
   using namespace std;
@@ -892,7 +892,7 @@ It also worthy to note that when a user-defined function is declared or defined,
 
 We used R's feature of declaring new environments and declaring objects within those environments as a way of implementing a similar ``Struct'' feature in R.
 
-\begin{lstlisting}[language=R, frame=none]
+\begin{lstlisting}[language=R ]
 
 # used to execute functions defined within the "Struct"
 execute <- function(func ,env=parent.frame()){
@@ -951,7 +951,7 @@ Struct <- function(...){
 
 To emulate the same Rectangle struct in C++, the following can be done:
 
-\begin{lstlisting}[language=R, frame=none]
+\begin{lstlisting}[language=R ]
   # creation of functions to be added into the Rectangle Struct
   > Rectangle_area <- function() length*width
 
@@ -982,7 +982,7 @@ To emulate the same Rectangle struct in C++, the following can be done:
 In the context of C++, overloaded functions are used within classes (ADD SOMETHING HERE KIEV). In the part on which discussed R's generic function, one can see that constructing methods are quite similar to constructing overloaded functions. However, one also see that such methods only apply in a class-to-function basis, not necessarily a function-to-function overloading.
 
 \subsection{Code in C++}
-\begin{lstlisting}[language = C++, frame=none]
+\begin{lstlisting}[language = C++ ]
   #include <iostream>
 
   int mul(int a, int b){
@@ -1009,16 +1009,93 @@ In the context of C++, overloaded functions are used within classes (ADD SOMETHI
 \subsection{Advantages of not having Overloaded functions}
 
 \subsection{Workaround in R}
+ The following can be a possible solution to emulate function overloading, given the following assumptions:
+     1. Similar to creating overloaded functions, the programmers knows the minimum and maximum number of arguments.
+     2. Argument names are decided beforehand for all possible arguments of the said functions
 
+The approach uses a single function with all the possible parameters within it. We exploit the feature of having default argument values NULL.
+
+\begin{lstlisting}[language=R]
+# method 1: using FALSE as default values
+mul <- function(a=FALSE, b=FALSE, c=FALSE){
+    if(!isFALSE(a)){
+        if(is.integer(a)){
+            if(!isFALSE(b)){
+                # explicit conversion based on the return type (int)
+                a * as.integer(b)
+            }
+            else
+                stop(``Variable b is not initialized b is not initialized'')
+        }
+        else{
+            # coercion from integer to numeric according to the return type (float)
+            if(isFALSE(b))
+                stop(``Variable b is not initialized'')
+            else{
+                if(!isFALSE(c))
+                    a * b * c
+                else
+                    stop(``Variable c is not initialized'')
+            }
+
+        }
+    }
+    else{
+        # emulate errors if named variables are passed
+        stop(``Variable a is not initialized'')
+    }
+}
+\end{lstlisting}
+  
 \section{Feature 3: Do-while loops}
 
 \subsection{Code in C++}
+
+\begin{lstlisting}[language=C++]
+  #include <iostream>
+
+  using namespace std;
+
+  int main(){
+    int x = 0;
+
+    do{
+      x++;
+      cout << x << endl;
+    }while(x < 3 );
+
+  }
+
+  -------------------------
+  Output:
+  1
+  2
+  3
+
+\end{lstlisting}
 
 \subsection{Advantages of having Do-while loops}
 
 \subsection{Advantages of not Do-while loops}
 
 \subsection{Workaround in R}
+
+We used R's repeat loop and a conditional statement at the end of the loop body. This ensures that the code runs at least once before checking the conditions.
+
+\begin{lstlisting}[language=R ]
+> x <- 0
+> repeat{
++   x <- x + 1
++   print(x)
++
++   # acts as the while of the loop
++   if(x >= 3)
++     break
++ }
+[1] 1
+[1] 2
+[1] 3
+\end{lstlisting}
 
 \end{document}
 https://www.johndcook.com/blog/r_language_for_programmers/
