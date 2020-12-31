@@ -838,7 +838,7 @@ As seen above, C++ has the ability to convert various data types during compile 
 \begin{itemize}
   \item Global scope - has the longest lifetime; and exists implicitly in the global space and extends from the beginning of its declaration until the end of the file; a common example being global variables
   \item Namespace scope - it is the scope within a namespace that is outside any class, enum definition, or function block; visible from its declaration until the end of the namespace; a common example being \textit{using namespace std;}
-  \item Local scope - names declared within a function or lambda; visible only at the point of declaration until the end of the function or lambda; also commonly known as block scopes denoted by code found in between brackets {};
+  \item Local scope - names declared within a function or lambda; visible only at the point of declaration until the end of the function or lambda; also commonly known as block scopes denoted by code found in between curly brackets \{\};
   \item Class scope - anything and everything found and defined in a class has a class scope (class members); they exist regardless of point of declaration and may be \textit{public, protected, or private}; only public and protected members can be accessed from member-selction operators (. \& -\textgreater)
   \item Statement scope - statement scopes exist in control statements and loop statements such as \textit{for, if, while, \& switch} statements.
   \item Function scope - function scopes are visible even before their point of declaration; mostly known as labels; common in \textit{switch case statements \& goto labels}; usually denoted by a colon (:)
@@ -886,7 +886,7 @@ References are similar to pointers in which they too hold the address of an obje
 As shown in the code example above, references and pointers are capable of causing changes to the data they are pointing at or referencing. This allows a particularly powerful tool for programmers to update data even through different scopes or processes. The downside of such a convenient process is the readability of the code. As it only uses simple symbols (that also have various meanings or contexts), understanding its behavior becomes much harder and may become prone to reading mistakes or misunderstandings in behavior and potential use. 
 
 \subsubsection{Expressions}
-\textbf{General Syntax} In C++, all declarative sentences or instructions must end in a semicolon (;) as seen in earlier examples. Scoping is generally indicated through the use of curly brackets ({}). C++ is strict with these concepts in all versions and will fail to compile whenever there is a missing semicolon in areas where it is required. This strict rule does affect the writability of code, especially for programmers coming from languages that do not require these indicators. However, because it is an excellent notation for the separation of instructions, it makes code more readable and generally understandable. It also increases the language's reliability because it is clearly denotes the end of an expression and prevents other syntactical mistakes. The use of a comma (,) also denotes a separation of similar statements but are not immediately related to one another. A example is the use in the code
+\textbf{General Syntax} In C++, all declarative sentences or instructions must end in a semicolon (;) as seen in earlier examples. Scoping is generally indicated through the use of curly brackets (\{\}). C++ is strict with these concepts in all versions and will fail to compile whenever there is a missing semicolon in areas where it is required. This strict rule does affect the writability of code, especially for programmers coming from languages that do not require these indicators. However, because it is an excellent notation for the separation of instructions, it makes code more readable and generally understandable. It also increases the language's reliability because it is clearly denotes the end of an expression and prevents other syntactical mistakes. The use of a comma (,) also denotes a separation of similar statements but are not immediately related to one another. A example is the use in the code
 \begin{center}
   \textit{int x,y,z;}
 \end{center} 
@@ -897,14 +897,14 @@ In the example, the comma is used to separate variable names but all are related
 \begin{table}[h!]
     \caption{Precedence rules of C++}
     \label{table:PR1}
-    \begin{tabular}{|c|l|p{0.5\linewidth}|l|}
+    \begin{tabular}{|c|l|p{0.35\linewidth}|l|}
       \toprule % toprule here
       \textbf{Precedence} & \textbf{Operator} & \textbf{Description} & \textbf{Associativity} \\
       \midrule % midrule here
       17 & :: & Scope resolution  &  Left-to-Right\\
       \hline
       \multirow{5}{5em}{16} & a++, a-- & Suffix/postfix increment and decrement & \multirow{5}{5em}{Left-to-Right} \\
-      & type(), type{} & Functional cast & \\
+      & type(), type\{\} & Functional cast & \\
       & a() & Function call & \\
       & a[] & Subscript & \\
       & . , -\textgreater & Member acess \\
@@ -936,7 +936,7 @@ In the example, the comma is used to separate variable names but all are related
   \begin{table}[h!]
     \caption{Continuation of Precedence Rules}
     \label{table:PR2}
-    \begin{tabular}{|c|l|p{0.5\linewidth}|l|}
+    \begin{tabular}{|c|l|p{0.35\linewidth}|l|}
       \toprule % toprule here
       \textbf{Precedence} & \textbf{Operator} & \textbf{Description} & \textbf{Associativity} \\
       \midrule % midrule here
@@ -958,7 +958,7 @@ In the example, the comma is used to separate variable names but all are related
       \multirow{8}{5em}{2} & a?b:c & Ternary conditional & \multirow{8}{5em}{Right-to-Left} \\
       & throw & Throw operator &\\
       & co\_yield & Yield-expression &\\
-      & = & Direct assignement &\\
+      & = & Direct assignment &\\
       & +=, -= & Compound assignment by sum and difference &\\
       & *=, /=, \%= & Compound assignment by multiplication, division, and remainder &\\
       & \textgreater \textgreater = , \textless \textless = & Compound assignment by bitwise left-shift and right-shift &\\
@@ -969,11 +969,134 @@ In the example, the comma is used to separate variable names but all are related
     \end{tabular}
 \end{table}
 
-As seen from the tables, the precedence found in C++ is facet of the language that allows for great control and maneuverability of the programming language and the code one is able to make. All these in an effor to avoid problems in regards to ambiguity of the language and to isolate certain processes from others. 
+As seen from the tables, the precedence found in C++ is facet of the language that allows for great control and maneuverability of the programming language and the code one is able to make. All these in an effor to avoid problems in regards to ambiguity of the language and to isolate certain processes from others. One is also able to see operators, and their overloads, and what behaviors they perform that a programmer is able to use an any given time. For example the operator \textbf{++} is an single increment operator added in postfix or prefix to a variable name to increase its value by one. This can also be written as \textbf{variable\_name+=1; or variable\_name = variable\_name + 1;}. There is some nuance to the implementation of each operator such as those that affect runtime, but generally, all three operators perfrom the same task, add a value of one to the current value found in the variable and assigning this new value to the variable. C++ is full of these types of operations and overloading is not uncommon. Unfortunately, having so many methods available does make it difficult to learn a programming language but having it too simple, also affects how readable it is. It also allows for greater control using less steps or instructions, which make it very convenient for programmers. 
 
-\textbf{Operators and their overloads} C++ has a great number of operators existing within the language. The table of precedence rules shows the which among the operators work first 
+\subsubsection{Statements and Control Structures}
 
-%\subsubsection{Statements and Control Structures}
+\textbf{Assignment Operations} C++ assignment is fairly straightforward. The syntax is always the same in all situations.
+\begin{center}
+  \textit{variable\_name = some\_accepted\_value;}
+\end{center}
+The equal sign (=) being the assignment operator. As seen above, has a very low precedence as well as being read from right-to-left, so will almost always be done last. Assignment is also a statement and so must always have a semicolon to denote the end of the statement. It is also worthy of note that multiple assignment is allowed in C++ as well as multiple assignments in one line. The code below exemplifies that:
+\begin{lstlisting}[language=C++]
+  #include <iostream>
+  using namespace std;
+  int main(){
+    int x = 52, y = 31, z = 40;
+    int t1, t2;
+    t1 = t2 = 52;
+    cout<< t1<<" "<<t2<<endl;
+    t1 = y, t2 = z;
+    cout<< t1<<" "<<t2<<endl;
+    return 0;
+  }
+  -------------------------------
+  Expected Output:
+  52 52
+  31 40
+\end{lstlisting}
+
+The above use of assignments is a convenience when writing code as it allows for short but concise instructions but because of the use of arbitrary symbols, the readability of the code suffers especially if the programmer is fond of daisy-chaning many assignments at once. The facet that makes the readability process a lot less difficult is the use of comma because it will always denote two separate statements that are similar in concept or process. In this case, it is used for assignment.
+
+\textbf{Conditional Statements} Conditional statements in C++ involve the use of the reserved words \textit{if, else if, else,} and \textit{switch}. the if-statement asks a question that is determined True or False by logical conditions. When determined True, the code block under the it is run. When False, proceeds to check for other else if-statements or the else-statement or terminate. The else if-statement is an alternative question that is determined True or False by logical conditions, designed to be another logical check that is different or an alternative to the original if-statement and will only run its code block when the condition is determined to be True. The else statement automatically runs its code block when the if statement and all other else if statements have determined to be False. It is not necessary for a control statement to have else if statements or the else statement. The logical statements can be seen in the precedence table \ref{table:PR1} and \ref{table:PR2}. The switch statement works in tandem with the case-label. A switch works by taking an input and passing it to the code block with the appropriate case. The following code snippet is an application of C++ conditional statements:
+\begin{lstlisting}[language=C++]
+#include <iostream>
+
+using namespace std;
+
+int main(){
+    int a, b, c;
+    a = b = 2; //giving a value of 2 to variables a and b
+    if(a==2){ //an if statement with the condition of is the value found in a equal to 2
+
+        cout<<"In if statement"<<endl;  //the code snippet run if the if statement is true
+
+    }else if(b!=9){ //an else if statement with the condition of is the value found in b not equal to 9
+
+        cout<<"In else-if statement"<<endl; //the code snippet run if the else if statement is true
+
+    }else{  //the else statement
+
+        cout<<"In else statement"<<endl; //runs if all of the above is deteremined to be false
+    }
+    c = 3;  //setting variable c to have a value of 3
+
+    switch(c){  //switch statement with the input of c
+
+        case 1: //runs if the switch statement input is 1
+
+            cout<< "switch Case 1"<<endl;
+            break;
+        case 2: //runs if the switch statement input is 2
+
+            cout<< "switch Case 2"<<endl;
+            break;
+        case 3: //runs if the switch statement input is 3
+
+            cout<< "switch Case 3"<<endl;
+            break;
+        default: //runs if the switch statement input is none of the above
+
+            cout<< "switch default"<<endl;
+            break;
+    }
+    return 0; //safely ending main()
+}
+----------------------
+Expected Output:
+In if statement
+switch Case 3
+\end{lstlisting}
+The snippet above shows the use of all control statements available of use. Notice how even though the else-if statement is True, the code block under it does not run. This is because the if, else-if, and else statements only run the first code block that passes as True in its statement and ignore the rest. In this case, the if-statement is True, so the program chooses to run only the if-statement and ignores the rest. Similarly, if the if-statement was False, and the else-if statement was True, it would only run the code block under the else-if statement and ignore the rest and proceed. The switch statement works by accepting an input and choosing among the cases available and running the one with the exact case value. In this code, the value passed to the switch was three (3). So the switch statement pushes the code to be run to everything under case 3. The break; statement found in each case is important as it avoids running snippets of code it isn't supposed to because cases are really only jump labels and not actual scopes for code runs. Hypothetically, if case 3 did not have the break; statement, the line \textit{cout<< "switch default"<<endl;} would run, and that would be a behavior a programmer should prevent.
+
+A common problem when writing if-statements are the nested if-statements that cause an ambiguous behavior. Exemplified in the following snippet
+\begin{lstlisting}[language=C++]
+  if(condition)
+    if(second.condition)
+      statement
+else
+  statement
+\end{lstlisting}
+The question becomes, which else statement is that pointing towards? Is it the else statement of the first if-statement or the nested if-statement? Although a very common problem, it can be simply solved through the use of scope denoted by the use of curly braces \{\}.
+\begin{lstlisting}[language=C++]
+if(condition){
+  if(second.condition)
+    statement
+}else
+  statement 
+\end{lstlisting}
+or
+\begin{lstlisting}[language=C++]
+  if(condition)
+    if(second.condition){
+      statement
+  }else
+    statement 
+  \end{lstlisting}
+Both methods allow for the prevention of ambiguity as well as making things more readable but perform completely different processes. The first scope shown is for when the else-statement is for the first if-statement while the second scope shown is for when the else-statement is for the nested if-statement. This ability to decrease ambiguity takes more effort on the part of the programmer to scope out certain behaviors. Ultimately, it is for the best to use scopes to limit ambiguity. 
+
+\textbf{Iterative Statements} In C++, iterative statements or commonly known as loops, are very powerful tools that allow the performance of a specific snippet of code multiple times. There are three primary loops in C++, \textit{for-loop, while-loop, and the do-while loop}. A common use for a loop is to go through various data structures such as arrays, lists, vectors, among many others available to C++. For loops have the following syntax:
+\begin{lstlisting}
+  for(initial\_value; conditionl; increment/decrement){
+      statement;
+  }
+\end{lstlisting}
+While loops syntax is the following:
+\begin{lstlisting}
+  while(condition){
+    statement;
+    increment/decrement;
+  }
+\end{lstlisting}
+Do-while loops syntax is the following:
+\begin{lstlisting}
+  do{
+    statement;
+    increment/decrement;
+  }while(condition)
+\end{lstlisting}
+
+The main difference between the three loops is their usage and what they are designed to do. For loops were designed to iterate through data structures and have it check a specific set of instructions. For-loops are usually used when the programmer knows what it should be doing, and when it should stop. Do-While loops are used when the inner statements of the loop must be performed before checking the condition in which to stop. Its postfix nature allows for at least one iteration of the process to be performed. While loops are prefix in nature and check the conditions first before proceeding with the code block. It is imperative that all loops must have a condition which actually terminates else the problem of infinite looping occurs. For reference, all the conditions must be determine True for the code blocks within them to be processed and when deteremined False or the use of the break keyword exits the loop in its entirety. Another keyword found in loops is the continue keyword which at the point of reading, ignores every other statement after it and proceeds with the next iteration of the loop. Be very careful of the placement of the continue statement, as this may also cause an infinite loop when put before the increment/decrement of the loop (does not affect for-loops). It is possible to have control statements and nested iterations in all loops. This allows for a great degree of freedom for the programmer to use the loop in the ways that they require. Unfortunately, because the loops have a very general syntax, it is easy to misread certain loops especially when nested multiple times. The reliability of the loops also depends on how the programmer wants it to perform but in general, well-coded loops will always work as intended. It is truly the fault of the programmer if an infinite loop is created.
 
 %\subsubsection{Procedures and Subprograms}
 
@@ -1276,7 +1399,7 @@ We used R's repeat loop and a conditional statement at the end of the loop body.
 [1] 3
 \end{lstlisting}
 
-\section{Conclusion}
+%\section{Conclusion}
 
 \end{document}
 https://www.johndcook.com/blog/r_language_for_programmers/

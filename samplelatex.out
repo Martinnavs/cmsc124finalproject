@@ -22,19 +22,19 @@
 \BOOKMARK [3][-]{subsubsection.2.5.1}{Data Types}{subsection.2.5}% 22
 \BOOKMARK [3][-]{subsubsection.2.5.2}{Binding, Scoping, Referencing}{subsection.2.5}% 23
 \BOOKMARK [3][-]{subsubsection.2.5.3}{Expressions}{subsection.2.5}% 24
-\BOOKMARK [1][-]{section.3}{Feature 1: Struct and Struct Constructor}{}% 25
-\BOOKMARK [2][-]{subsection.3.1}{Code in C++}{section.3}% 26
-\BOOKMARK [2][-]{subsection.3.2}{Advantages of having Structs}{section.3}% 27
-\BOOKMARK [2][-]{subsection.3.3}{Advantages of not having Structs}{section.3}% 28
-\BOOKMARK [2][-]{subsection.3.4}{Workaround in R}{section.3}% 29
-\BOOKMARK [1][-]{section.4}{Feature 2: Overloaded functions}{}% 30
-\BOOKMARK [2][-]{subsection.4.1}{Code in C++}{section.4}% 31
-\BOOKMARK [2][-]{subsection.4.2}{Advantages of having Overloaded functions}{section.4}% 32
-\BOOKMARK [2][-]{subsection.4.3}{Advantages of not having Overloaded functions}{section.4}% 33
-\BOOKMARK [2][-]{subsection.4.4}{Workaround in R}{section.4}% 34
-\BOOKMARK [1][-]{section.5}{Feature 3: Do-while loops}{}% 35
-\BOOKMARK [2][-]{subsection.5.1}{Code in C++}{section.5}% 36
-\BOOKMARK [2][-]{subsection.5.2}{Advantages of having Do-while loops}{section.5}% 37
-\BOOKMARK [2][-]{subsection.5.3}{Advantages of not Do-while loops}{section.5}% 38
-\BOOKMARK [2][-]{subsection.5.4}{Workaround in R}{section.5}% 39
-\BOOKMARK [1][-]{section.6}{Conclusion}{}% 40
+\BOOKMARK [3][-]{subsubsection.2.5.4}{Statements and Control Structures}{subsection.2.5}% 25
+\BOOKMARK [1][-]{section.3}{Feature 1: Struct and Struct Constructor}{}% 26
+\BOOKMARK [2][-]{subsection.3.1}{Code in C++}{section.3}% 27
+\BOOKMARK [2][-]{subsection.3.2}{Advantages of having Structs}{section.3}% 28
+\BOOKMARK [2][-]{subsection.3.3}{Advantages of not having Structs}{section.3}% 29
+\BOOKMARK [2][-]{subsection.3.4}{Workaround in R}{section.3}% 30
+\BOOKMARK [1][-]{section.4}{Feature 2: Overloaded functions}{}% 31
+\BOOKMARK [2][-]{subsection.4.1}{Code in C++}{section.4}% 32
+\BOOKMARK [2][-]{subsection.4.2}{Advantages of having Overloaded functions}{section.4}% 33
+\BOOKMARK [2][-]{subsection.4.3}{Advantages of not having Overloaded functions}{section.4}% 34
+\BOOKMARK [2][-]{subsection.4.4}{Workaround in R}{section.4}% 35
+\BOOKMARK [1][-]{section.5}{Feature 3: Do-while loops}{}% 36
+\BOOKMARK [2][-]{subsection.5.1}{Code in C++}{section.5}% 37
+\BOOKMARK [2][-]{subsection.5.2}{Advantages of having Do-while loops}{section.5}% 38
+\BOOKMARK [2][-]{subsection.5.3}{Advantages of not Do-while loops}{section.5}% 39
+\BOOKMARK [2][-]{subsection.5.4}{Workaround in R}{section.5}% 40
