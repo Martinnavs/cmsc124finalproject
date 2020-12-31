@@ -68,29 +68,29 @@ Functional
 \subsection{Language Evaluation Criteria}
 
 \subsubsection{Data Types}
-R abides by the principle that everything is an object which is stored in physical memory, there are no ``data types'', per se. Hence this section shall cover and critique the fundamental data objects (which may be called variables throughout the paper) and values found in R.
+R abides by the principle that everything is an object which is stored in physical memory, there are no ``data types'' per se but objects with different types/classes. However, in the paper we use the term data type to refer to these types. This section shall cover and critique the fundamental data objects and values found in R.
 
-\textbf{Atomic Objects} There are five basic objects which serve as the building blocks of other complex objects in the language. The objects are given by the table below:
+\textbf{Atomic Objects.} There are five basic objects which serve as the building blocks of other complex objects in the language. The objects are given by table \ref{tab:table1}:
 
-\begin{table}[h!]
+\begin{table}[h!] \label{table1}
   \begin{center}
     \caption{Atomic Classes of Objects in R}
     \label{tab:table1}
     \begin{tabular}{|l|c|l|}
       \toprule % toprule here
-      \textbf{Object Name} & \textbf{Sample Values} & \textbf{Stored as}\\
+      \textbf{Object Name} & \textbf{Sample Values} \\
       \midrule % midrule here
-      character & ``R'', ``another char'' & character \\
+      character & ``R'', ``another char'' \\
       \hline
-      numeric (real) & 2, 1.0 & numeric \\
+      numeric (real) & 2, 1.0 \\
       \hline
-      integer & 1L, 22L & integer \\
+      integer & 1L, 22L \\
       \hline
-      complex & 1 + 0i, 2 - 11i & complex \\
+      complex & 1 + 0i, 2 - 11i \\
       \hline
-      logical & TRUE, T, FALSE, F & logical \\
+      logical & TRUE, T, FALSE, F \\
       \hline
-      raw & ``Hello'' which is stored as 48 65 6c 6c 6f& raw \\
+      raw & ``Hello'' which is stored as 48 65 6c 6c 6f \\
       \bottomrule
     \end{tabular}
   \end{center}
@@ -98,12 +98,11 @@ R abides by the principle that everything is an object which is stored in physic
 
 It must also be noted that vectors are the most basic type of objects in R. Hence, these atomic objects are actually vectors of length 1. A more detailed analysis on the effects of vectors will be discussed further sections.
 
-Majority of the atomic objects are intuitive in nature, however some are affected by the peculiarities of the language. By default, R treats numbers as numeric types, which are implemented as double precision real. This can be very useful if one is dealing with large numbers as the memory allocated to double precision is suitable, however it would be too much if numbers which fall within the short or integer range are used. To declare an integer, one must add L as a suffix to the number, as seen in the table - this may positively affect readability as one can distinctly separate the integers and the non-integers, however writability suffers as forgetting the suffix means that the number is type casted into numeric, which may happen when one writes long code in the language. Another issue on readability and writability is the allowing of T and F, which also has other issues to be discussed in the next section, as native variables which contain TRUE and FALSE values - this causes ambiguity in the sense that a single construct is implemented in two way, and it may be confused with a variable,
-
+Majority of the atomic objects are intuitive in nature, however some are affected by the peculiarities of the language. By default, R treats numbers as numeric types, which are implemented as double precision real. This can be very useful if one is dealing with large numbers as the memory allocated to double precision is suitable, however it would be too much if numbers which fall within the short or integer range are used. To declare an integer, one must add L as a suffix to the number, as seen in the table. This may positively affect readability as one can distinctly separate the integers and the non-integers, however writability suffers as forgetting the suffix means that the number is coerced into numeric, which may happen when one writes long code in the language. Another issue on readability and writability is the allowing of T and F, which also has other issues to be discussed in the next section, as native variables which contain TRUE and FALSE values. This causes ambiguity in the sense that a single construct is implemented in two ways.
 
 Additionally, R was also designed with no separate string object, thereby eroding the distinction between characters (which are implemented generally as single characters) and strings (which may contain zero or more characters).
 
-For composite objects, R has vectors, matrices, names, lists, and data frames. \\
+Among R's composite objects, the most prominent are vectors, matrices, lists, and data frames. \\
 
 \textbf{Vectors.} As stated earlier, vectors are the most basic objects in R. Vectors, much like the implementations of languages such as C and Java, are collections of objects with the same type. Some special vectors included the atomic objects and vectors with a length of 0. If type-checked, a vector will reflect the data type of its values. Implementations of vectors can be done using the following syntax:
 
@@ -118,15 +117,15 @@ For composite objects, R has vectors, matrices, names, lists, and data frames. \
   [1] 0 0 0
   > class(vec2)
   [1] numeric
-  > vals <- c(4,5,6)
-  > vec3 <- as.vector(vals) #explicit coercion
+  > mat <- matrix(1:4, nrow=2, ncol=2)
+  > vec3 <- as.vector(vec) #explicit coercion
   > vec3
-  [1] 4 5 6
+  [1] 1 2 3 4
   > class(vec)
   [1] numeric
 \end{lstlisting}
 
-This again raises the issue of ambiguity, as vectors can be implemented in three different ways. Writability suffers as even though programmers may choose a single implementation, the three methods' use cases do not directly intersect with each other (vector() creates a vector of uniform values, c() is the most generic implementation but does not directly handle uniform values, and as.vector() is an explicit coercion to a vector). Readability also suffers with the usage of c(), as the function names are not self-documenting.\\
+This again raises the issue of ambiguity, as vectors can be implemented in three different ways. Writability suffers as even though programmers may choose a single implementation, the three methods' use cases do not directly intersect with each other (vector() creates a vector of uniform values, c() is the most generic implementation but does not directly handle uniform values, and as.vector() is an explicit coercion to a vector). Readability also suffers with the usage of c(), as the function name is not self-documenting and the need to remember each implementation.\\
 
 \textbf{Matrices.} Matrices are two-dimensional vectors, with the dimension as an attribute of length 2 comprised of the number of rows and number of columns. The implementation is done using the following syntax:
 
@@ -156,7 +155,7 @@ This again raises the issue of ambiguity, as vectors can be implemented in three
   [2,]  3    4
 \end{lstlisting}
 
-Similar to vectors, the multiple implementations with different use cases negatively affects both readability and writability as the programmer needs to remember each implementation.\\
+Similar to vectors, the multiple implementations with different use cases negatively affects both readability and writability as the programmer needs to remember the use case for each implementation.\\
 
 \textbf{Lists.} Lists are special vectors that can hold values of different classes. The implementation is done using the following syntax:
 
@@ -174,33 +173,16 @@ Similar to vectors, the multiple implementations with different use cases negati
 
   [[4]]
   [1] ``list''
-  > list2 <- vector(``list'', length=4) #using vector()
+  > list2 <- vector(``list'', length=2) #using vector()
   > list2 #empty list of specified length
   [[1]]
   NULL
 
   [[2]]
   NULL
-
-  [[3]]
-  NULL
-
-  [[4]]
-  NULL
 \end{lstlisting}
 
-In this case, one can see heavy ambiguity with the use of vector(). Although a list is a type of vector, using vector() to create a NULL list defeats the purpose of having a separate list function. In turn, it aids somehow aids writability as a programmer can use one function, but negatively affects readability, even with the passing of the ``list'' argument.\\
-
-\textbf{Factors.} Factors represent categorical data, with or without order. This data class is important for statistical modeling. The sole implementation is given by the syntax:
-
-\begin{lstlisting}[language=R ]
-  > x <- factor(c(``red'', ''blue'', ``red'', ``red''))
-  > x
-  [1] red blue red red
-  Levels: blue red
-\end{lstlisting}
-
-Only one implementation enhances writability as a programmer would not need to memorize multiple syntax to create factors; it negatively affects readability as the programmer needs to memorize yet another data class, albeit necessary.\\
+In this case, one can see heavy ambiguity with the use of vector(). Although a list is a type of vector, using vector() to create a NULL list defeats the purpose of having a separate list function. In turn, it negatively affects writability as the programmer needs to know two ways of implementing lists (especially if one needs a list of NULLs), as well as affects readability due to the usage of a function of another data type even with the passing of the ``list'' argument.\\
 
 \textbf{Data Frames.} Data frames are implemented as a special type of list with each element having the same length, which is intuitive as it is used to read tabular data. Each element (specifically, column) only has one class, but the columns may have different classes from each other. This data class is implemented by the given syntax:
 
@@ -215,7 +197,7 @@ Only one implementation enhances writability as a programmer would not need to m
   4    4         d
 \end{lstlisting}
 
-Only one implementation enhances writability as a programmer would not need to memorize multiple syntax to create data frames; it negatively affects readability as the programmer needs to memorize yet another data class, albeit necessary.\\
+Only one implementation enhances writability as a programmer would not need to memorize multiple syntax to create data frames.\\
 
 \textbf{Special Data Values.} As R is fundamentally a statistical language, it contains other values which are integral in processing data, such as:
 \begin{description}
@@ -237,30 +219,30 @@ This section covers names, variable lifetimes, scope, coercion, and an introduct
 \textless second\textgreater ::= A-Z | a-z | . | \_ \\
 \textless succeeding\textgreater ::= A-Z | a-z | . | \_ | 0-9 \\
 
-It can be noticed that variable names like ..var is possible - this is because the dot character in R bears no major significance (except for the implications in UNIX-adapted commands such as ls() and the ... syntax used in functions). \$ is used a manner similar to the dot in other languages. These feature are quite problematic for programmers who have experience in Object Oriented programming as variable names such as sample.var has an actual implication in the OO paradigm, especially as this is the recommended naming style of Google's R Style Guide. Other naming conventions use underscores (sample\_var), which may cause writability issues for programmers who use Emacs Speaks Statistics (ESS) as the underscore is mapped to the <- operator, and camelcase (sampleVar), which also suffers the readability issue of having similar-looking variable names.
+It can be noticed that variable names like ..var is possible - this is because the dot character in R bears no major significance (except for the implications in UNIX-adapted commands such as ls() and the ... syntax used in functions). \$ is used a manner similar to the dot in other languages, so \texttt{someobject.value} in C or C++ becomes \texttt{someobject\$value} in R. These features are quite problematic for programmers who have experience in Object Oriented programming as variable names such as sample.var has an actual implication in the OO paradigm, especially as this is the recommended naming style of Google's R Style Guide. Other naming conventions use underscores (sample\_var), which may cause writability issues for programmers who use Emacs Speaks Statistics (ESS) as the underscore is mapped to the <- operator, and camelcase (sampleVar), which also suffers the readability issue of having similar-looking variable names.
 
-
-\textbf{Reserved Words.} R has some reserved words such as if, else, repeat, while, function, for, in, next, break, TRUE, FALSE, NULL, Inf, NaN, NA, NA\_integer\_, NA\_real\_, NA\_complex\_, NA\_character\_, ..., ..1, ..2, ..3, ..4, ..5, ..6, ..7, ..8, and ..9. Furthermore, the language has several one-letter ``reserved'' words: c, q, s, t, C, D, F, I, and T. However, native variables like T and F (corresponding to True and False, respectively) can be overwritten without producing any warning messages hence they are not as rigid as the formally reserved words:
+\textbf{Reserved Words.} R has some reserved words such as if, else, repeat, while, function, for, in, next, break, TRUE, FALSE, NULL, Inf, NaN, NA, NA\_integer\_, NA\_real\_, NA\_complex\_, NA\_character\_, ..., ..1, ..2, ..3, ..4, ..5, ..6, ..7, ..8, and ..9. This negatively affects writability as the programmer needs to know what these words are in naming variables. Furthermore, the language has several one-letter ``reserved'' words: c, q, s, t, C, D, F, I, and T. However, native variables like T and F (corresponding to TRUE and FALSE, respectively) can be overwritten without producing any warning messages hence they are not as rigid as the formally reserved words, thereby reducing reliability:
 
 \begin{lstlisting}[language=R ]
   > T #T as a logical value
-  [1] True
+  [1] TRUE
   > T <- 22 #declaring some value to T ,does not raise warnings
   > T
   [1] 22
 \end{lstlisting}
 
-Also, R separates the namespaces for functions and nonfunctions so a variable c and the vector-creating function c() can coexist, which is disadvantageous for readability as programmers have to be aware of the different uses of a name.
+Also, R separates the namespaces for functions and nonfunctions so a variable c and the vector-creating function c() can coexist, which is disadvantageous for readability as programmers have to be aware of the different uses of a name that could exist in both function and variable forms.
 
 \textbf{On Variables.} Variable aliasing does not exist in R as the language allows only for copying objects and does not directly give the user access to pointers. This is beneficial for reliability as the programmer is assured that no other variable hold the same address with each other hence there is no risk for unintentional changes. On the other hand, as variables are objects which are stored into physical memory, excessive copying of variables may be detrimental to large systems. Most R object can be bound to variables, as well as other statements (such as conditional statements) and functions. Type definitions are not required for variable declarations as R uses dynamic binding. This feature is advantageous to writability as the programmer does not need to explicitly specify the data types, however the burden is on the interpreter to dynamically type check and interpret the variables during runtime. Furthermore, issues on type error detection may be difficult, also due to the language's coercion rules.
 
 \textbf{Coercion.} R checks type compatability during runtime and performs implicit coercion, when possible. It follows certain coercion rules:
-% \begin{enum}
-- Logical values are converted to numbers: TRUE is converted to 1 and FALSE to 0
-- Values are converted to the simplest type to represent all information
-- The orderning is roughly logical \(<\) integer \(<\) numeric \(<\) complex \(<\) character \(<\) list
-- Objects of type raw are not converted to other types
-- Object attributes are dropped when an object is coerced from one type to another
+\begin{itemize}
+\item Logical values are converted to numbers: TRUE is converted to 1 and FALSE to 0.
+\item Values are converted to the simplest type to represent all information.
+\item The orderning is roughly logical \(<\) integer \(<\) numeric \(<\) complex \(<\) character \(<\) list.
+\item Objects of type raw are not converted to other types.
+\item Object attributes are dropped when an object is coerced from one type to another.
+\end{itemize}
 
 This greatly affects reliability as some of the features are not as intuitive. Examples would include the following:
 
@@ -276,8 +258,7 @@ This greatly affects reliability as some of the features are not as intuitive. E
 
 In addition, the language does not yield any exceptions when an object of the wrong type is passed in functions, rather it directly converts it. Such non-strongly typed features can cause ambiguous and unreliable results. Albeit the coercion rules try to represent as much information, the risk of wrongly applying expressions between two object types and the direct dropping of certain attributes of a coerced object does more harm than good.
 
-
-\textbf{Scoping.} In the context of R as part of the functional paradigm, lexical scoping means that a free variable's declaration within a function (i.e. variables that are used in a function but not defined in the function) are looked up in the enclosing static scopes or parent environment of the function, as opposed to the environment of the caller (also referred to as the parent frame). This means that the referencing environment spans from the local environment to its enclosing environments. This will be better discussed in the functions (ADD REFERENCE HERE) part. Arguments against static scoping indicate the ``looseness'' of access of variable declarations and nested subprograms (and environments) are mimicking a kind of global scope.
+\textbf{Scoping.} In the context of R as part of the functional paradigm, lexical scoping means that a free variable's declaration within a function (i.e. variables that are used in a function but not defined in the function) are looked up in the enclosing static scopes or parent environment of the function, as opposed to the environment of the caller (also referred to as the parent frame). This means that the referencing environment spans from the local environment to its enclosing environments. This will be better discussed in the functions section (\ref{scoping_more}). Arguments against static scoping indicate the ``looseness'' of access of variable declarations and nested subprograms (and environments) are mimicking a kind of global scope.
 
 Additionally, a variable's scope is bounded by the environment it is declared into, which is basically a collection of (symbol/variable name, value) pairs. Variables within blocks have a scope starting from the beginning of the declaration to the end of the scope, which is advantageous to readability as the reader can directly trace the origin of the variable in a top-down manner (except for free variables, which may be hidden in packages).
 
@@ -285,9 +266,9 @@ Additionally, a variable's scope is bounded by the environment it is declared in
 
 This section discusses expressions, precedence rules, and type conversion.
 
-\textbf{General Syntax.} Separating expressions can be done in either through whitespace or semicolons (critique here). Given two ways, writability suffers as the programmer must be aware of the implications of using both styles (although it has been a practice in other languages to use only one way).
+\textbf{General Syntax.} Separating expressions can be done in either through whitespace or semicolons. Given two ways, writability suffers as the programmer must be aware of the implications of using both styles (although it has been a practice in other languages to use only one way). Readability also suffers as multiple expressions can be written in a single line, which leads to obscure-looking code.
 
-\textbf{Precedence rules.} Precedence rules for R is provided by Table 1:
+\textbf{Precedence rules.} Precedence rules for R are provided by Table \ref{tab:table2}:
 
 \begin{table}[h!]
   \begin{center}
@@ -317,7 +298,7 @@ This section discusses expressions, precedence rules, and type conversion.
 
 \end{table}
 
-Related to this, R also does left to right associativity in expressions with operators of equal rank with the exception of the exponent and the leftward assignment operators ( \(<\)-, \(<<\)-, = ). Associativity can be changed using parenthesis, which takes the highest priority, thereby overriding the default order of operations in a certain expression. This also intuitively reflects how expressions (especially in mathematics) are evaluated.
+Related to this, R also does left to right associativity in expressions with operators of equal rank with the exception of the exponent and the leftward assignment operators which follow the right to left associativity( \(<\)-, \(<<\)-, = ). Associativity can be changed using parenthesis, which takes the highest priority, thereby overriding the default order of operations in a certain expression. This also intuitively reflects how expressions (especially in mathematics) are evaluated.
 
 \textbf{On how other operators work.} In relation to this, arithmetic expressions are written in infix notation. This is advantageous in both readability and writability as it directly reflects how people usually write mathematical expressions. R also utilizes element recycling in arithmetic expression as such expressions are evaluated element-wise (technically 1 + 1 means the addition of two vectors of length 1):
 
@@ -326,7 +307,7 @@ Related to this, R also does left to right associativity in expressions with ope
   [1] 2  3  4
 \end{lstlisting}
 
-Such a feature is good for data analysis as the feature allows for a cleaner syntax without having to do looping and much faster when vectors are long. However, it can negatively affect readability as such a feature may not be as intuitive to beginners and may be cause issues in larger systems and the programmer must take into consideration such a feature as arithmetic operators accept uneven length vectors, which is also detrimental to writability.
+Such a feature is good for data analysis as the feature allows for a cleaner syntax without having to do looping and much faster when vectors are long. However, it can negatively affect readability and reliability as such a feature may not be as intuitive to beginners and may be cause issues in larger systems. The programmer must take into consideration such a feature as arithmetic operators accept uneven length vectors, which is also detrimental to writability.
 
 The operators !, \&, and \(|\) apply element-wise on vectors similar to arithmetic operators. The operators \&\& and \(||\) are often used in conditional statements and use lazy evaluation as in C: the operators will not evaluate their second argument if the return value is determined by the first argument. Having two different ways of writing and implementing logical operators is beneficial to readability as the reader can directly notice the difference and the contexts in which each is used, but is slightly disadvantageous to writability as the programmer needs to take note of how many symbols are needed for a specific use case as both element-wise and lazy-evaluated operators use the same character.
 
@@ -342,7 +323,7 @@ R does support operator overloading in the sense that you can override what a sp
 
   This preference to user-defined operators greatly benefits readability and reliability as such operators are distinct from the built-in operators as they are enclosed in \% and it is assured that a certain operator works according to the context set either by the language rules or by the user which avoids the risk of misusing overloaded operators. However, this would negatively affect writability as the programmer must take into consideration further user-defined operators in writing code.
 
-\textbf{Type Conversion.} As discussed earlier, R applies implicit coercion in most applications. To explicit convert a variable/object into a specific type, one can use the AsIs functions:
+\textbf{Type Conversion.} As discussed earlier, R applies implicit coercion in most applications. To explicit convert a variable/object into a specific type, one can use the \texttt{as()} for converting and \texttt{is()} to verify if a certain variable/object is of a certain type:
 
 \begin{lstlisting}[language=R ]
   > class(3)
@@ -376,12 +357,11 @@ The presence of the equal sign as a possible way of assigning introduces readabi
 
 \textbf{Compound and Single-operator Assignment Operators.} R does not provide common compound assignment operators such as +=, -=, *=, /=, as well as single-operator assignments such as the iterator (e.g. ++) operators. Writability and readability benefits as the programmer needs to explicitly specify the operation as a more formal assignment statement, thereby lessening the constructs to remember and improving how the code is read. Issues on post-increment/pre-increment due to the placement of iteration operators are also avoided. On the other hand, as such operators are prevalent in modern programming languages, some programmers may the lack to be a disadvantage.
 
-\textbf{Assignment as Statement} R supports assignments as part of a statement. However, it may be problematic as programmers should exercise caution in using it as the statements can change values, and might change in other expressions, might cause unintended side-effects.
+\textbf{Assignment as an Expression} R supports assignments as part of an expression. However, it may be problematic as programmers should exercise caution in using it as the statements can change values, and might change in other expressions, might cause unintended side-effects.
 
 \textbf{Multiple Assignments} R also allows for multiple assignments. Writability is benefited slightly as a programmer can directly chain assignments. However readability suffers the chaining may be too long and it may be confusing to read it especially with the different ways of declaring (although the interpreter makes sure that assignment operators cannot be used alternatively in multiple assignments.)
 
-
-\textbf{Conditional Statements.} For two-way selection, R uses the if-else statement similar to C and C++. The statement also supports both single and compound clause forms:
+\textbf{Conditional Statements.} For two-way selection, R uses the \texttt{if-else} statement similar to C and C++. The statement also supports both single and compound clause forms:
 
 \begin{lstlisting}[language=R ]
   # supports compound boolean expressions
@@ -418,15 +398,15 @@ One major readability issue on if-else statements is that nested single clauses 
       statement # else statement of second.condition
 \end{lstlisting}
 
-introduces ambiguity as the format and implementation are different, especially in deeply nested conditional statements. An issue against the else if argument also point to its feature to implement a multi-way selection in what is supposed to be a two-way statement. Although (as you will see in the next expression), the else if construct is effective as the switch statement is quite limited as to what it can do.
+introduces ambiguity as the format and implementation are different, especially in deeply nested single-claused conditional statements. An issue against the else if argument also point to its feature to implement a multi-way selection in what is supposed to be a two-way statement. Although (as you will see in the next expression), the else if construct is effective as the switch statement is quite limited as to what it can do.
 
-Multiway selection is done using the switch function, which allows a variable to be tested for equality against a list of values. The snippet below demonstrates the syntax of a switch statement:
+Multiway selection is done using the \texttt{switch} function, which allows a variable to be tested for equality against a list of values. The snippet below demonstrates the syntax of a switch statement:
 
 \begin{lstlisting}[language=R ]
   switch(expression, case1, case2, case3, ...)
 \end{lstlisting}
 
- The switch statement ma have any number of case statements which are implemented based on the following forms:
+ The switch statement may have any number of case statements which are implemented based on the following forms:
 
 \begin{lstlisting}[language=R ]
   # based on integer value's position (1 to the maximum number
@@ -441,11 +421,11 @@ Multiway selection is done using the switch function, which allows a variable to
 
 The switch statement follows certain rules such as (a) if the value of an expression is not a character, it is coerced into an integer, (b) only the first match is returned in the case of multiple matches, and (c) for characer-related switch statements the language does not automatically provide a Default argument thus the user must define it or it raises an error.
 
-As one may notice, the limited choice of data types to be used and having two ways of evaluating the same function (positional or exact matching). may cause writability issues as programmers need to be especially aware of the context of how they are going to use the switch statement. Also, case conditions are very limited as no comparative expressions can be used, which might also be seen as a disadvantage for users of modern programming languages. Furthermore, having the only the first result as output indicates user is not given the freedom to select where the statement is supposed to stop, which is advantageous in terms of reliability as one is assured that the switch statement yields a single value only. However, for users of languages such as C, C++, and Java, not having stopwords such as break could be an issue for readability. Default value are not required for  integer-based switch statements but not for character-based, thereby negatively affecting writability as the programmer needs to be aware of the two types of implementations and the rules for each.
+As one may notice, the limited choice of data types to be used and having two ways of evaluating the same function (positional or exact matching). This may cause writability issues as programmers need to be especially aware of the context of how they are going to use the switch statement. Also, case conditions are very limited as no comparative expressions can be used, which might also be seen as a disadvantage for users of modern programming languages. Furthermore, having the only the first result as output indicates user is not given the freedom to select where the statement is supposed to stop, which is advantageous in terms of reliability as one is assured that the switch statement yields a single value only. However, for users of languages such as C, C++, and Java, not having stopwords such as break could be an issue for readability. Default value are not required for  integer-based switch statements but not for character-based, thereby negatively affecting writability as the programmer needs to be aware of the two types of implementations and the rules for each.
 
 \textbf{Iterative Statements.} Similar to conditional statements, R adapts a more imperative-oriented approach to loops than a recursive style followed by functional languages. Although there are other special looping functions such as lapply, sapply, tapply, apply, mapply, the section shall exclusively discuss the fundamental iterative statements which are for, while, and repeat.
 
-\textbf{For loop.} R's counter-controlled loop is the for loop. The syntax is quite similar to C++'s, except that the iteration statement loops through the each value of a list or vector whose values can be integer, character, and logical.
+R's counter-controlled loop is the \texttt{for} loop. The syntax is quite similar to C++'s, except that the iteration statement loops through the each value of a list or vector whose values can be integer, character, and logical.
 
 \begin{lstlisting}[language=R ]
   for (value in vector){
@@ -457,7 +437,7 @@ Such a design prevents the issue of possibly changing the loop variable as the f
 
 The for loop's loop variable still exists after the loop terminates and has the last values of the vector that was used in the looping process as a side effect. In common context, such a side effect is extraneous, especially as the variable has not been declared prior (indicating that it is only used in looping), and as R stores it in physical memory, multiple instances of for loops may affect how the code interacts with the hardware in terms of storage, especially if one considers that R users often deal with large datasets. If the loop variable has been declared prior, it is changed in the environment where the looping was done, hence the programmer needs to be aware of the loop variable to be used.
 
-\textbf{While loop.} R's logically-controlled loop is the while loop. Similar to the for loop, its syntax is similar to C++'s. Test expressions are evaluated in a left to right manner:
+R's logically-controlled loop is the \texttt{while} loop. Similar to the for loop, its syntax is similar to C++'s. Test expressions are evaluated in a left to right manner:
 
 \begin{lstlisting}[language=R ]
   while(test_expression){
@@ -467,7 +447,7 @@ The for loop's loop variable still exists after the loop terminates and has the 
 
 It can be noticed that the while loop has pretest iteration statement, which is advantageous to reliability as it avoid the problem of unintentionally executing the loop body of posttest loops. One can also use the \texttt{break} and \texttt{exit} within the loop (which will be discussed in later).
 
-\textbf{Repeat loop.} Repeat is a special loop in R which is used to generate an infinite loop, which are used when one does not know when to terminate (e.g. iterative algorithms):
+\texttt{Repeat} is a special loop in R which is used to generate an infinite loop, which are used when one does not know when to terminate (e.g. iterative algorithms):
 
 \begin{lstlisting}[language=R ]
   repeat{
@@ -475,9 +455,9 @@ It can be noticed that the while loop has pretest iteration statement, which is 
   }
 \end{lstlisting}
 
-The only way to exit from the loop is to use the \texttt{break} statement. In relation to this, the statements in the loop body must be in a ablock, as at least two statements are needed to both perform some computation and test whether or not to break from the loop. One glaring issue here is that there is no guarantee whether the loop stops or not, which may be very troublesome in systems which utilize the loop.
+The only way to exit from the loop is to use the \texttt{break} statement. In relation to this, the statements in the loop body must be in a block, as at least two statements are needed to both perform some computation and test whether or not to break from the loop. One glaring issue here is that there is no guarantee whether the loop stops or not, which may be very troublesome in systems which utilize the loop.
 
-\textbf{On Object-Oriented Looping.} R does not natively support object-oriented looping mechanisms such as iterators and foreach. There are packages which contain such mechanisms, however given that the scope of the critique is for the language itself, we do not consider them.
+\textbf{On Object-Oriented Looping.} R does not natively support object-oriented looping mechanisms such as \texttt{iterators} and \texttt{foreach}. There are packages which contain such mechanisms, however given that the scope of the critique is for the language itself, we do not consider them.
 
 other looping statements
 
@@ -492,7 +472,9 @@ other looping statements
 
 \subsubsection{Functions (Procedures or Subprograms)}
 
-Functions in R are objects which take in input and return an output. In the language, functions are responsible for all actions, may it be arithmetic, assignment, looping, and others. As functions are first class objects, they can be bound to symbols (or variables), can be passed as arguments, and can be given different names. However, binding to variables are not necessary, as R functions are work like anonymous functions. Furthermore, a call to the function (that is, calling the function without parenthesis e.g. \texttt{> some.fxn}) returns a function.  The syntax of functions is:
+This section will further discuss the different parts of the function and how R implements each of them.
+
+\textbf{Functions.} Functions in R are objects which take in input and return an output. In the language, functions are responsible for all actions and computations, may it be arithmetic, assignment, looping, and others. As functions are first class objects, they can be bound to symbols (or variables), can be passed as arguments, and can be given different names. However, binding to variables are not necessary, as R functions are work like anonymous functions. Furthermore, a call to the function (that is, calling the function without parenthesis e.g. \texttt{> some.fxn}) returns a function.  The syntax of functions is:
 
 \begin{lstlisting}[language=R ]
   # functions with a single statement within the body may omit the curly braces
@@ -500,11 +482,13 @@ Functions in R are objects which take in input and return an output. In the lang
 
   # assigning functions to variables
   > square <- function(some.number) some.number^2
-  > square(10)
+  > square
+  function(some.number) some.number^2
+  > square(10) # function call with variable
   [1] 100
 \end{lstlisting}
 
-This section will further discuss the different parts of the function and how R implements each of them.
+One can see that the function definition does not need to specify any data types for the arguments and the return type, as all functions in R return some value. This is advantageous for writability as the programmer does not need to specify data types, and disadvantageous as function calls may receive various objects. Furthermore, not specifying the return type can be detrimental to readability as the reading the code does not really indicate what it would return (the function name may have an indication, but does not exactly tell). Furthemore, reliability may also be an issue due to some features of R, which will be explained in the next parts.
 
 \textbf{Parameter/Argument Passing} R uses the call-by-value in passing arguments. Generally, supplied arguments behave like local variables initialized with the value supplied and the name of their corresponding formal argument. Changing the value of a certain supplied argument within the conext of some function does not induce any change or side effect of the same variable in the calling frame. The language also uses more than one parameter-passing method.
 
@@ -562,7 +546,7 @@ When a function is called, a new environment (called the evaluation environment)
 [1] 1 # deep binding; 4 if shallow binding
 \end{lstlisting}
 
-\textbf{Local Variables, Free Variables, and Lexical Scoping.} As mentioned in the previous sections, R is primarily a lexically scoped language. The implications of such scoping can be seen in how variables inside a function, namely local and free variables, are handled. Local variables are variables which are not part of the formal arguments that are declared within the function. Based on the lack of methods to allocate/create a static local variable, it can be said that local variables are dynamically allocated. Free variables are variables which are not part of the formal parameters and are not declared within the function. The following snippet of code demonstrates the two variables:
+\label{scoping_more}\textbf{Local Variables, Free Variables, and Lexical Scoping.} As mentioned in the previous sections, R is primarily a lexically scoped language. The implications of such scoping can be seen in how variables inside a function, namely local and free variables, are handled. Local variables are variables which are not part of the formal arguments that are declared within the function. Based on the lack of methods to allocate/create a static local variable, it can be said that local variables are dynamically allocated. Free variables are variables which are not part of the formal parameters and are not declared within the function. The following snippet of code demonstrates the two variables:
 
 \begin{lstlisting}[language=R ]
 print.name <- function(pet.name){
@@ -579,7 +563,7 @@ Lexical scoping is used to determine the value of the free variables. A search f
 
 One possible downside in terms of reliability is that searching is affected by the order of environments and packages, hence searching with many unordered packages may be quite slow. Hence one must be careful of the order of how the packages are included, with the frequently used or highly relevant at the top.
 
-\textbf{Return values.} All functions in R return values. R returns any object based on last evaluated expression  as the result of a function. Also, \texttt{return()} returns a value explicitly from a function, but it is rarely used in R. Functions can have multiple return values in a list with names associated with each. Accessing each can be done using \texttt{attach()}, which creates an environment that contains all the returned values:
+\textbf{Return values.} All functions in R return values. R returns any object based on last evaluated expression  as the result of a function. Also, \texttt{return()} returns a value explicitly from a function, but it is rarely used in R. This may cause readability issues for programmers who are used to adding the return word in functions. Functions can have multiple return values in a list with names associated with each. Accessing each can be done using \texttt{attach()}, which creates an environment that contains all the returned values:
 
 \begin{lstlisting}[language=R ]
 > sample.fxn <- function() {
@@ -596,7 +580,6 @@ One possible downside in terms of reliability is that searching is affected by t
 \end{lstlisting}
 
 \textbf{Functional Side Effects.} Recall the \(<<\)- operator. The operator can cause changes in the parent environments as it causes the interpreter to search for the symbol from the function's environment towards the global environment. It binds the new value to the symbol that is found first, else it assigns the value to the symbol in the global environment. Such a feature may be detrimental to reliability as unintentional changes may occur, and as the searching process goes through environments, it may be difficult to trace where the changes are made. Relating on the early critique, writability suffers as the programmer needs to be careful in using such operators provided that it is very similar to the local \(<\)- operator with very different implications. In practice, it is bad style to use arguments to functions to cause side-effects.
-
 
 \textbf{Recursive Procedures} R supports recursive procedures and/or functions. However caution must be exercised in using such procedures, especially in solving large problems. As the language treats functions as objects and objects are stored into physical memory, recursive functions may be memory intensive especially if there are deep nested function calls.
 
@@ -1070,10 +1053,12 @@ In the context of C++, overloaded functions are used within classes (ADD SOMETHI
 
 \subsection{Workaround in R}
  The following can be a possible solution to emulate function overloading, given the following assumptions:
-     1. Similar to creating overloaded functions, the programmers knows the minimum and maximum number of arguments.
-     2. Argument names are decided beforehand for all possible arguments of the said functions
+\begin{enumerate}
+\item Similar to creating overloaded functions, the programmers knows the minimum and maximum number of arguments.
+\item Argument names are decided beforehand for all possible arguments of the said functions
+\end{enumerate}
 
-The approach uses a single function with all the possible parameters within it. We exploit the feature of having default argument values NULL.
+The approach uses a single function with all the possible parameters within it. We exploit the feature of having assigning FALSE to default argument values.
 
 \begin{lstlisting}[language=R]
 # method 1: using FALSE as default values
@@ -1093,11 +1078,10 @@ mul <- function(a=FALSE, b=FALSE, c=FALSE){
                 stop(``Variable b is not initialized'')
             else{
                 if(!isFALSE(c))
-                    a * b * c
+                    a * b * c # returns numeric
                 else
-                    stop(``Variable c is not initialized'')
+                    as.integer(a) * as.integer(b) # coerce to int
             }
-
         }
     }
     else{
@@ -1105,6 +1089,19 @@ mul <- function(a=FALSE, b=FALSE, c=FALSE){
         stop(``Variable a is not initialized'')
     }
 }
+
+> val1 <- mul(1L, 2L) # int return
+> val1
+[1] 2
+> class(val1)
+[1] ``integer''
+> val2 <- mul(1.5, 4) # int return
+> val2
+[1] 4
+> class(val2)
+[1] ``integer''
+> class(mul(1,2,3)) # float/numeric return
+[1] ``numeric''
 \end{lstlisting}
   
 \section{Feature 3: Do-while loops}
