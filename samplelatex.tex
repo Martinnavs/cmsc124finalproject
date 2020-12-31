@@ -22,19 +22,40 @@
 }
 
 \begin{document}
+% add cover page here
+\begin{titlepage}
+    \begin{center}
+        \vspace*{1cm}
 
-\begin{center}
-{\large A Comprehensive Comparison of C++ and R} \\ % \\ = new line
-\copyright 2020 by Cang, K. and Navarez, A. \\
-November 2020
-\end{center}
+        \Huge
+        \textbf{A Comparison of C++ and R}
 
+        \vspace{1.5cm}
+        \large
+        \textbf{Cang, K. and Navarez, A.}
+
+        \vspace{0.8cm}
+
+        Submitted in partial fulfilment of the requirements of\\
+        CMSC 124
+
+
+        \vfill
+            
+        Department of Computer Science\\
+        University of the Philippines Cebu\\
+        Philippines\\
+        December 31, 2020
+
+    \end{center}
+\end{titlepage}
+\newpage
 \tableofcontents
 \newpage
 
 \section{R}
 \subsection{Purpose and Motivations}
-Fundamentally, R is a dialect of S. It was created to do away with the limitations of S, which is that it is only available commercially.
+Fundamentally, R is a dialect of S. R is a programming language and software environment that is focused on statistical analysis, graphics representation and reporting. It was created to do away with the limitations of S, which is that it is only available commercially.
 \subsection{History (Authors, Revisions, Adoption)}
 \subsubsection{S, the precursor of R}
 S is a language created by John Chambers and others at Bell Labs on 1976. The purpose of the language was to be an internal statistical analysis environment. The first version was implemented by using FORTRAN libraries. This was later changed to C at S version 3 (1988), which resembles the current systems of R.
@@ -46,17 +67,18 @@ R was created on 1991 by Ross Ihaka and Robert Gentleman of the University of Au
 
 The first R developer groups were in 1996 with the establishment of R-help and R-devel mailing lists. The R Core Group was formed in 1997 which included associates which come from S and S-PLUS. The group is in charge of controlling the source code for the language and checking changes made to the R source tree.
 
-R version 1.0.0 was publicly released in 2000. As of the moment of writing this paper, the R is in version 4.0.3.
+R version 1.0.0 was publicly released in 2000. As of writing this paper, R is in version 4.0.3.
 \subsection{Language Features}
 R as a language follows the philosophy of S, which was primarily developed for data analysis rather than programming. Both S and R have interactive environment that could easily service both data analysis (skewed to command-line commands) and longer programs (following traditional programming). R has the following features:
+
 \begin{itemize}
-\item Runs in almost every standard computing platform  and operating systems
+\item Runs in almost every standard computing platform and operating systems
 \item Open-source
 \item An effective data handling and storage facility
 \item A suite of operators for calculations on array, in particular matrices
 \item A large, coherent, integrated collection of intermediate tools for data analysis
-\item Graphical facilities for data analysis and display either on-screen or on hardcopy u
-\item Well-developed, simple, and effective programming language which includes conditionals, loops, user-defined recursive functions and input and output facilities.
+\item Graphical facilities for data analysis and display either on-screen or on hardcopy
+\item Well-developed, simple, and effective programming language which includes conditionals, loops, user-defined recursive functions and input and output facilities
 \item Can be linked to C, C++, and Fortran for computationally-intensive tasks
 \item A broad selection of packages available in the CRAN sites which cater a wide variety of modern statistics
 \item An own LaTex-like documentation format to supply comprehensive documentation
@@ -64,7 +86,22 @@ R as a language follows the philosophy of S, which was primarily developed for d
 \end{itemize}
 
 \subsection{Paradigm(s)}
-Functional
+R is a multiparadigm language. Websites such as wikipedia ascribe multiple paradigms to R, however the most distinct and verified paradigms are object-oriented and functional as stated a paper made by John Chambers (2014), the creator of S. As we are not able to verify the claims of such sites (as they did not provide any external resource on their reasons), we shall only considered the two mentioned paradigms in this paper.
+
+
+R's functional characteristics:
+\begin{itemize}
+\item First-class functions
+\item Writing and implementing pure functions are encouraged, although impure functions can be done
+\item Lazy evaluation of arguments
+\end{itemize}
+
+R's object-oriented features:
+\begin{itemize}
+\item S3 and S4, which are objects that adhere to the OO paradigm (immutable; supports generic functions, inheritance, etc.). S4, in particular, is influence by Common Lisp and Dylan's object-oriented style.
+\item Packages which provide other types of object-oriented feature (e.g. R.oo, mutatr).
+\end{itemize}
+
 \subsection{Language Evaluation Criteria}
 
 \subsubsection{Data Types}
@@ -490,7 +527,7 @@ This section will further discuss the different parts of the function and how R 
 
 One can see that the function definition does not need to specify any data types for the arguments and the return type, as all functions in R return some value. This is advantageous for writability as the programmer does not need to specify data types, and disadvantageous as function calls may receive various objects. Furthermore, not specifying the return type can be detrimental to readability as the reading the code does not really indicate what it would return (the function name may have an indication, but does not exactly tell). Furthemore, reliability may also be an issue due to some features of R, which will be explained in the next parts.
 
-\textbf{Parameter/Argument Passing} R uses the call-by-value in passing arguments. Generally, supplied arguments behave like local variables initialized with the value supplied and the name of their corresponding formal argument. Changing the value of a certain supplied argument within the conext of some function does not induce any change or side effect of the same variable in the calling frame. The language also uses more than one parameter-passing method.
+\textbf{Parameter/Argument Passing and Matching} R uses the call-by-value in passing arguments. Generally, supplied arguments behave like local variables initialized with the value supplied and the name of their corresponding formal argument. Changing the value of a certain supplied argument within the conext of some function does not induce any change or side effect of the same variable in the calling frame. The language also uses more than one parameter-passing method.
 
 Formally defined function arguments are matched according to this order of priority:
 \begin{enumerate}
@@ -838,7 +875,7 @@ As seen above, C++ has the ability to convert various data types during compile 
 \begin{itemize}
   \item Global scope - has the longest lifetime; and exists implicitly in the global space and extends from the beginning of its declaration until the end of the file; a common example being global variables
   \item Namespace scope - it is the scope within a namespace that is outside any class, enum definition, or function block; visible from its declaration until the end of the namespace; a common example being \textit{using namespace std;}
-  \item Local scope - names declared within a function or lambda; visible only at the point of declaration until the end of the function or lambda; also commonly known as block scopes denoted by code found in between curly brackets \{\};
+  \item Local scope - names declared within a function or lambda; visible only at the point of declaration until the end of the function or lambda; also commonly known as block scopes denoted by code found in between brackets {};
   \item Class scope - anything and everything found and defined in a class has a class scope (class members); they exist regardless of point of declaration and may be \textit{public, protected, or private}; only public and protected members can be accessed from member-selction operators (. \& -\textgreater)
   \item Statement scope - statement scopes exist in control statements and loop statements such as \textit{for, if, while, \& switch} statements.
   \item Function scope - function scopes are visible even before their point of declaration; mostly known as labels; common in \textit{switch case statements \& goto labels}; usually denoted by a colon (:)
@@ -904,7 +941,7 @@ In the example, the comma is used to separate variable names but all are related
       17 & :: & Scope resolution  &  Left-to-Right\\
       \hline
       \multirow{5}{5em}{16} & a++, a-- & Suffix/postfix increment and decrement & \multirow{5}{5em}{Left-to-Right} \\
-      & type(), type\{\} & Functional cast & \\
+   & type(), type\{\} & Functional cast & \\
       & a() & Function call & \\
       & a[] & Subscript & \\
       & . , -\textgreater & Member acess \\
@@ -969,9 +1006,10 @@ In the example, the comma is used to separate variable names but all are related
     \end{tabular}
 \end{table}
 
-As seen from the tables, the precedence found in C++ is facet of the language that allows for great control and maneuverability of the programming language and the code one is able to make. All these in an effor to avoid problems in regards to ambiguity of the language and to isolate certain processes from others. One is also able to see operators, and their overloads, and what behaviors they perform that a programmer is able to use an any given time. For example the operator \textbf{++} is an single increment operator added in postfix or prefix to a variable name to increase its value by one. This can also be written as \textbf{variable\_name+=1; or variable\_name = variable\_name + 1;}. There is some nuance to the implementation of each operator such as those that affect runtime, but generally, all three operators perfrom the same task, add a value of one to the current value found in the variable and assigning this new value to the variable. C++ is full of these types of operations and overloading is not uncommon. Unfortunately, having so many methods available does make it difficult to learn a programming language but having it too simple, also affects how readable it is. It also allows for greater control using less steps or instructions, which make it very convenient for programmers. 
+As seen from the tables, the precedence found in C++ is facet of the language that allows for great control and maneuverability of the programming language and the code one is able to make. All these in an effor to avoid problems in regards to ambiguity of the language and to isolate certain processes from others. One is also able to see operators, and their overloads, and what behaviors they perform that a programmer is able to use an any given time. For example the operator \textbf{++} is an single increment operator added in postfix or prefix to a variable name to increase its value by one. This can also be written as \textbf{variable\_name+=1; or variable\_name = variable\_name + 1;}. There is some nuance to the implementation of each operator such as those that affect runtime, but generally, all three operators perfrom the same task, add a value of one to the current value found in the variable and assigning this new value to the variable. C++ is full of these types of operations and overloading is not uncommon. Unfortunately, having so many methods available does make it difficult to learn a programming language but having it too simple, also affects how readable it is. It also allows for greater control using less steps or instructions, which make it very convenient for programmers.
 
-\subsubsection{Statements and Control Structures}
+
+\textbf{Operators and their overloads} C++ has a great number of operators existing within the language. The table of precedence rules shows the which among the operators work first 	\subsubsection{Statements and Control Structures}
 
 \textbf{Assignment Operations} C++ assignment is fairly straightforward. The syntax is always the same in all situations.
 \begin{center}
@@ -1063,7 +1101,7 @@ if(condition){
   if(second.condition)
     statement
 }else
-  statement 
+  statement
 \end{lstlisting}
 or
 \begin{lstlisting}[language=C++]
@@ -1071,9 +1109,9 @@ or
     if(second.condition){
       statement
   }else
-    statement 
+    statement
   \end{lstlisting}
-Both methods allow for the prevention of ambiguity as well as making things more readable but perform completely different processes. The first scope shown is for when the else-statement is for the first if-statement while the second scope shown is for when the else-statement is for the nested if-statement. This ability to decrease ambiguity takes more effort on the part of the programmer to scope out certain behaviors. Ultimately, it is for the best to use scopes to limit ambiguity. 
+Both methods allow for the prevention of ambiguity as well as making things more readable but perform completely different processes. The first scope shown is for when the else-statement is for the first if-statement while the second scope shown is for when the else-statement is for the nested if-statement. This ability to decrease ambiguity takes more effort on the part of the programmer to scope out certain behaviors. Ultimately, it is for the best to use scopes to limit ambiguity.
 
 \textbf{Iterative Statements} In C++, iterative statements or commonly known as loops, are very powerful tools that allow the performance of a specific snippet of code multiple times. There are three primary loops in C++, \textit{for-loop, while-loop, and the do-while loop}. A common use for a loop is to go through various data structures such as arrays, lists, vectors, among many others available to C++. For loops have the following syntax:
 \begin{lstlisting}
@@ -1096,7 +1134,10 @@ Do-while loops syntax is the following:
   }while(condition)
 \end{lstlisting}
 
+
 The main difference between the three loops is their usage and what they are designed to do. For loops were designed to iterate through data structures and have it check a specific set of instructions. For-loops are usually used when the programmer knows what it should be doing, and when it should stop. Do-While loops are used when the inner statements of the loop must be performed before checking the condition in which to stop. Its postfix nature allows for at least one iteration of the process to be performed. While loops are prefix in nature and check the conditions first before proceeding with the code block. It is imperative that all loops must have a condition which actually terminates else the problem of infinite looping occurs. For reference, all the conditions must be determine True for the code blocks within them to be processed and when deteremined False or the use of the break keyword exits the loop in its entirety. Another keyword found in loops is the continue keyword which at the point of reading, ignores every other statement after it and proceeds with the next iteration of the loop. Be very careful of the placement of the continue statement, as this may also cause an infinite loop when put before the increment/decrement of the loop (does not affect for-loops). It is possible to have control statements and nested iterations in all loops. This allows for a great degree of freedom for the programmer to use the loop in the ways that they require. Unfortunately, because the loops have a very general syntax, it is easy to misread certain loops especially when nested multiple times. The reliability of the loops also depends on how the programmer wants it to perform but in general, well-coded loops will always work as intended. It is truly the fault of the programmer if an infinite loop is created.
+
+%\subsubsection{Statements and Control Structures}
 
 %\subsubsection{Procedures and Subprograms}
 
@@ -1134,9 +1175,12 @@ The main difference between the three loops is their usage and what they are des
 
 \fi
 
-\section{Feature 1: Struct and Struct Constructor}
+% ADD SOMETHING BELOW KIEV IF NAA PAY ORAS
 
-\subsection{Code in C++}
+\section{Feature 1: Struct}
+
+\subsection{Description of the feature and Code in C++}
+A struct is a blueprint used to create a lightweight instance of a class. It is comprised of data elements called members.
 
 \begin{lstlisting}[language=C++ ]
   #include <iostream>
@@ -1173,14 +1217,16 @@ The main difference between the three loops is their usage and what they are des
 \end{lstlisting}
 
 \subsection{Advantages of having Structs}
+Similar to classes, structs are very useful in object-oriented programming. It provides another way of grouping data elements under one name. It also provides for a means to implement plain-old-data (POD) types, which are classes without constructors/destructors.
 
 \subsection{Advantages of not having Structs}
+As structs are very similar to classes except for their default element access and inheritance manner (public for structs, private for classes), one can say that choosing either of them is a matter of preference. Hence in most contexts, structs can be seen as a kind of duplicate to classes, hence not having them slightly improves readability and writability as one is assured that all object-oriented actions are done using classes only. Also, not having structs do not greatly affect a language with classes like R.
 
 \subsection{Workaround in R}
 
-We used R's feature of declaring new environments and declaring objects within those environments as a way of implementing a similar ``Struct'' feature in R.
+We used R's feature of declaring new environments and declaring objects within those environments as a way of implementing a similar ``Struct'' feature in R. We created the code below to simulate what structs can do:
 
-\begin{lstlisting}[language=R ]
+\begin{lstlisting}[language=R]
 
 # used to execute functions defined within the "Struct"
 execute <- function(func ,env=parent.frame()){
@@ -1267,9 +1313,9 @@ To emulate the same Rectangle struct in C++, the following can be done:
 
 \section{Feature 2: Overloaded functions}
 
+\subsection{Description of the feature and Code in C++}
 In the context of C++, overloaded functions are used within classes (ADD SOMETHING HERE KIEV). In the part on which discussed R's generic function, one can see that constructing methods are quite similar to constructing overloaded functions. However, one also see that such methods only apply in a class-to-function basis, not necessarily a function-to-function overloading.
 
-\subsection{Code in C++}
 \begin{lstlisting}[language = C++ ]
   #include <iostream>
 
@@ -1293,8 +1339,10 @@ In the context of C++, overloaded functions are used within classes (ADD SOMETHI
 \end{lstlisting}
 
 \subsection{Advantages of having Overloaded functions}
+One major advantage of function overloading is having the same name for functions which do the same things, thereby improving readability.
 
 \subsection{Advantages of not having Overloaded functions}
+Function overloading introduces ambiguity on how the function is exactly implemented which may be due to language's type coercion rules on arguments, presence of implementations with default values, and function which uses pass by reference (although this is not the case in R). R prevents such issues without overloaded functions; furthemore, if the function to be overloaded is class-based, generic functions/methods can be made.
 
 \subsection{Workaround in R}
  The following can be a possible solution to emulate function overloading, given the following assumptions:
@@ -1351,7 +1399,8 @@ mul <- function(a=FALSE, b=FALSE, c=FALSE){
   
 \section{Feature 3: Do-while loops}
 
-\subsection{Code in C++}
+\subsection{Description of feature and Code in C++}
+A do-while loop repeats a statement at least once before evaluating the iteration statement. In contrast to a while loop, a do-while loop employs a posttest checking.
 
 \begin{lstlisting}[language=C++]
   #include <iostream>
@@ -1377,11 +1426,12 @@ mul <- function(a=FALSE, b=FALSE, c=FALSE){
 \end{lstlisting}
 
 \subsection{Advantages of having Do-while loops}
+An advantage of having a do-while loop is having another looping mechanism within the language.
 
-\subsection{Advantages of not Do-while loops}
+\subsection{Advantages of not having Do-while loops}
+As posttest-based loops are more prone to usage error, not having do-while loops prevents such errors from happening. Also, the said loop is fundamentally a reversed while loop, so not having a do-while would prevent an less reliable duplicate of the while loop.
 
 \subsection{Workaround in R}
-
 We used R's repeat loop and a conditional statement at the end of the loop body. This ensures that the code runs at least once before checking the conditions.
 
 \begin{lstlisting}[language=R ]
@@ -1399,13 +1449,70 @@ We used R's repeat loop and a conditional statement at the end of the loop body.
 [1] 3
 \end{lstlisting}
 
-%\section{Conclusion}
+\section{Conclusion}
+<<<<<<< HEAD
+After the extensive critique of both languages, one can see the advantages and disadvantages of C++ and R as programming languages.
 
-\end{document}
-https://www.johndcook.com/blog/r_language_for_programmers/
-https://stackoverflow.com/questions/1944910/what-is-your-preferred-style-for-naming-variables-in-r
-https://www.datamentor.io/r-programming/recursion/
-https://stackoverflow.com/questions/9266194/r-function-overloading
+R as a language assumes as a role between those who use programming as a tool in their field (non-programmers) and those who are programmers. Fundamentally similar to S, R caters to mathematicians and data scientists as a language and software where they do data analysis. Hence, some of the features may not be as intuitive for heavy programmers. Environments are very useful for non-programmers who almost exclusively use the interactive environment as they are able to easily store and access the data that they need anytime. Features such as implicit coercion and special data values are more applicable to such mathematical needs which mostly deals with dataframes. The functional features are also effective and intentional due to fact that exploratory data analysis do not necessary mutate data and that such work is done on the interactive environment provided by the software; they also emulate the mathematical concepts, which does not allow for mutation especially in functions. Furthermore, some functions like lapply, sapply, and plotting functions are also optimized to run over large data. On the other hand, programmers are also able to enjoy the features of R as the language also allows for the creation of larger programs. The syntax of most discussed programming constructs and features can be found in other programming languages as well, thereby transitional from some commonly used language to R is not that difficult. Robust programs can be made as most of the commonly used programming constructs are present in the language. R also supports object-oriented features with the S3 and S4 objects which appeals to programmers who are used to the OO paradigm. Being open-source and having a large user base, it is easy to find packages to most features not found in the base R language.
+
+%insert C++ here
+
+In comparison to more general C++, R is a niche-oriented language. As mentioned, the language design is heavily tailored towards data analysis and graphical representation, which means that it is more limited than C++. The recurring critique of having multiple implementations of the same feature/construct of R versus the more distinct implementations of C++ indicates that R is splitting their implementations for specific use cases, presumably to give non-programmers more options on how they do some things. the way R stores data in physical memory in contrast to how C++ stores variables in the RAM can be attributed to the presence of an interactive environment where users can create and interact with data without caring what the interpreter does in the background. C++ allows for direct memory access via pointers and functions such as \texttt{malloc()} whereas R does not give direct access to them means that programs. In terms of features revolving around type binding and function definitions, C++ requires for types to be declared explicitly as the language implemented using static binding whereas R is the opposite. C++ also has more robust object-oriented features than R. Furthemore, the former language is compiled while the latter is interpreted. Such program designs mean that C++ is faster than R, which directly reflects their use cases: C++ (as stated earlier) is used in various fields such as in applications, compilers, operating systems, and animation thus speed and reliability of the language is prioritized, R is mainly used today in statistical modelling, implementing machine learning models, and other data-oriented uses hence operability and accessibility to a non-programming user base is prioritized. It is also worth noting that R is written in C and has interfaces for other languages such as C, C++, and Fortran for more computationally-intensive work, thus the two languages are not that distant from each other.
+
+Ultimately, there is no ``better language'' between C++ and R. For mathematically intensive work which deals with large data, R is the language to go. For a more general purpose language which makes heavy use of object-oriented features, C++ is a great language. The choice of using one language against the other boils down to use case, needed features, and one's personal preference.
+
+\newpage
+\begin{thebibliography}{50}
+
+\bibitem{RPeng}
+Peng, R. D. (2016). R Programming for data science. Victoria, British Columbia, Canada: Leanpub.
+
+\bibitem{RMatloff}
+Matloff, N. (2013). The art of R programming: A tour of statistical software design. San Francisco: No Starch Press.
+
+\bibitem{RTutorials}
+R Programming. (2016). Tutorials Point.
+
+\bibitem{RBlair}
+Blair, E. (2004, February 28). A critique of R and S-PLUS [PDF].
+
+\bibitem{RAdler}
+Adler, J. (2012). R in a Nutshell. Beijing: O'Reilly.
+
+\bibitem{RParadigm}
+Chambers, J. M. (2014). Object-Oriented Programming, Functional Programming and R. Statistical Science, 29(2), 167–180. https://doi.org/10.1214/13-sts452
+
+\bibitem{RJohnCook}
+The R language, for programmers. (2017, July 31). Retrieved December 2, 2020, from https://www.johndcook.com/blog/r\_language\_for\_programmers/
+
+\bibitem{RRecursion}
+R Recursion (Recursive Function) With Example. (2018, October 08). Retrieved December 27, 2020, from https://www.datamentor.io/r-programming/recursion/
+
+\bibitem{Cran}
+(n.d.). Retrieved December 28, 2020, from https://cran.r-project.org/doc/manuals/R-lang.html
+
+\bibitem{CStruct}
+C++ Structs - javatpoint. (n.d.). Retrieved December 29, 2020, from https://www.javatpoint.com/cpp-structs
+
+\bibitem{AdvR}
+Wickham, H. (n.d.). Advanced R. Retrieved December 31, 2020, from https://adv-r.hadley.nz/fp.html
+
+\bibitem{COverloading}
+C++ Overloading - javatpoint. (n.d.). Retrieved December 29, 2020, from https://www.javatpoint.com/cpp-overloading
+
+\bibitem{CUses}
+Uses of C++: Top 10 Reasons Why You Should Use C++. (2020, August 10). Retrieved December 31, 2020, from https://www.educba.com/uses-of-c-plus-plus/
+
+\textbf{Forums on Stackoverflow:}
+
+\bibitem{StackGen}
 https://stackoverflow.com/questions/9734646/using-generic-functions-of-r-when-and-why
-https://cran.r-project.org/doc/manuals/R-lang.html#Object_002doriented-programming
-https://www.javatpoint.com/cpp-structs
+
+\bibitem{StackOverload}
+https://stackoverflow.com/questions/9266194/r-function-overloading
+
+\bibitem{StackNaming}
+https://stackoverflow.com/questions/1944910/what-is-your-preferred-style-for-naming-variables-in-r
+
+\end{thebibliography}
+\end{document}
