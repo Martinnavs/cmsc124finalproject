@@ -788,7 +788,7 @@ These rules allow a degree of freedom for the naming of variables by the program
 It also worthy to note that when a user-defined function is declared or defined, one cannot use the name of said function as a variable name (case-sensitive) in the same scope, further improving the readability of a specific line of code in C++. Following this idea, it also gives full control to the programmer to decide the method to be performed by the program. Unfortunately, this does affect the writability since this does limit the ideal situation of the programmer to bind a specfic name that they may be comfortable with. 
 
 \textbf{Type Conversion} C++ is able to perform both implicit type conversion (coercion), and explicit type conversion (casts). The following is an example of such these two processes:
-\begin{lstlisting}[language=C++, frame = none]
+\begin{lstlisting}[language=C++]
   #include <iostream>
 
   using namespace std;
@@ -846,10 +846,132 @@ As seen above, C++ has the ability to convert various data types during compile 
 
 These specific scopes allow for the ease of processing information throughout the entirety of code and allows the programmer to write code that behaves in accordance to what is needed and specified. Processes involving the use of scopes usually involve the use of the scope-resolution operator, double colon (::). This allows for greater control of definitions especially involving classes, global variables with the same name as local variables, and even namespace variable names with the same name as local variable names. The simplicity of the operator makes it easier to write the code for its specific purpose and deals with problems in regards to scoping. 
 
-\textbf{References} In C++, there are two methods of creating references on various data types, the use of pointers and the use of references. Pointers are 
+\textbf{References} In C++, there are two methods of creating references on various data types, the use of pointers and the use of references. Pointers are variables that store memory adresses of an object. They are mainly used for
+\begin{enumerate}
+  \item Allocation of new objects to the heap
+  \item Iteration over elements in arrays or other data structures
+  \item Passing functions to other functions
+\end{enumerate}
+References are similar to pointers in which they too hold the address of an object in the memory but unlike a pointer, a reference cannot be changed to refer to another object or set to null. They must be initialized with the object they are referring to. References present a convenience especially when creating references to complicated structures such as classes, structs, and other user-defined data structures. The following C++ code shows an example of the use of raw pointers and references:
 
+\begin{lstlisting}[language=C++]
+  #include <iostream>
 
-%\subsubsection{Expressions}
+  using namespace std;
+
+  void toTen(int *x){ //a function written to receive a reference to a variable
+      *x = 10;    //a reference that changes the value the argument to 10
+  }
+  int main(){
+      int x; //integer named x
+      x = 52; //assigning 52 to x;
+      int *y = &x; //an integer pointer named y pointing at the address of integer x
+      int &z = x; //an integer reference to integer x
+      toTen(y); //passing a pointer into the toTen function
+      cout<< x <<endl; //x should now have the value its holding changed to 10
+      z = 25; // changing the value of integer x through the z reference
+      cout<< x <<endl; //printing x must give the new changed value through the reference
+      x = 36; //changing the value of x to 36
+      cout<< z <<endl; //printing reference z in order to show the referencing
+
+      return 0; //safely ending main()
+  }
+    -----------------------------------------
+    expected output:
+    10
+    25
+    36
+\end{lstlisting}
+
+As shown in the code example above, references and pointers are capable of causing changes to the data they are pointing at or referencing. This allows a particularly powerful tool for programmers to update data even through different scopes or processes. The downside of such a convenient process is the readability of the code. As it only uses simple symbols (that also have various meanings or contexts), understanding its behavior becomes much harder and may become prone to reading mistakes or misunderstandings in behavior and potential use. 
+
+\subsubsection{Expressions}
+\textbf{General Syntax} In C++, all declarative sentences or instructions must end in a semicolon (;) as seen in earlier examples. Scoping is generally indicated through the use of curly brackets ({}). C++ is strict with these concepts in all versions and will fail to compile whenever there is a missing semicolon in areas where it is required. This strict rule does affect the writability of code, especially for programmers coming from languages that do not require these indicators. However, because it is an excellent notation for the separation of instructions, it makes code more readable and generally understandable. It also increases the language's reliability because it is clearly denotes the end of an expression and prevents other syntactical mistakes. The use of a comma (,) also denotes a separation of similar statements but are not immediately related to one another. A example is the use in the code
+\begin{center}
+  \textit{int x,y,z;}
+\end{center} 
+In the example, the comma is used to separate variable names but all are related to being a declaration of an integer data type. The idea in the ability to process this data is intuitive, much like in the english language, the comma is used to separate clauses that are related to one central idea and is applied similarly in C++. This allows for a very writable and readable snippet of code.
+
+\textbf{Precedence rules} C++ precedence rules are extensive because of how many features are found in the language. Being a multi-paradigm language, there is a variety of methods to do certain tasks, but they still have to follow the precedence rules in order to avoid ambiguity in all its forms. Table \ref{table:PR1} and its continuation on Table \ref{table:PR2} shows the precedence rules found in C++:
+
+\begin{table}[h!]
+    \caption{Precedence rules of C++}
+    \label{table:PR1}
+    \begin{tabular}{|c|l|p{0.5\linewidth}|l|}
+      \toprule % toprule here
+      \textbf{Precedence} & \textbf{Operator} & \textbf{Description} & \textbf{Associativity} \\
+      \midrule % midrule here
+      17 & :: & Scope resolution  &  Left-to-Right\\
+      \hline
+      \multirow{5}{5em}{16} & a++, a-- & Suffix/postfix increment and decrement & \multirow{5}{5em}{Left-to-Right} \\
+      & type(), type{} & Functional cast & \\
+      & a() & Function call & \\
+      & a[] & Subscript & \\
+      & . , -\textgreater & Member acess \\
+      \hline
+      \multirow{10}{5em}{15} & ++a,--a & Prefix increment and decrement & \multirow{10}{5em}{Right-to-Left}\\
+      & +a,-a & Unary plus and minus &\\
+      & !, ~ & Logical NOT and bitwise NOT &\\
+      & (type) & C-style cast &\\
+      & \&a & Address-of &\\
+      & *a & Dereference &\\
+      & sizeof & Size-of&\\
+      & co\_await & await-expression &\\
+      & new, new[] & Dynamic memory allocation &\\
+      & delete, deletep[] & Dynamic memory deallocation &\\
+      \hline
+      14 & .*, -\textgreater* & Pointer-memeber &Left-to-Right\\
+      \hline
+      13 & a*b, a/b, a\%b, & Multiplication, Division, and Remainder, &Left-to-Right\\
+      \hline
+      12 & a+b, a-b & Addition and Subtraction &Left-to-Right\\
+      \hline
+      11 & \textgreater \textgreater , \textless \textless & Bitwise Left-shift and Right-shift &Left-to-Right\\
+      \hline
+      10 & \textless = \textgreater & Three-way comparison operator &Left-to-Right\\
+      \hline
+    \end{tabular}
+  \end{table}
+
+  \begin{table}[h!]
+    \caption{Continuation of Precedence Rules}
+    \label{table:PR2}
+    \begin{tabular}{|c|l|p{0.5\linewidth}|l|}
+      \toprule % toprule here
+      \textbf{Precedence} & \textbf{Operator} & \textbf{Description} & \textbf{Associativity} \\
+      \midrule % midrule here
+      \multirow{2}{5em}{9} & \textless , \textless = & Relational operators & \multirow{2}{5em}{Left-to-Right}\\
+      & \textgreater , \textgreater = & Relational operators &\\
+      \hline
+      8 & ==, != & Relational Operators &Left-to-Right\\
+      \hline
+      7 & \& & Bitwise AND &Left-to-Right\\
+      \hline
+      6 & \string^ & Bitwise XOR &Left-to-Right\\
+      \hline
+      5 & | & Bitwise OR &Left-to-Right\\
+      \hline
+      4 & \&\& & Logical AND &Left-to-Right\\
+      \hline
+      3 & || & Logical OR &Left-to-Right\\
+      \hline
+      \multirow{8}{5em}{2} & a?b:c & Ternary conditional & \multirow{8}{5em}{Right-to-Left} \\
+      & throw & Throw operator &\\
+      & co\_yield & Yield-expression &\\
+      & = & Direct assignement &\\
+      & +=, -= & Compound assignment by sum and difference &\\
+      & *=, /=, \%= & Compound assignment by multiplication, division, and remainder &\\
+      & \textgreater \textgreater = , \textless \textless = & Compound assignment by bitwise left-shift and right-shift &\\
+      & \&=, \string^=, |= & Compound assignment by bitwise AND, XOR, and OR &\\
+      \hline
+      1 & , & Comma & Left-to-Right\\
+      \bottomrule
+    \end{tabular}
+\end{table}
+
+As seen from the tables, the precedence found in C++ is facet of the language that allows for great control and maneuverability of the programming language and the code one is able to make. All these in an effor to avoid problems in regards to ambiguity of the language and to isolate certain processes from others. 
+
+\textbf{Operators and their overloads} C++ has a great number of operators existing within the language. The table of precedence rules shows the which among the operators work first 
 
 %\subsubsection{Statements and Control Structures}
 
@@ -1153,6 +1275,8 @@ We used R's repeat loop and a conditional statement at the end of the loop body.
 [1] 2
 [1] 3
 \end{lstlisting}
+
+\section{Conclusion}
 
 \end{document}
 https://www.johndcook.com/blog/r_language_for_programmers/

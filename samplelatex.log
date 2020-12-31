@@ -1,4 +1,8 @@
+<<<<<<< Updated upstream
 This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020/Arch Linux) (preloaded format=pdflatex 2020.12.27)  31 DEC 2020 11:27
+=======
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (MiKTeX 20.11) (preloaded format=pdflatex 2020.11.16)  31 DEC 2020 07:53
+>>>>>>> Stashed changes
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -331,6 +335,7 @@ Package: booktabs 2020/01/12 v1.61803398 Publication quality tables
 \@lastruleclass=\count288
 \@thisrulewidth=\dimen180
 )
+<<<<<<< Updated upstream
 (/usr/local/share/texmf/tex/latex/multirow/multirow.sty
 Package: multirow 2019/05/31 v2.5 Span multiple rows of a table
 \multirow@colwidth=\skip57
@@ -344,6 +349,23 @@ File: l3backend-pdftex.def 2020-09-24 L3 backend support: PDF output (pdfTeX)
 \l__pdf_internal_box=\box52
 )
 (./samplelatex.aux)
+=======
+(C:\Users\kean\AppData\Local\Programs\MiKTeX\tex/latex/multirow\multirow.sty
+Package: multirow 2019/05/31 v2.5 Span multiple rows of a table
+\multirow@colwidth=\skip57
+\multirow@cntb=\count287
+\multirow@dima=\skip58
+\bigstrutjot=\dimen181
+)
+(C:\Users\kean\AppData\Local\Programs\MiKTeX\tex/latex/l3backend\l3backend-pdft
+ex.def
+File: l3backend-pdftex.def 2020-09-24 L3 backend support: PDF output (pdfTeX)
+\l__kernel_color_stack_int=\count288
+\l__pdf_internal_box=\box52
+) (samplelatex.aux)
+\openout1 = `samplelatex.aux'.
+
+>>>>>>> Stashed changes
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 24.
 LaTeX Font Info:    ... okay on input line 24.
 LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 24.
@@ -360,6 +382,7 @@ LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 24.
 LaTeX Font Info:    ... okay on input line 24.
 LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 24.
 LaTeX Font Info:    ... okay on input line 24.
+<<<<<<< Updated upstream
  (/usr/share/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
 \scratchcounter=\count291
@@ -372,12 +395,29 @@ LaTeX Font Info:    ... okay on input line 24.
 \MPscratchDim=\dimen183
 \MPnumerator=\count295
 \makeMPintoPDFobject=\count296
+=======
+
+(C:\Users\kean\AppData\Local\Programs\MiKTeX\tex/context/base/mkii\supp-pdf.mki
+i
+[Loading MPS to PDF converter (version 2006.09.02).]
+\scratchcounter=\count289
+\scratchdimen=\dimen182
+\scratchbox=\box53
+\nofMPsegments=\count290
+\nofMParguments=\count291
+\everyMPshowfont=\toks26
+\MPscratchCnt=\count292
+\MPscratchDim=\dimen183
+\MPnumerator=\count293
+\makeMPintoPDFobject=\count294
+>>>>>>> Stashed changes
 \everyMPtoPDFconversion=\toks27
 ) (/usr/share/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty
 Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
 Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
 85.
 
+<<<<<<< Updated upstream
 (/usr/share/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
 e
@@ -385,6 +425,9 @@ e
 Package hyperref Info: Link coloring OFF on input line 24.
 
 (/usr/share/texmf-dist/tex/latex/hyperref/nameref.sty
+=======
+(C:\Users\kean\AppData\Local\Programs\MiKTeX\tex/latex/hyperref\nameref.sty
+>>>>>>> Stashed changes
 Package: nameref 2019/09/16 v2.46 Cross-referencing by name of section
 
 (/usr/share/texmf-dist/tex/latex/refcount/refcount.sty
@@ -393,11 +436,16 @@ Package: refcount 2019/12/15 v3.6 Data extraction from label references (HO)
 (/usr/share/texmf-dist/tex/generic/gettitlestring/gettitlestring.sty
 Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
 )
+<<<<<<< Updated upstream
 \c@section@level=\count297
+=======
+\c@section@level=\count295
+>>>>>>> Stashed changes
 )
 LaTeX Info: Redefining \ref on input line 24.
 LaTeX Info: Redefining \pageref on input line 24.
 LaTeX Info: Redefining \nameref on input line 24.
+<<<<<<< Updated upstream
 
 (./samplelatex.out) (./samplelatex.out)
 \@outlinefile=\write3
@@ -408,6 +456,21 @@ LaTeX Info: Redefining \nameref on input line 24.
 \tf@toc=\write4
  [2] [3] [4] [5]
 Underfull \hbox (badness 10000) in paragraph at lines 105--106
+=======
+ (samplelatex.out) (samplelatex.out)
+\@outlinefile=\write3
+\openout3 = `samplelatex.out'.
+
+\c@lstlisting=\count296
+ (samplelatex.toc [1
+
+{C:/Users/kean/AppData/Local/MiKTeX/pdftex/config/pdftex.map}])
+\tf@toc=\write4
+\openout4 = `samplelatex.toc'.
+
+ [2] [3] [4] [5]
+Underfull \hbox (badness 10000) in paragraph at lines 106--107
+>>>>>>> Stashed changes
 
  []
 
@@ -428,11 +491,16 @@ Underfull \hbox (badness 10000) in paragraph at lines 128--129
  []
 
 [6]
+<<<<<<< Updated upstream
 Underfull \hbox (badness 10000) in paragraph at lines 158--159
+=======
+Underfull \hbox (badness 10000) in paragraph at lines 159--160
+>>>>>>> Stashed changes
 
  []
 
 [7]
+<<<<<<< Updated upstream
 Underfull \hbox (badness 10000) in paragraph at lines 185--186
 
  []
@@ -445,6 +513,26 @@ Underfull \hbox (badness 10000) in paragraph at lines 200--201
 LaTeX Font Info:    Trying to load font information for OML+cmr on input line 2
 17.
 (/usr/share/texmf-dist/tex/latex/base/omlcmr.fd
+=======
+Underfull \hbox (badness 10000) in paragraph at lines 192--193
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 203--204
+
+ []
+
+[8]
+Underfull \hbox (badness 10000) in paragraph at lines 218--219
+
+ []
+
+[9]
+LaTeX Font Info:    Trying to load font information for OML+cmr on input line 2
+35.
+ (C:\Users\kean\AppData\Local\Programs\MiKTeX\tex/latex/base\omlcmr.fd
+>>>>>>> Stashed changes
 File: omlcmr.fd 2019/12/16 v2.5j Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OML/cmr/m/n' in size <12> not available
@@ -454,6 +542,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 216--221
 
  []
 
+<<<<<<< Updated upstream
 LaTeX Font Info:    Trying to load font information for TS1+cmtt on input line 
 222.
 (/usr/share/texmf-dist/tex/latex/base/ts1cmtt.fd
@@ -463,6 +552,12 @@ LaTeX Font Info:    Trying to load font information for OMS+cmr on input line 2
 81.
 
 (/usr/share/texmf-dist/tex/latex/base/omscmr.fd
+=======
+[10] [11]
+LaTeX Font Info:    Trying to load font information for OMS+cmr on input line 3
+00.
+ (C:\Users\kean\AppData\Local\Programs\MiKTeX\tex/latex/base\omscmr.fd
+>>>>>>> Stashed changes
 File: omscmr.fd 2019/12/16 v2.5j Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <12> not available
@@ -481,21 +576,39 @@ Overfull \hbox (7.75888pt too wide) in paragraph at lines 277--297
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 [12] [13] [14] [15]
+<<<<<<< Updated upstream
 Overfull \hbox (1.8386pt too wide) in paragraph at lines 362--363
+=======
+Overfull \hbox (1.8386pt too wide) in paragraph at lines 381--382
+>>>>>>> Stashed changes
 []\OT1/cmr/bx/n/12 Multiple As-sign-ments \OT1/cmr/m/n/12 R also al-lows for mu
 l-ti-ple as-sign-ments. Writabil-
  []
 
 [16] [17] [18] [19] [20] [21] [22] [23] [24]
+<<<<<<< Updated upstream
 
 LaTeX Font Warning: Font shape `TS1/cmtt/bx/n' undefined
 (Font)              using `TS1/cmtt/m/n' instead
 (Font)              for symbol `textdollar' on input line 574.
+=======
+LaTeX Font Info:    Trying to load font information for TS1+cmtt on input line 
+590.
+
+(C:\Users\kean\AppData\Local\Programs\MiKTeX\tex/latex/base\ts1cmtt.fd
+File: ts1cmtt.fd 2019/12/16 v2.5j Standard LaTeX font definitions
+)
+
+LaTeX Font Warning: Font shape `TS1/cmtt/bx/n' undefined
+(Font)              using `TS1/cmtt/m/n' instead
+(Font)              for symbol `textdollar' on input line 590.
+>>>>>>> Stashed changes
 
 [25] [26] [27] [28] [29]
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
+<<<<<<< Updated upstream
 [30]
 Underfull \hbox (badness 10000) in paragraph at lines 741--742
 
@@ -513,6 +626,25 @@ have cer-tain re-served words
  []
 
 [33] (/usr/share/texmf-dist/tex/latex/listings/lstlang1.sty
+=======
+
+Underfull \hbox (badness 10000) in paragraph at lines 758--759
+
+ []
+
+[30]
+Underfull \hbox (badness 10000) in paragraph at lines 762--763
+
+ []
+
+[31] [32]
+Overfull \hbox (4.03304pt too wide) in paragraph at lines 803--804
+[]\OT1/cmr/bx/n/12 Reserved Words \OT1/cmr/m/n/12 All pro-gram-ming lan-guages 
+have cer-tain re-served words
+ []
+
+(C:\Users\kean\AppData\Local\Programs\MiKTeX\tex/latex/listings\lstlang1.sty
+>>>>>>> Stashed changes
 File: lstlang1.sty 2020/03/24 1.8d listings language file
 )
 (/usr/share/texmf-dist/tex/latex/listings/lstlang1.sty
@@ -520,6 +652,7 @@ File: lstlang1.sty 2020/03/24 1.8d listings language file
 )
 (/usr/share/texmf-dist/tex/latex/listings/lstmisc.sty
 File: lstmisc.sty 2020/03/24 1.8d (Carsten Heinz)
+<<<<<<< Updated upstream
 ) [34]
 Overfull \hbox (61.6653pt too wide) in paragraph at lines 819--834
  [] 
@@ -528,10 +661,39 @@ Overfull \hbox (61.6653pt too wide) in paragraph at lines 819--834
 [35] [36] [37] [38] [39] [40] [41] [42] [43] [44] (./samplelatex.aux)
 Package rerunfilecheck Info: File `samplelatex.out' has not changed.
 (rerunfilecheck)             Checksum: 31456F1DC797654A5BCBD578A70B2B57;2809.
+=======
+)
+[33] [34]
+Overfull \hbox (61.6653pt too wide) in paragraph at lines 836--851
+ [] 
+ []
+
+[35] [36] [37]
+Underfull \hbox (badness 1199) in paragraph at lines 923--923
+[]\OT1/cmr/m/n/12 Suffix/postfix in-cre-ment and decre-
+ []
 
 
-LaTeX Font Warning: Some font shapes were not available, defaults substituted.
+Overfull \hbox (76.01033pt too wide) in paragraph at lines 917--951
+[][] 
+ []
 
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+
+Underfull \hbox (badness 5345) in paragraph at lines 982--982
+[]\OT1/cmr/m/n/12 Compound as-sign-ment by bit-wise
+ []
+>>>>>>> Stashed changes
+
+
+Overfull \hbox (64.26045pt too wide) in paragraph at lines 956--987
+[][] 
+ []
+
+
+<<<<<<< Updated upstream
  ) 
 Here is how much of TeX's memory you used:
  9782 strings out of 479383
@@ -557,4 +719,42 @@ PDF statistics:
  950 compressed objects within 10 object streams
  544 named destinations out of 1000 (max. 500000)
  305 words of extra memory for PDF output out of 10000 (max. 10000000)
+=======
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+[38] [39] [40] [41] [42] [43] [44] [45] [46] [47] (samplelatex.aux)
+Package rerunfilecheck Info: File `samplelatex.out' has not changed.
+(rerunfilecheck)             Checksum: F95C6B4D09E38EE8586C821C3F75C58E;2926.
+
+
+LaTeX Font Warning: Some font shapes were not available, defaults substituted.
+
+ ) 
+Here is how much of TeX's memory you used:
+ 9815 strings out of 479832
+ 145642 string characters out of 2871529
+ 797730 words of memory out of 3000000
+ 26047 multiletter control sequences out of 15000+200000
+ 541334 words of font info for 51 fonts, out of 3000000 for 9000
+ 1141 hyphenation exceptions out of 8191
+ 78i,11n,85p,1302b,1872s stack positions out of 5000i,500n,10000p,200000b,50000s
+ <C:\Users\kean\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tctt1
+200.pk> <C:\Users\kean\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\
+tcrm1200.pk><C:/Users/kean/AppData/Local/Programs/MiKTeX/fonts/type1/public/ams
+fonts/cm/cmbx12.pfb><C:/Users/kean/AppData/Local/Programs/MiKTeX/fonts/type1/pu
+blic/amsfonts/cm/cmitt10.pfb><C:/Users/kean/AppData/Local/Programs/MiKTeX/fonts
+/type1/public/amsfonts/cm/cmmi12.pfb><C:/Users/kean/AppData/Local/Programs/MiKT
+eX/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Users/kean/AppData/Local/Progra
+ms/MiKTeX/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Users/kean/AppData/Local/
+Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/kean/AppDat
+a/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy8.pfb><C:/Users/kean
+/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmti12.pfb><C:/Us
+ers/kean/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmtt12.pf
+b>
+Output written on samplelatex.pdf (47 pages, 314023 bytes).
+PDF statistics:
+ 1063 PDF objects out of 1200 (max. 8388607)
+ 576 named destinations out of 1000 (max. 500000)
+ 321 words of extra memory for PDF output out of 10000 (max. 10000000)
+>>>>>>> Stashed changes
 
