@@ -1008,8 +1008,7 @@ In the example, the comma is used to separate variable names but all are related
 
 As seen from the tables, the precedence found in C++ is facet of the language that allows for great control and maneuverability of the programming language and the code one is able to make. All these in an effor to avoid problems in regards to ambiguity of the language and to isolate certain processes from others. One is also able to see operators, and their overloads, and what behaviors they perform that a programmer is able to use an any given time. For example the operator \textbf{++} is an single increment operator added in postfix or prefix to a variable name to increase its value by one. This can also be written as \textbf{variable\_name+=1; or variable\_name = variable\_name + 1;}. There is some nuance to the implementation of each operator such as those that affect runtime, but generally, all three operators perfrom the same task, add a value of one to the current value found in the variable and assigning this new value to the variable. C++ is full of these types of operations and overloading is not uncommon. Unfortunately, having so many methods available does make it difficult to learn a programming language but having it too simple, also affects how readable it is. It also allows for greater control using less steps or instructions, which make it very convenient for programmers.
 
-
-\textbf{Operators and their overloads} C++ has a great number of operators existing within the language. The table of precedence rules shows the which among the operators work first 	\subsubsection{Statements and Control Structures}
+\subsubsection{Statements and Control Structures}
 
 \textbf{Assignment Operations} C++ assignment is fairly straightforward. The syntax is always the same in all situations.
 \begin{center}
@@ -1134,10 +1133,7 @@ Do-while loops syntax is the following:
   }while(condition)
 \end{lstlisting}
 
-
 The main difference between the three loops is their usage and what they are designed to do. For loops were designed to iterate through data structures and have it check a specific set of instructions. For-loops are usually used when the programmer knows what it should be doing, and when it should stop. Do-While loops are used when the inner statements of the loop must be performed before checking the condition in which to stop. Its postfix nature allows for at least one iteration of the process to be performed. While loops are prefix in nature and check the conditions first before proceeding with the code block. It is imperative that all loops must have a condition which actually terminates else the problem of infinite looping occurs. For reference, all the conditions must be determine True for the code blocks within them to be processed and when deteremined False or the use of the break keyword exits the loop in its entirety. Another keyword found in loops is the continue keyword which at the point of reading, ignores every other statement after it and proceeds with the next iteration of the loop. Be very careful of the placement of the continue statement, as this may also cause an infinite loop when put before the increment/decrement of the loop (does not affect for-loops). It is possible to have control statements and nested iterations in all loops. This allows for a great degree of freedom for the programmer to use the loop in the ways that they require. Unfortunately, because the loops have a very general syntax, it is easy to misread certain loops especially when nested multiple times. The reliability of the loops also depends on how the programmer wants it to perform but in general, well-coded loops will always work as intended. It is truly the fault of the programmer if an infinite loop is created.
-
-%\subsubsection{Statements and Control Structures}
 
 %\subsubsection{Procedures and Subprograms}
 
@@ -1180,7 +1176,8 @@ The main difference between the three loops is their usage and what they are des
 \section{Feature 1: Struct}
 
 \subsection{Description of the feature and Code in C++}
-A struct is a blueprint used to create a lightweight instance of a class. It is comprised of data elements called members.
+A struct is a blueprint used to create a lightweight instance of a class. It is comprised of data elements called members. Structs are important pieces of code that allow for user-defined objects that have specific attributes and processes that change these attributes to suite the purpose of programmer to solve specific problems in a well compacted way. They are usually built around the primitive data types found in C++. In C++ one can define a struct using the struct keyword followed by the name. The code found inside of the scope are its associated attributes and methods. 
+\subsection{Code in C++}
 
 \begin{lstlisting}[language=C++ ]
   #include <iostream>
@@ -1217,10 +1214,12 @@ A struct is a blueprint used to create a lightweight instance of a class. It is 
 \end{lstlisting}
 
 \subsection{Advantages of having Structs}
-Similar to classes, structs are very useful in object-oriented programming. It provides another way of grouping data elements under one name. It also provides for a means to implement plain-old-data (POD) types, which are classes without constructors/destructors.
+Similar to classes, structs are very useful in object-oriented programming. It provides another way of grouping data elements under one name. It also provides for a means to implement plain-old-data (POD) types, which are classes without constructors/destructors. A clear advantage of a struct is the ability to create an object that describes an entity in real life as well as the methods one can do with such an object. It also allows for definition and processing of data, separate from other processes. Another advantage is that structs, when defined, have a long lifetimes during runtime that allows for dynamic allocation of memory and greater control of data.
 
 \subsection{Advantages of not having Structs}
 As structs are very similar to classes except for their default element access and inheritance manner (public for structs, private for classes), one can say that choosing either of them is a matter of preference. Hence in most contexts, structs can be seen as a kind of duplicate to classes, hence not having them slightly improves readability and writability as one is assured that all object-oriented actions are done using classes only. Also, not having structs do not greatly affect a language with classes like R.
+
+An advantage of not having structs is that there is no confusion as to how to process certain data. Data would also not be isolated in its own scope and may be accessed throughout the code wherever possible. 
 
 \subsection{Workaround in R}
 
@@ -1314,7 +1313,7 @@ To emulate the same Rectangle struct in C++, the following can be done:
 \section{Feature 2: Overloaded functions}
 
 \subsection{Description of the feature and Code in C++}
-In the context of C++, overloaded functions are used within classes (ADD SOMETHING HERE KIEV). In the part on which discussed R's generic function, one can see that constructing methods are quite similar to constructing overloaded functions. However, one also see that such methods only apply in a class-to-function basis, not necessarily a function-to-function overloading.
+In the context of C++, overloaded functions are used within classes in order to create functions that do similar things with different inputs. A common example are constructors for classes being that classes with multiple attributes may be initialized with or without these attributes. Another great use of overloaded functions is having functions with the same name, that perform the same process, but return varying data types. In the part on which discussed R's generic function, one can see that constructing methods are quite similar to constructing overloaded functions. However, one also see that such methods only apply in a class-to-function basis, not necessarily a function-to-function overloading.
 
 \begin{lstlisting}[language = C++ ]
   #include <iostream>
@@ -1328,18 +1327,18 @@ In the context of C++, overloaded functions are used within classes (ADD SOMETHI
   }
 
   int main(){
-    cout << ``Int mul'' << mul(10,20);
-    cout << ``Float mul'' << mul(1.0, 2.0, 3.0);
+    cout << ``Int mul '' << mul(10,20);
+    cout << ``Float mul '' << mul(1.0, 2.0, 3.0);
   }
 
   -------------------------------------
   Output:
-  200
-  6.0
+  Int mul 200
+  Float mul 6.0
 \end{lstlisting}
 
 \subsection{Advantages of having Overloaded functions}
-One major advantage of function overloading is having the same name for functions which do the same things, thereby improving readability.
+One major advantage of function overloading is having the same name for functions which do the same things, thereby improving readability. Another great advantage is the saving of memory because the programmer need not create new functions for behaviors they have already defined.
 
 \subsection{Advantages of not having Overloaded functions}
 Function overloading introduces ambiguity on how the function is exactly implemented which may be due to language's type coercion rules on arguments, presence of implementations with default values, and function which uses pass by reference (although this is not the case in R). R prevents such issues without overloaded functions; furthemore, if the function to be overloaded is class-based, generic functions/methods can be made.
