@@ -4,37 +4,40 @@
 \contentsline {subsubsection}{\numberline {1.2.1}S, the precursor of R}{3}{subsubsection.1.2.1}%
 \contentsline {subsubsection}{\numberline {1.2.2}R}{3}{subsubsection.1.2.2}%
 \contentsline {subsection}{\numberline {1.3}Language Features}{4}{subsection.1.3}%
-\contentsline {subsection}{\numberline {1.4}Paradigm(s)}{4}{subsection.1.4}%
+\contentsline {subsection}{\numberline {1.4}Paradigm(s)}{5}{subsection.1.4}%
 \contentsline {subsection}{\numberline {1.5}Language Evaluation Criteria}{5}{subsection.1.5}%
 \contentsline {subsubsection}{\numberline {1.5.1}Data Types}{5}{subsubsection.1.5.1}%
-\contentsline {subsubsection}{\numberline {1.5.2}Binding, Scoping, Referencing}{9}{subsubsection.1.5.2}%
-\contentsline {subsubsection}{\numberline {1.5.3}Expressions}{12}{subsubsection.1.5.3}%
+\contentsline {subsubsection}{\numberline {1.5.2}Binding, Scoping, Referencing}{10}{subsubsection.1.5.2}%
+\contentsline {subsubsection}{\numberline {1.5.3}Expressions}{13}{subsubsection.1.5.3}%
 \contentsline {subsubsection}{\numberline {1.5.4}Statements and Control Structures}{15}{subsubsection.1.5.4}%
-\contentsline {subsubsection}{\numberline {1.5.5}Functions (Procedures or Subprograms)}{20}{subsubsection.1.5.5}%
+\contentsline {subsubsection}{\numberline {1.5.5}Functions (Procedures or Subprograms)}{21}{subsubsection.1.5.5}%
 \contentsline {section}{\numberline {2}C++}{27}{section.2}%
 \contentsline {subsection}{\numberline {2.1}Purpose and Motivations}{27}{subsection.2.1}%
-\contentsline {subsection}{\numberline {2.2}History (Authors, Revisions, Adoption)}{27}{subsection.2.2}%
-\contentsline {subsubsection}{\numberline {2.2.1}Early Development}{27}{subsubsection.2.2.1}%
+\contentsline {subsection}{\numberline {2.2}History (Authors, Revisions, Adoption)}{28}{subsection.2.2}%
+\contentsline {subsubsection}{\numberline {2.2.1}Early Development}{28}{subsubsection.2.2.1}%
 \contentsline {subsubsection}{\numberline {2.2.2}International Recognition and Standardization}{28}{subsubsection.2.2.2}%
 \contentsline {subsection}{\numberline {2.3}Language Features}{29}{subsection.2.3}%
 \contentsline {subsection}{\numberline {2.4}Paradigm(s)}{30}{subsection.2.4}%
-\contentsline {subsection}{\numberline {2.5}Language Evaluation Criteria}{30}{subsection.2.5}%
-\contentsline {subsubsection}{\numberline {2.5.1}Data Types}{30}{subsubsection.2.5.1}%
+\contentsline {subsection}{\numberline {2.5}Language Evaluation Criteria}{31}{subsection.2.5}%
+\contentsline {subsubsection}{\numberline {2.5.1}Data Types}{31}{subsubsection.2.5.1}%
 \contentsline {subsubsection}{\numberline {2.5.2}Binding, Scoping, Referencing}{33}{subsubsection.2.5.2}%
-\contentsline {subsubsection}{\numberline {2.5.3}Expressions}{38}{subsubsection.2.5.3}%
-\contentsline {subsubsection}{\numberline {2.5.4}Statements and Control Structures}{41}{subsubsection.2.5.4}%
-\contentsline {section}{\numberline {3}Feature 1: Struct and Struct Constructor}{46}{section.3}%
-\contentsline {subsection}{\numberline {3.1}Code in C++}{46}{subsection.3.1}%
-\contentsline {subsection}{\numberline {3.2}Advantages of having Structs}{47}{subsection.3.2}%
-\contentsline {subsection}{\numberline {3.3}Advantages of not having Structs}{47}{subsection.3.3}%
-\contentsline {subsection}{\numberline {3.4}Workaround in R}{47}{subsection.3.4}%
-\contentsline {section}{\numberline {4}Feature 2: Overloaded functions}{50}{section.4}%
-\contentsline {subsection}{\numberline {4.1}Code in C++}{50}{subsection.4.1}%
-\contentsline {subsection}{\numberline {4.2}Advantages of having Overloaded functions}{51}{subsection.4.2}%
-\contentsline {subsection}{\numberline {4.3}Advantages of not having Overloaded functions}{51}{subsection.4.3}%
-\contentsline {subsection}{\numberline {4.4}Workaround in R}{51}{subsection.4.4}%
-\contentsline {section}{\numberline {5}Feature 3: Do-while loops}{52}{section.5}%
-\contentsline {subsection}{\numberline {5.1}Code in C++}{52}{subsection.5.1}%
-\contentsline {subsection}{\numberline {5.2}Advantages of having Do-while loops}{53}{subsection.5.2}%
-\contentsline {subsection}{\numberline {5.3}Advantages of not Do-while loops}{53}{subsection.5.3}%
-\contentsline {subsection}{\numberline {5.4}Workaround in R}{53}{subsection.5.4}%
+\contentsline {subsubsection}{\numberline {2.5.3}Expressions}{39}{subsubsection.2.5.3}%
+\contentsline {subsubsection}{\numberline {2.5.4}Statements and Control Structures}{42}{subsubsection.2.5.4}%
+\contentsline {subsubsection}{\numberline {2.5.5}Procedures and Subprograms}{47}{subsubsection.2.5.5}%
+\contentsline {section}{\numberline {3}Feature 1: Struct}{61}{section.3}%
+\contentsline {subsection}{\numberline {3.1}Description of the feature and Code in C++}{61}{subsection.3.1}%
+\contentsline {subsection}{\numberline {3.2}Code in C++}{61}{subsection.3.2}%
+\contentsline {subsection}{\numberline {3.3}Advantages of having Structs}{62}{subsection.3.3}%
+\contentsline {subsection}{\numberline {3.4}Advantages of not having Structs}{63}{subsection.3.4}%
+\contentsline {subsection}{\numberline {3.5}Workaround in R}{63}{subsection.3.5}%
+\contentsline {section}{\numberline {4}Feature 2: Overloaded functions}{66}{section.4}%
+\contentsline {subsection}{\numberline {4.1}Description of the feature and Code in C++}{66}{subsection.4.1}%
+\contentsline {subsection}{\numberline {4.2}Advantages of having Overloaded functions}{67}{subsection.4.2}%
+\contentsline {subsection}{\numberline {4.3}Advantages of not having Overloaded functions}{67}{subsection.4.3}%
+\contentsline {subsection}{\numberline {4.4}Workaround in R}{67}{subsection.4.4}%
+\contentsline {section}{\numberline {5}Feature 3: Do-while loops}{69}{section.5}%
+\contentsline {subsection}{\numberline {5.1}Description of feature and Code in C++}{69}{subsection.5.1}%
+\contentsline {subsection}{\numberline {5.2}Advantages of having Do-while loops}{69}{subsection.5.2}%
+\contentsline {subsection}{\numberline {5.3}Advantages of not having Do-while loops}{69}{subsection.5.3}%
+\contentsline {subsection}{\numberline {5.4}Workaround in R}{70}{subsection.5.4}%
+\contentsline {section}{\numberline {6}Conclusion}{70}{section.6}%

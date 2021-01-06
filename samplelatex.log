@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (MiKTeX 20.11) (preloaded format=pdflatex 2020.11.16)  31 DEC 2020 16:06
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (MiKTeX 20.11) (preloaded format=pdflatex 2020.11.16)  7 JAN 2021 02:51
 entering extended mode
 **./samplelatex.tex
 (samplelatex.tex
@@ -344,7 +344,17 @@ ex.def
 File: l3backend-pdftex.def 2020-09-24 L3 backend support: PDF output (pdfTeX)
 \l__kernel_color_stack_int=\count288
 \l__pdf_internal_box=\box52
-) (samplelatex.aux)
+) (samplelatex.aux
+
+LaTeX Warning: Label `C++ Data Types' multiply defined.
+
+
+LaTeX Warning: Label `C++ Variables' multiply defined.
+
+
+LaTeX Warning: Label `Generic Functions in C++' multiply defined.
+
+)
 \openout1 = `samplelatex.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 24.
@@ -407,14 +417,24 @@ LaTeX Info: Redefining \nameref on input line 24.
 \openout3 = `samplelatex.out'.
 
 \c@lstlisting=\count296
- (samplelatex.toc [1
+ [1
 
-{C:/Users/kean/AppData/Local/MiKTeX/pdftex/config/pdftex.map}])
+{C:/Users/kean/AppData/Local/MiKTeX/pdftex/config/pdftex.map}] (samplelatex.toc
+pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has 
+been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.35 ... Overloaded functions}{67}{subsection.4.2}
+                                                  % [1])
 \tf@toc=\write4
 \openout4 = `samplelatex.toc'.
 
- [2] [3] [4] [5]
-Underfull \hbox (badness 10000) in paragraph at lines 105--106
+ [2] [3] [4]
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+[5]
+Underfull \hbox (badness 10000) in paragraph at lines 142--143
 
  []
 
@@ -427,100 +447,98 @@ File: lstlang2.sty 2020/03/24 1.8d listings language file
 (C:\Users\kean\AppData\Local\Programs\MiKTeX\tex/latex/listings\lstlang3.sty
 File: lstlang3.sty 2020/03/24 1.8d listings language file
 )
-LaTeX Font Info:    Font shape `OT1/cmtt/bx/n' in size <12> not available
-(Font)              Font shape `OT1/cmtt/m/n' tried instead on input line 110.
-
-Underfull \hbox (badness 10000) in paragraph at lines 128--129
-
- []
-
 [6]
-Underfull \hbox (badness 10000) in paragraph at lines 158--159
+LaTeX Font Info:    Font shape `OT1/cmtt/bx/n' in size <12> not available
+(Font)              Font shape `OT1/cmtt/m/n' tried instead on input line 147.
+
+Underfull \hbox (badness 10000) in paragraph at lines 165--166
 
  []
 
 [7]
-Underfull \hbox (badness 10000) in paragraph at lines 185--186
+Underfull \hbox (badness 10000) in paragraph at lines 195--196
 
  []
 
 [8]
-Underfull \hbox (badness 10000) in paragraph at lines 200--201
+Underfull \hbox (badness 10000) in paragraph at lines 222--223
 
  []
 
+
+Underfull \hbox (badness 10000) in paragraph at lines 237--238
+
+ []
+
+[9]
 LaTeX Font Info:    Trying to load font information for OML+cmr on input line 2
-17.
-(C:\Users\kean\AppData\Local\Programs\MiKTeX\tex/latex/base\omlcmr.fd
+54.
+ (C:\Users\kean\AppData\Local\Programs\MiKTeX\tex/latex/base\omlcmr.fd
 File: omlcmr.fd 2019/12/16 v2.5j Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OML/cmr/m/n' in size <12> not available
-(Font)              Font shape `OML/cmm/m/it' tried instead on input line 217.
+(Font)              Font shape `OML/cmm/m/it' tried instead on input line 254.
 
-Underfull \hbox (badness 10000) in paragraph at lines 216--221
+Underfull \hbox (badness 10000) in paragraph at lines 253--258
 
  []
 
 LaTeX Font Info:    Trying to load font information for TS1+cmtt on input line 
-222.
+259.
 (C:\Users\kean\AppData\Local\Programs\MiKTeX\tex/latex/base\ts1cmtt.fd
 File: ts1cmtt.fd 2019/12/16 v2.5j Standard LaTeX font definitions
 )
-[9] [10] [11]
-LaTeX Font Info:    Trying to load font information for OMS+cmr on input line 2
-81.
+[10] [11] [12]
+LaTeX Font Info:    Trying to load font information for OMS+cmr on input line 3
+18.
 
 (C:\Users\kean\AppData\Local\Programs\MiKTeX\tex/latex/base\omscmr.fd
 File: omscmr.fd 2019/12/16 v2.5j Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <12> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 281.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 318.
 
-Underfull \hbox (badness 1112) in paragraph at lines 285--285
+Underfull \hbox (badness 1112) in paragraph at lines 322--322
 []\OT1/cmr/m/n/12 ^, + (unary), - (unary), %%
  []
 
 
-Overfull \hbox (7.75888pt too wide) in paragraph at lines 277--297
+Overfull \hbox (7.75888pt too wide) in paragraph at lines 314--334
  [] 
  []
 
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-[12] [13] [14] [15]
-Overfull \hbox (1.8386pt too wide) in paragraph at lines 362--363
+[13] [14] [15]
+Overfull \hbox (1.8386pt too wide) in paragraph at lines 399--400
 []\OT1/cmr/bx/n/12 Multiple As-sign-ments \OT1/cmr/m/n/12 R also al-lows for mu
 l-ti-ple as-sign-ments. Writabil-
  []
 
-[16] [17] [18] [19] [20] [21] [22] [23] [24]
+[16] [17] [18] [19] [20] [21] [22] [23] [24] [25]
 
 LaTeX Font Warning: Font shape `TS1/cmtt/bx/n' undefined
 (Font)              using `TS1/cmtt/m/n' instead
-(Font)              for symbol `textdollar' on input line 574.
+(Font)              for symbol `textdollar' on input line 611.
 
-[25] [26] [27] [28] [29]
+[26] [27] [28] [29] [30]
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-[30]
-Underfull \hbox (badness 10000) in paragraph at lines 741--742
+
+Underfull \hbox (badness 10000) in paragraph at lines 778--779
 
  []
 
 [31]
-Underfull \hbox (badness 10000) in paragraph at lines 745--746
+Underfull \hbox (badness 10000) in paragraph at lines 782--783
 
  []
 
-[32]
-Overfull \hbox (4.03304pt too wide) in paragraph at lines 786--787
+[32] [33]
+Overfull \hbox (4.03304pt too wide) in paragraph at lines 823--824
 []\OT1/cmr/bx/n/12 Reserved Words \OT1/cmr/m/n/12 All pro-gram-ming lan-guages 
 have cer-tain re-served words
  []
 
-[33]
 (C:\Users\kean\AppData\Local\Programs\MiKTeX\tex/latex/listings\lstlang1.sty
 File: lstlang1.sty 2020/03/24 1.8d listings language file
 )
@@ -530,93 +548,388 @@ File: lstlang1.sty 2020/03/24 1.8d listings language file
 (C:\Users\kean\AppData\Local\Programs\MiKTeX\tex/latex/listings\lstmisc.sty
 File: lstmisc.sty 2020/03/24 1.8d (Carsten Heinz)
 )
-[34]
-Overfull \hbox (61.6653pt too wide) in paragraph at lines 819--834
+[34] [35]
+Overfull \hbox (61.6653pt too wide) in paragraph at lines 857--872
  [] 
  []
 
-[35] [36] [37] [38]
-Underfull \hbox (badness 10000) in paragraph at lines 906--906
+[36] [37] [38]
+Underfull \hbox (badness 10000) in paragraph at lines 944--944
 []\OT1/cmr/m/n/12 Suffix/postfix in-cre-ment
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 912--912
+Underfull \hbox (badness 10000) in paragraph at lines 950--950
 []\OT1/cmr/m/n/12 Prefix in-cre-ment and
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 925--925
+Underfull \hbox (badness 10000) in paragraph at lines 963--963
 []\OT1/cmr/m/n/12 Multiplication, Di-vi-sion,
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 929--929
+Underfull \hbox (badness 10000) in paragraph at lines 967--967
 []\OT1/cmr/m/n/12 Bitwise Left-shift and
  []
 
 
-Overfull \hbox (17.51271pt too wide) in paragraph at lines 900--934
-[][] 
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 963--963
-\OT1/cmr/m/n/12 mul-ti-pli-ca-tion, di-vi-sion,
- []
-
-
-Overfull \hbox (5.76283pt too wide) in paragraph at lines 939--970
+Overfull \hbox (17.51271pt too wide) in paragraph at lines 938--972
 [][] 
  []
 
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-[39] [40] [41] [42] [43]
-Overfull \hbox (4.92099pt too wide) in paragraph at lines 1052--1053
+
+Underfull \hbox (badness 10000) in paragraph at lines 1001--1001
+\OT1/cmr/m/n/12 mul-ti-pli-ca-tion, di-vi-sion,
+ []
+
+
+Overfull \hbox (5.76283pt too wide) in paragraph at lines 977--1008
+[][] 
+ []
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+[39] [40] [41] [42] [43] [44]
+Overfull \hbox (4.92099pt too wide) in paragraph at lines 1091--1092
 []\OT1/cmr/m/n/12 A com-mon prob-lem when writ-ing if-statements are the nested
  if-statements
  []
 
-[44]
-Overfull \hbox (0.21663pt too wide) in paragraph at lines 1078--1079
+[45]
+Overfull \hbox (0.21663pt too wide) in paragraph at lines 1117--1118
 []\OT1/cmr/bx/n/12 Iterative State-ments \OT1/cmr/m/n/12 In C++, it-er-a-tive s
 tate-ments or com-monly known
  []
 
-[45] [46] [47] [48] [49] [50] [51] [52] [53] (samplelatex.aux)
+[46] [47] [48] [49] [50] [51]
+Underfull \hbox (badness 1910) in paragraph at lines 1261--1262
+[]\OT1/cmr/m/n/12 This can be thrown by the New
+ []
+
+
+Underfull \hbox (badness 3189) in paragraph at lines 1263--1264
+[]\OT1/cmr/m/n/12 This can be thrown by the dy-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1275--1276
+[]\OT1/cmr/m/n/12 An ex-cep-tion thrown when an
+ []
+
+
+Underfull \hbox (badness 6001) in paragraph at lines 1277--1278
+[]\OT1/cmr/m/n/12 This is can be thrown by the
+ []
+
+[52] [53] [54] [55] [56] [57] [58] [59]
+Overfull \hbox (2.96814pt too wide) in paragraph at lines 1481--1482
+[]\OT1/cmr/m/n/12 The code above shows the use of user-defined over-loaded op-e
+r-a-tors through
+ []
+
+[60] [61] [62] [63] [64] [65] [66] [67] [68] [69] [70] [71] [72]
+Underfull \hbox (badness 3713) in paragraph at lines 1788--1789
+[]\OT1/cmr/m/n/12 Chambers, J. M. (2014). Object-Oriented Pro-gram-ming, Func-
+ []
+
+
+Underfull \hbox (badness 2277) in paragraph at lines 1788--1789
+\OT1/cmr/m/n/12 tional Pro-gram-ming and R. Sta-tis-ti-cal Sci-ence, 29(2), 167
+{180.
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1791--1792
+[]\OT1/cmr/m/n/12 The R lan-guage, for pro-gram-mers. (2017,
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1791--1792
+\OT1/cmr/m/n/12 July 31). Re-trieved De-cem-ber 2, 2020, from
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1797--1798
+[]\OT1/cmr/m/n/12 (n.d.). Re-trieved De-cem-ber 28, 2020, from https://cran.r-
+ []
+
+
+Underfull \hbox (badness 2253) in paragraph at lines 1809--1810
+[]\OT1/cmr/m/n/12 Uses of C++: Top 10 Rea-sons Why You Should Use C++.
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1809--1810
+\OT1/cmr/m/n/12 (2020, Au-gust 10). Re-trieved De-cem-ber 31, 2020, from
+ []
+
+[73]
+Underfull \hbox (badness 1014) in paragraph at lines 1821--1822
+[]\OT1/cmr/m/n/12 CPPReference (n.d.) C++11 Re-trieved De-cem-ber 07, 2020, fro
+m
+ []
+
+
+Underfull \hbox (badness 1014) in paragraph at lines 1824--1825
+[]\OT1/cmr/m/n/12 CPPReference (n.d.) C++14 Re-trieved De-cem-ber 07, 2020, fro
+m
+ []
+
+
+Underfull \hbox (badness 1014) in paragraph at lines 1827--1828
+[]\OT1/cmr/m/n/12 CPPReference (n.d.) C++17 Re-trieved De-cem-ber 07, 2020, fro
+m
+ []
+
+
+Underfull \hbox (badness 1014) in paragraph at lines 1830--1831
+[]\OT1/cmr/m/n/12 CPPReference (n.d.) C++20 Re-trieved De-cem-ber 07, 2020, fro
+m
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1836--1837
+\OT1/cmr/m/n/12 from https://docs.microsoft.com/en-us/cpp/c-language/cpp-intege
+r-
+ []
+
+
+Underfull \hbox (badness 3942) in paragraph at lines 1839--1840
+[]\OT1/cmr/m/n/12 Fundamental types (n.d.) Re-trieved De-cem-ber 29, 2020, from
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1845--1846
+[]\OT1/cmr/m/n/12 C++ Vari-ables (n.d.) Re-trieved Dec 29, 2020, from
+ []
+
+[74pdfTeX warning (ext4): destination with the same identifier (name{cite.C++\0
+40Data\040Types}) has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  
+l.1852 
+       pdfTeX warning (ext4): destination with the same identifier (name{cite.C
+++\040Variables}) has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  
+l.1852 
+       ]
+Underfull \hbox (badness 8132) in paragraph at lines 1854--1855
+[]\OT1/cmr/m/n/12 Robertson, C. (2016, Novem-ber 04) Ref-er-ences (C++) Re-
+ []
+
+
+Underfull \hbox (badness 3199) in paragraph at lines 1854--1855
+\OT1/cmr/m/n/12 trieved De-cem-ber 29, 2020, from https://docs.microsoft.com/en
+-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1860--1861
+[]\OT1/cmr/m/n/12 Singh, H. (2018, Febru-ary 05) Early bind-ing and Late
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1860--1861
+\OT1/cmr/m/n/12 bind-ing in C++ Re-trieved De-cem-ber 29, 2020, from
+ []
+
+
+Underfull \hbox (badness 2865) in paragraph at lines 1866--1867
+[]\OT1/cmr/m/n/12 Alex (2015, April 16) 6.16 | Ex-plicit type con-ver-sion (cas
+t-
+ []
+
+
+Underfull \hbox (badness 5893) in paragraph at lines 1866--1867
+\OT1/cmr/m/n/12 ing) and static[]cast Re-trieved on De-cem-ber 29, 2020, from
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1866--1867
+\OT1/cmr/m/n/12 https://www.learncpp.com/cpp-tutorial/explicit-type-conversion-
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1869--1870
+\OT1/cmr/m/n/12 us/cpp/cpp/type-conversions-and-type-safety-modern-cpp?view=msv
+c-
+ []
+
+
+Underfull \hbox (badness 2443) in paragraph at lines 1872--1873
+\OT1/cmr/m/n/12 Con-ver-sions and Casts Re-trieved on De-cem-ber 29, 2020, from
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1872--1873
+\OT1/cmr/m/n/12 https://www.modernescpp.com/index.php/c-core-guidelines-rules-f
+or-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1875--1876
+[]\OT1/cmr/m/n/12 CPPReference (n.d.) C++ Op-er-a-tor Prece-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1875--1876
+\OT1/cmr/m/n/12 dence Re-trieved on De-cem-ber 29, 2020, from
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1878--1879
+[]\OT1/cmr/m/n/12 CPPReference (n.d.) Other op-er-a-tors Re-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1878--1879
+\OT1/cmr/m/n/12 trieved on De-cem-ber 29, 2020, from
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1878--1879
+\OT1/cmr/m/n/12 https://en.cppreference.com/w/cpp/language/operator[]other#Buil
+t-
+ []
+
+[75]
+Underfull \hbox (badness 10000) in paragraph at lines 1887--1888
+[]\OT1/cmr/m/n/12 tutorialspoint (n.d.) C++ Ex-cep-tion Han-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1887--1888
+\OT1/cmr/m/n/12 dling Re-trieved on De-cem-ber 31, 2020, from
+ []
+
+
+Overfull \hbox (5.5531pt too wide) in paragraph at lines 1887--1888
+\OT1/cmr/m/n/12 https://www.tutorialspoint.com/cplusplus/cpp[]exceptions[]handl
+ing.htm 
+ []
+
+
+Underfull \hbox (badness 6412) in paragraph at lines 1890--1891
+[]\OT1/cmr/m/n/12 GeeksforGeeks (2018, De-cem-ber 18) Pa-ram-e-ter Pass-ing Tec
+h-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1890--1891
+\OT1/cmr/m/n/12 niques in C/C++ Re-trieved on De-cem-ber 31, 2020, from
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1890--1891
+\OT1/cmr/m/n/12 https://www.geeksforgeeks.org/parameter-passing-techniques-in-c
+-
+ []
+
+
+Underfull \hbox (badness 1237) in paragraph at lines 1893--1894
+[]\OT1/cmr/m/n/12 Robertson, C. (2019, March 27) Func-tion Over-load-ing Re-tri
+eved
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1893--1894
+\OT1/cmr/m/n/12 on De-cem-ber 31, 2020, from https://docs.microsoft.com/en-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1893--1894
+\OT1/cmr/m/n/12 us/cpp/cpp/function-overloading?view=msvc-160#restrictions-on-
+ []
+
+
+Underfull \hbox (badness 2564) in paragraph at lines 1896--1897
+[]\OT1/cmr/m/n/12 Robertson, C. (2018, Oc-to-ber 12) Generic Func-tions Re-trie
+ved
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1896--1897
+\OT1/cmr/m/n/12 on De-cem-ber 31, 2020, from https://docs.microsoft.com/en-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1902--1903
+[]\OT1/cmr/m/n/12 tutorialspoint (n.d.) C++ Over-load-ing (Op-er-a-tor and
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1902--1903
+\OT1/cmr/m/n/12 Func-tion) Re-trieved on De-cem-ber 31, 2020, from
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1907--1908
+[]\OT1/cmr/m/n/12 https://stackoverflow.com/questions/9734646/using-generic-fun
+ctions-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1913--1914
+[]\OT1/cmr/m/n/12 https://stackoverflow.com/questions/1944910/what-is-your-pref
+erred-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1916--1917
+[]\OT1/cmr/m/n/12 https://stackoverflow.com/questions/6048344/what-is-the-diffe
+rence-
+ []
+
+[76pdfTeX warning (ext4): destination with the same identifier (name{cite.Gener
+ic\040Functions\040in\040C++}) has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  
+l.1917 
+       ] [77] (samplelatex.aux)
 Package rerunfilecheck Info: File `samplelatex.out' has not changed.
-(rerunfilecheck)             Checksum: 7DB35B845C8B7B954FF4B83E4EE6C1DB;2973.
+(rerunfilecheck)             Checksum: E7F8B4E4C077B22D65BB43B74284B615;3239.
 
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
+
+LaTeX Warning: There were multiply-defined labels.
+
  ) 
 Here is how much of TeX's memory you used:
- 9953 strings out of 479832
- 147582 string characters out of 2871529
- 799911 words of memory out of 3000000
- 26079 multiletter control sequences out of 15000+200000
- 541334 words of font info for 51 fonts, out of 3000000 for 9000
+ 10431 strings out of 479832
+ 154973 string characters out of 2871529
+ 799882 words of memory out of 3000000
+ 26234 multiletter control sequences out of 15000+200000
+ 541940 words of font info for 53 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
- 78i,11n,85p,1859b,1937s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 78i,11n,85p,2001b,1872s stack positions out of 5000i,500n,10000p,200000b,50000s
  <C:\Users\kean\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tctt1
 200.pk> <C:\Users\kean\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\
 tcrm1200.pk><C:/Users/kean/AppData/Local/Programs/MiKTeX/fonts/type1/public/ams
 fonts/cm/cmbx12.pfb><C:/Users/kean/AppData/Local/Programs/MiKTeX/fonts/type1/pu
 blic/amsfonts/cm/cmitt10.pfb><C:/Users/kean/AppData/Local/Programs/MiKTeX/fonts
 /type1/public/amsfonts/cm/cmmi12.pfb><C:/Users/kean/AppData/Local/Programs/MiKT
-eX/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Users/kean/AppData/Local/Progra
-ms/MiKTeX/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Users/kean/AppData/Local/
-Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/kean/AppDat
-a/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy8.pfb><C:/Users/kean
-/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmti12.pfb><C:/Us
-ers/kean/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmtt12.pf
-b>
-Output written on samplelatex.pdf (53 pages, 343590 bytes).
+eX/fonts/type1/public/amsfonts/cm/cmmi8.pfb><C:/Users/kean/AppData/Local/Progra
+ms/MiKTeX/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Users/kean/AppData/Local
+/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Users/kean/AppData
+/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/kean
+/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy8.pfb><C:/Use
+rs/kean/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmti12.pfb
+><C:/Users/kean/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cm
+tt12.pfb>
+Output written on samplelatex.pdf (78 pages, 444480 bytes).
 PDF statistics:
- 1215 PDF objects out of 1440 (max. 8388607)
- 682 named destinations out of 1000 (max. 500000)
- 321 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 1699 PDF objects out of 1728 (max. 8388607)
+ 1005 named destinations out of 1200 (max. 500000)
+ 345 words of extra memory for PDF output out of 10000 (max. 10000000)
 
