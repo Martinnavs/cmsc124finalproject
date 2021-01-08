@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (MiKTeX 20.11) (preloaded format=pdflatex 2020.11.16)  9 JAN 2021 01:27
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (MiKTeX 20.11) (preloaded format=pdflatex 2020.11.16)  9 JAN 2021 01:52
 entering extended mode
 **./samplelatex.tex
 (samplelatex.tex
@@ -604,22 +604,22 @@ Overfull \hbox (4.92099pt too wide) in paragraph at lines 1088--1089
  []
 
 [45] [46] [47] [48] [49] [50] [51]
-Underfull \hbox (badness 1910) in paragraph at lines 1260--1261
+Underfull \hbox (badness 1910) in paragraph at lines 1261--1262
 []\OT1/cmr/m/n/12 This can be thrown by the New
  []
 
 
-Underfull \hbox (badness 3189) in paragraph at lines 1262--1263
+Underfull \hbox (badness 3189) in paragraph at lines 1263--1264
 []\OT1/cmr/m/n/12 This can be thrown by the dy-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1274--1275
+Underfull \hbox (badness 10000) in paragraph at lines 1275--1276
 []\OT1/cmr/m/n/12 An ex-cep-tion thrown when an
  []
 
 
-Underfull \hbox (badness 6001) in paragraph at lines 1276--1277
+Underfull \hbox (badness 6001) in paragraph at lines 1277--1278
 []\OT1/cmr/m/n/12 This is can be thrown by the
  []
 
@@ -627,85 +627,85 @@ Underfull \hbox (badness 6001) in paragraph at lines 1276--1277
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 [52] [53] [54] [55] [56] [57] [58] [59] [60]
-Overfull \hbox (2.96814pt too wide) in paragraph at lines 1480--1481
+Overfull \hbox (2.96814pt too wide) in paragraph at lines 1481--1482
 []\OT1/cmr/m/n/12 The code above shows the use of user-defined over-loaded op-e
 r-a-tors through
  []
 
 [61] [62] [63] [64] [65] [66] [67] [68] [69] [70] [71] [72] [73]
-Underfull \hbox (badness 3713) in paragraph at lines 1789--1790
+Underfull \hbox (badness 3713) in paragraph at lines 1790--1791
 []\OT1/cmr/m/n/12 Chambers, J. M. (2014). Object-Oriented Pro-gram-ming, Func-
  []
 
 
-Underfull \hbox (badness 2277) in paragraph at lines 1789--1790
+Underfull \hbox (badness 2277) in paragraph at lines 1790--1791
 \OT1/cmr/m/n/12 tional Pro-gram-ming and R. Sta-tis-ti-cal Sci-ence, 29(2), 167
 {180.
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1792--1793
+Underfull \hbox (badness 10000) in paragraph at lines 1793--1794
 []\OT1/cmr/m/n/12 The R lan-guage, for pro-gram-mers. (2017,
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1792--1793
+Underfull \hbox (badness 10000) in paragraph at lines 1793--1794
 \OT1/cmr/m/n/12 July 31). Re-trieved De-cem-ber 2, 2020, from
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1798--1799
+Underfull \hbox (badness 10000) in paragraph at lines 1799--1800
 []\OT1/cmr/m/n/12 (n.d.). Re-trieved De-cem-ber 28, 2020, from https://cran.r-
  []
 
 
-Underfull \hbox (badness 2253) in paragraph at lines 1810--1811
+Underfull \hbox (badness 2253) in paragraph at lines 1811--1812
 []\OT1/cmr/m/n/12 Uses of C++: Top 10 Rea-sons Why You Should Use C++.
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1810--1811
+Underfull \hbox (badness 10000) in paragraph at lines 1811--1812
 \OT1/cmr/m/n/12 (2020, Au-gust 10). Re-trieved De-cem-ber 31, 2020, from
  []
 
 [74]
-Underfull \hbox (badness 1014) in paragraph at lines 1822--1823
+Underfull \hbox (badness 1014) in paragraph at lines 1823--1824
 []\OT1/cmr/m/n/12 CPPReference (n.d.) C++11 Re-trieved De-cem-ber 07, 2020, fro
 m
  []
 
 
-Underfull \hbox (badness 1014) in paragraph at lines 1825--1826
+Underfull \hbox (badness 1014) in paragraph at lines 1826--1827
 []\OT1/cmr/m/n/12 CPPReference (n.d.) C++14 Re-trieved De-cem-ber 07, 2020, fro
 m
  []
 
 
-Underfull \hbox (badness 1014) in paragraph at lines 1828--1829
+Underfull \hbox (badness 1014) in paragraph at lines 1829--1830
 []\OT1/cmr/m/n/12 CPPReference (n.d.) C++17 Re-trieved De-cem-ber 07, 2020, fro
 m
  []
 
 
-Underfull \hbox (badness 1014) in paragraph at lines 1831--1832
+Underfull \hbox (badness 1014) in paragraph at lines 1832--1833
 []\OT1/cmr/m/n/12 CPPReference (n.d.) C++20 Re-trieved De-cem-ber 07, 2020, fro
 m
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1837--1838
+Underfull \hbox (badness 10000) in paragraph at lines 1838--1839
 \OT1/cmr/m/n/12 from https://docs.microsoft.com/en-us/cpp/c-language/cpp-intege
 r-
  []
 
 
-Underfull \hbox (badness 3942) in paragraph at lines 1840--1841
+Underfull \hbox (badness 3942) in paragraph at lines 1841--1842
 []\OT1/cmr/m/n/12 Fundamental types (n.d.) Re-trieved De-cem-ber 29, 2020, from
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1846--1847
+Underfull \hbox (badness 10000) in paragraph at lines 1847--1848
 []\OT1/cmr/m/n/12 C++ Vari-ables (n.d.) Re-trieved Dec 29, 2020, from
  []
 
@@ -713,178 +713,178 @@ Underfull \hbox (badness 10000) in paragraph at lines 1846--1847
 40Data\040Types}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   
-l.1853 
+l.1854 
        pdfTeX warning (ext4): destination with the same identifier (name{cite.C
 ++\040Variables}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   
-l.1853 
+l.1854 
        ]
-Underfull \hbox (badness 8132) in paragraph at lines 1855--1856
+Underfull \hbox (badness 8132) in paragraph at lines 1856--1857
 []\OT1/cmr/m/n/12 Robertson, C. (2016, Novem-ber 04) Ref-er-ences (C++) Re-
  []
 
 
-Underfull \hbox (badness 3199) in paragraph at lines 1855--1856
+Underfull \hbox (badness 3199) in paragraph at lines 1856--1857
 \OT1/cmr/m/n/12 trieved De-cem-ber 29, 2020, from https://docs.microsoft.com/en
 -
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1861--1862
+Underfull \hbox (badness 10000) in paragraph at lines 1862--1863
 []\OT1/cmr/m/n/12 Singh, H. (2018, Febru-ary 05) Early bind-ing and Late
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1861--1862
+Underfull \hbox (badness 10000) in paragraph at lines 1862--1863
 \OT1/cmr/m/n/12 bind-ing in C++ Re-trieved De-cem-ber 29, 2020, from
  []
 
 
-Underfull \hbox (badness 2865) in paragraph at lines 1867--1868
+Underfull \hbox (badness 2865) in paragraph at lines 1868--1869
 []\OT1/cmr/m/n/12 Alex (2015, April 16) 6.16 | Ex-plicit type con-ver-sion (cas
 t-
  []
 
 
-Underfull \hbox (badness 5893) in paragraph at lines 1867--1868
+Underfull \hbox (badness 5893) in paragraph at lines 1868--1869
 \OT1/cmr/m/n/12 ing) and static[]cast Re-trieved on De-cem-ber 29, 2020, from
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1867--1868
+Underfull \hbox (badness 10000) in paragraph at lines 1868--1869
 \OT1/cmr/m/n/12 https://www.learncpp.com/cpp-tutorial/explicit-type-conversion-
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1870--1871
+Underfull \hbox (badness 10000) in paragraph at lines 1871--1872
 \OT1/cmr/m/n/12 us/cpp/cpp/type-conversions-and-type-safety-modern-cpp?view=msv
 c-
  []
 
 
-Underfull \hbox (badness 2443) in paragraph at lines 1873--1874
+Underfull \hbox (badness 2443) in paragraph at lines 1874--1875
 \OT1/cmr/m/n/12 Con-ver-sions and Casts Re-trieved on De-cem-ber 29, 2020, from
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1873--1874
+Underfull \hbox (badness 10000) in paragraph at lines 1874--1875
 \OT1/cmr/m/n/12 https://www.modernescpp.com/index.php/c-core-guidelines-rules-f
 or-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1876--1877
+Underfull \hbox (badness 10000) in paragraph at lines 1877--1878
 []\OT1/cmr/m/n/12 CPPReference (n.d.) C++ Op-er-a-tor Prece-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1876--1877
+Underfull \hbox (badness 10000) in paragraph at lines 1877--1878
 \OT1/cmr/m/n/12 dence Re-trieved on De-cem-ber 29, 2020, from
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1879--1880
+Underfull \hbox (badness 10000) in paragraph at lines 1880--1881
 []\OT1/cmr/m/n/12 CPPReference (n.d.) Other op-er-a-tors Re-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1879--1880
+Underfull \hbox (badness 10000) in paragraph at lines 1880--1881
 \OT1/cmr/m/n/12 trieved on De-cem-ber 29, 2020, from
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1879--1880
+Underfull \hbox (badness 10000) in paragraph at lines 1880--1881
 \OT1/cmr/m/n/12 https://en.cppreference.com/w/cpp/language/operator[]other#Buil
 t-
  []
 
 [76]
-Underfull \hbox (badness 10000) in paragraph at lines 1888--1889
+Underfull \hbox (badness 10000) in paragraph at lines 1889--1890
 []\OT1/cmr/m/n/12 tutorialspoint (n.d.) C++ Ex-cep-tion Han-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1888--1889
+Underfull \hbox (badness 10000) in paragraph at lines 1889--1890
 \OT1/cmr/m/n/12 dling Re-trieved on De-cem-ber 31, 2020, from
  []
 
 
-Overfull \hbox (5.5531pt too wide) in paragraph at lines 1888--1889
+Overfull \hbox (5.5531pt too wide) in paragraph at lines 1889--1890
 \OT1/cmr/m/n/12 https://www.tutorialspoint.com/cplusplus/cpp[]exceptions[]handl
 ing.htm 
  []
 
 
-Underfull \hbox (badness 6412) in paragraph at lines 1891--1892
+Underfull \hbox (badness 6412) in paragraph at lines 1892--1893
 []\OT1/cmr/m/n/12 GeeksforGeeks (2018, De-cem-ber 18) Pa-ram-e-ter Pass-ing Tec
 h-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1891--1892
+Underfull \hbox (badness 10000) in paragraph at lines 1892--1893
 \OT1/cmr/m/n/12 niques in C/C++ Re-trieved on De-cem-ber 31, 2020, from
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1891--1892
+Underfull \hbox (badness 10000) in paragraph at lines 1892--1893
 \OT1/cmr/m/n/12 https://www.geeksforgeeks.org/parameter-passing-techniques-in-c
 -
  []
 
 
-Underfull \hbox (badness 1237) in paragraph at lines 1894--1895
+Underfull \hbox (badness 1237) in paragraph at lines 1895--1896
 []\OT1/cmr/m/n/12 Robertson, C. (2019, March 27) Func-tion Over-load-ing Re-tri
 eved
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1894--1895
+Underfull \hbox (badness 10000) in paragraph at lines 1895--1896
 \OT1/cmr/m/n/12 on De-cem-ber 31, 2020, from https://docs.microsoft.com/en-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1894--1895
+Underfull \hbox (badness 10000) in paragraph at lines 1895--1896
 \OT1/cmr/m/n/12 us/cpp/cpp/function-overloading?view=msvc-160#restrictions-on-
  []
 
 
-Underfull \hbox (badness 2564) in paragraph at lines 1897--1898
+Underfull \hbox (badness 2564) in paragraph at lines 1898--1899
 []\OT1/cmr/m/n/12 Robertson, C. (2018, Oc-to-ber 12) Generic Func-tions Re-trie
 ved
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1897--1898
+Underfull \hbox (badness 10000) in paragraph at lines 1898--1899
 \OT1/cmr/m/n/12 on De-cem-ber 31, 2020, from https://docs.microsoft.com/en-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1903--1904
+Underfull \hbox (badness 10000) in paragraph at lines 1904--1905
 []\OT1/cmr/m/n/12 tutorialspoint (n.d.) C++ Over-load-ing (Op-er-a-tor and
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1903--1904
+Underfull \hbox (badness 10000) in paragraph at lines 1904--1905
 \OT1/cmr/m/n/12 Func-tion) Re-trieved on De-cem-ber 31, 2020, from
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1908--1909
+Underfull \hbox (badness 10000) in paragraph at lines 1909--1910
 []\OT1/cmr/m/n/12 https://stackoverflow.com/questions/9734646/using-generic-fun
 ctions-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1914--1915
+Underfull \hbox (badness 10000) in paragraph at lines 1915--1916
 []\OT1/cmr/m/n/12 https://stackoverflow.com/questions/1944910/what-is-your-pref
 erred-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1917--1918
+Underfull \hbox (badness 10000) in paragraph at lines 1918--1919
 []\OT1/cmr/m/n/12 https://stackoverflow.com/questions/6048344/what-is-the-diffe
 rence-
  []
@@ -893,11 +893,16 @@ rence-
 ic\040Functions\040in\040C++}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   
-l.1918 
+l.1919 
        ] [78] (samplelatex.aux)
-Package rerunfilecheck Info: File `samplelatex.out' has not changed.
-(rerunfilecheck)             Checksum: E7F8B4E4C077B22D65BB43B74284B615;3239.
 
+Package rerunfilecheck Warning: File `samplelatex.out' has changed.
+(rerunfilecheck)                Rerun to get outlines right
+(rerunfilecheck)                or use package `bookmark'.
+
+Package rerunfilecheck Info: Checksums for `samplelatex.out':
+(rerunfilecheck)             Before: E822A7061F1F13FEFBA2D53251B3890A;3282
+(rerunfilecheck)             After:  E7F8B4E4C077B22D65BB43B74284B615;3239.
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
@@ -906,8 +911,8 @@ LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 10432 strings out of 479832
- 154980 string characters out of 2871529
+ 10433 strings out of 479832
+ 154995 string characters out of 2871529
  797954 words of memory out of 3000000
  26234 multiletter control sequences out of 15000+200000
  541940 words of font info for 53 fonts, out of 3000000 for 9000
@@ -927,9 +932,9 @@ ms/MiKTeX/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Users/kean/AppData/Local
 rs/kean/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmti12.pfb
 ><C:/Users/kean/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cm
 tt12.pfb>
-Output written on samplelatex.pdf (79 pages, 447328 bytes).
+Output written on samplelatex.pdf (79 pages, 447410 bytes).
 PDF statistics:
- 1704 PDF objects out of 1728 (max. 8388607)
- 1006 named destinations out of 1200 (max. 500000)
+ 1705 PDF objects out of 1728 (max. 8388607)
+ 1007 named destinations out of 1200 (max. 500000)
  345 words of extra memory for PDF output out of 10000 (max. 10000000)
 
