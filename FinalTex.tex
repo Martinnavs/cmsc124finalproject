@@ -1103,13 +1103,14 @@ if(condition){
 \end{lstlisting}
 or
 \begin{lstlisting}[language=C++]
-  if(condition)
-    if(second.condition){
+  if(condition){
+    if(second.condition)
       statement
-  }else
+  else
     statement
+  }
   \end{lstlisting}
-Both methods allow for the prevention of ambiguity as well as making things more readable but perform completely different processes. The first scope shown is for when the else-statement is for the first if-statement while the second scope shown is for when the else-statement is for the nested if-statement. This ability to decrease ambiguity takes more effort on the part of the programmer to scope out certain behaviors. Ultimately, it is for the best to use scopes to limit ambiguity.
+Both methods allow for the prevention of ambiguity as well as making things more readable but perform completely different processes. The first scope shown is for when the else-statement is for the first if-statement while the second scope shown is for when the else-statement is for the nested if-statement. This ability to decrease ambiguity takes more effort on the part of the programmer to scope out certain behaviors but ultimately, it is for the best to use scopes to limit ambiguity.
 
 \textbf{Iterative Statements} In C++, iterative statements, commonly known as loops, are very powerful tools that allow the performance of a specific snippet of code multiple times. There are three primary loops in C++, \textit{for-loop, while-loop, and the do-while loop}. A common use for a loop is to go through various data structures such as arrays, lists, vectors, among many others available to C++. For loops have the following syntax:
 \begin{lstlisting}
